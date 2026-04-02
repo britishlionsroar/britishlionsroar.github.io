@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Reform UK Plan: Does the Maths Actually Work?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f0e8;
+    --paper-dark: #ede6d6;
+    --paper-darker: #e0d8c4;
+    --ink: #1a1410;
+    --ink-light: #3d342a;
+    --ink-mid: #5c4f42;
+    --rule: #8b7355;
+    --rule-light: #b8a88a;
+    --accent-red: #8b1a1a;
+    --accent-blue: #1a3a5c;
+    --accent-gold: #8b6914;
+    --stat-bg: #1a1410;
+    --stat-text: #f5f0e8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #c8b89a;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(0,0,0,0.03) 24px, rgba(0,0,0,0.03) 25px);
+    font-family: 'EB Garamond', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .newspaper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--paper);
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    box-shadow: 
+      0 0 0 1px #8b7355,
+      4px 4px 0 #8b7355,
+      8px 8px 20px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    padding: 24px 40px 0;
+    border-bottom: 3px double var(--rule);
+  }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ink-mid);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule-light);
+    margin-bottom: 12px;
+  }
+
+  .pub-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .main-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 0.92;
+    text-align: center;
+    letter-spacing: -1px;
+    color: var(--ink);
+    padding: 16px 0 12px;
+    text-transform: uppercase;
+  }
+
+  .main-title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    color: var(--ink-mid);
+    padding: 0 40px 16px;
+    line-height: 1.3;
+  }
+
+  .dateline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--ink-mid);
+    padding-bottom: 16px;
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    background: var(--stat-bg);
+    color: var(--stat-text);
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 40px;
+    gap: 0;
+  }
+
+  .stat-item {
+    text-align: center;
+    flex: 1;
+    padding: 0 16px;
+    border-right: 1px solid rgba(245,240,232,0.2);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 900;
+    color: #c8a96e;
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(245,240,232,0.7);
+    margin-top: 4px;
+    display: block;
+    line-height: 1.3;
+  }
+
+  .stat-source {
+    font-family: 'EB Garamond', serif;
+    font-size: 9px;
+    font-style: italic;
+    color: rgba(245,240,232,0.4);
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* BODY */
+  .body-wrap {
+    padding: 28px 40px 40px;
+  }
+
+  /* INTRO / DECK */
+  .deck {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(15px, 2vw, 18px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink-light);
+    border-top: 2px solid var(--rule);
+    border-bottom: 1px solid var(--rule-light);
+    padding: 14px 0;
+    margin-bottom: 24px;
+  }
+
+  /* TWO-COLUMN LAYOUT */
+  .columns {
+    column-count: 2;
+    column-gap: 32px;
+    column-rule: 1px solid var(--rule-light);
+  }
+
+  @media (max-width: 600px) {
+    .columns { column-count: 1; }
+    .masthead, .body-wrap { padding-left: 20px; padding-right: 20px; }
+    .stat-strip { padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
+    .stat-item { border-right: none; flex: 0 0 45%; }
+  }
+
+  p {
+    font-size: clamp(14px, 1.8vw, 16.5px);
+    line-height: 1.65;
+    margin-bottom: 14px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  p:first-child::first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 4.5em;
+    font-weight: 900;
+    float: left;
+    line-height: 0.75;
+    margin: 4px 6px -2px 0;
+    color: var(--accent-red);
+  }
+
+  /* SECTION HEADS */
+  .section-head {
+    column-span: all;
+    margin: 28px 0 16px;
+    padding: 10px 0;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .section-head h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink);
+  }
+
+  .section-head .section-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-red);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    column-span: all;
+    border-top: 3px double var(--rule);
+    border-bottom: 3px double var(--rule);
+    padding: 20px 40px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .pull-quote blockquote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(18px, 2.8vw, 26px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--accent-red);
+  }
+
+  /* INFO BOXES */
+  .info-box {
+    column-span: all;
+    border: 2px solid var(--rule);
+    background: var(--paper-dark);
+    padding: 20px 24px;
+    margin: 24px 0;
+    position: relative;
+  }
+
+  .info-box::before {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px; right: -3px; bottom: -3px;
+    border: 1px solid var(--rule-light);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .info-box-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-red);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .info-box table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(12px, 1.6vw, 14px);
+  }
+
+  .info-box table th {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink-mid);
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--rule-light);
+    background: var(--paper-darker);
+  }
+
+  .info-box table td {
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(139,115,85,0.2);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  .info-box table tr:last-child td { border-bottom: none; }
+
+  .info-box table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .info-box table td.num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--accent-red);
+    white-space: nowrap;
+  }
+
+  .info-box table td.green {
+    color: #2a5c2a;
+    font-weight: 600;
+  }
+
+  .info-box table td.red {
+    color: var(--accent-red);
+    font-weight: 600;
+  }
+
+  /* CHART */
+  .chart-wrap {
+    column-span: all;
+    margin: 24px 0;
+    border: 2px solid var(--rule);
+    background: var(--paper-dark);
+    padding: 20px 24px 16px;
+    position: relative;
+  }
+
+  .chart-wrap::before {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px; right: -3px; bottom: -3px;
+    border: 1px solid var(--rule-light);
+    pointer-events: none;
+  }
+
+  .chart-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-red);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    height: 200px;
+    padding: 0 8px;
+    border-bottom: 2px solid var(--rule);
+    margin-bottom: 10px;
+  }
+
+  .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 6px;
+  }
+
+  .bar-value {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(11px, 1.8vw, 14px);
+    font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .bar {
+    width: 100%;
+    max-width: 80px;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    transition: opacity 0.2s;
+  }
+
+  .bar-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink-mid);
+    text-align: center;
+    line-height: 1.3;
+    margin-top: 6px;
+    max-width: 100px;
+  }
+
+  .chart-source {
+    font-family: 'EB Garamond', serif;
+    font-size: 10px;
+    font-style: italic;
+    color: var(--ink-mid);
+    margin-top: 8px;
+  }
+
+  /* SOURCES */
+  .sources-block {
+    column-span: all;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 2px solid var(--rule);
+  }
+
+  .sources-block h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--ink-mid);
+    margin-bottom: 10px;
+  }
+
+  .sources-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sources-block li {
+    font-family: 'EB Garamond', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--ink-mid);
+    padding: 2px 0;
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .sources-block li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.9;
+  }
+
+  strong { color: var(--ink); }
+  em { font-style: italic; }
+
+  .red { color: var(--accent-red); }
+  .ruled-line {
+    border: none;
+    border-top: 1px solid var(--rule-light);
+    margin: 16px 0;
+  }
+</style>
+</head>
+<body>
+<article class="newspaper">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="pub-title">The British Lions Roar</span>
+      <span>Independent Analysis · April 2026</span>
+      <span>All figures: Official Government Sources</span>
+    </div>
+    <h1 class="main-title">The Reform UK Plan:<br><em>Does the Maths Actually Work?</em></h1>
+    <p class="subtitle">Five Million Non-Citizens: What Removing the Burden Would Really Free Up</p>
+    <p class="dateline">By Special Correspondent &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Sources: Home Office · ONS · DWP</p>
+  </header>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="stat-item">
+      <span class="stat-number">6.5m</span>
+      <span class="stat-label">Non-British Citizens<br>in the UK</span>
+      <span class="stat-source">Migration Observatory / HoC Library 2025</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">1.27m</span>
+      <span class="stat-label">Non-Citizens on<br>Universal Credit</span>
+      <span class="stat-source">DWP July 2025</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">£7bn+</span>
+      <span class="stat-label">Annual Cost of<br>Illegal Migration Alone</span>
+      <span class="stat-source">Reform UK / Home Office estimates</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">300k</span>
+      <span class="stat-label">Homes Gov't Targets<br>to Build Per Year</span>
+      <span class="stat-source">MHCLG Housing Target 2025</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body-wrap">
+
+    <p class="deck">The government is bulldozing greenbelt land and riding roughshod over communities that don't want it. It says Britain has no choice — 1.5 million new homes are needed and the land must come from somewhere. This is a lie by omission. Here, using only official government data, we run the numbers.</p>
+
+    <div class="columns">
+
+      <p>The government is bulldozing greenbelt land. It is overriding local planning objections. It is forcing hundreds of new homes onto villages that don't want them, rewriting planning rules to take farmland, and building entire new settlements against the wishes of the people who already live nearby. It says it has no choice — Britain needs 1.5 million new homes, 300,000 every year, and the land has to come from somewhere.</p>
+
+      <p>That is a lie by omission. The numbers that follow come not from Reform UK, not from the Daily Mail, and not from political opinion. They come from the Home Office, the Office for National Statistics, and the Department for Work and Pensions. They are government figures. And they tell a story this government would rather you didn't read.</p>
+
+      <div class="section-head">
+        <span class="section-num">Part I</span>
+        <h2>Who Is Actually Here</h2>
+      </div>
+
+      <p>There are currently <strong>6.5 million non-British citizens</strong> living in the United Kingdom. That figure comes from the Migration Observatory and the House of Commons Library, drawing on ONS population estimates for late 2025 and early 2026.</p>
+
+      <p>Of those 6.5 million, approximately <strong>one million</strong> are on genuine skilled worker visas — doctors, nurses, engineers, programmers, the people running businesses and filling roles that would otherwise go empty. Nobody is suggesting those people leave. They are here legally, they are working, they are paying tax, and under any rational policy they stay.</p>
+
+      <p>That leaves <strong>5.5 million non-citizens</strong> who are not in skilled employment. They live in houses. Their children take school places. They attend GP surgeries and A&amp;E departments. Some have been here for years, drawing benefits, speaking no English, living in enclaves of their own nationality, contributing nothing to the country that is housing and feeding them.</p>
+
+    </div><!-- end columns -->
+
+    <!-- TABLE: The 6.5 Million Broken Down -->
+    <div class="info-box">
+      <div class="info-box-title">The 6.5 Million — Where They Stand</div>
+      <table>
+        <tr>
+          <th>Group</th>
+          <th>Estimated Number</th>
+          <th>Status Under Selective Policy</th>
+          <th>Source</th>
+        </tr>
+        <tr>
+          <td>EU Settled Status holders</td>
+          <td class="num">4.4m</td>
+          <td>Mixed — employed stay, long-term unemployed targeted</td>
+          <td>Home Office EUSS data 2025</td>
+        </tr>
+        <tr>
+          <td>EU Pre-Settled Status</td>
+          <td class="num">1.4m</td>
+          <td>Mixed — as above</td>
+          <td>Home Office EUSS data 2025</td>
+        </tr>
+        <tr>
+          <td>Genuine Skilled Worker visa holders</td>
+          <td class="num">~1m</td>
+          <td class="green">Protected — employed, taxpaying</td>
+          <td>Home Office work visa stats 2025</td>
+        </tr>
+        <tr>
+          <td>Recognised refugees (not naturalised)</td>
+          <td class="num">~548,400</td>
+          <td>Majority targeted — 78% on UC not working</td>
+          <td>UNHCR / Home Office estimate mid-2025</td>
+        </tr>
+        <tr>
+          <td>Non-citizens on Universal Credit</td>
+          <td class="num">1.27m</td>
+          <td class="red">Primary target — 5+ years resident, still claiming</td>
+          <td>DWP July 2025</td>
+        </tr>
+        <tr>
+          <td>In Home Office asylum accommodation</td>
+          <td class="num">107,003</td>
+          <td class="red">Target — direct taxpayer cost</td>
+          <td>Home Office Dec 2025</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="columns">
+
+      <div class="section-head">
+        <span class="section-num">Part II</span>
+        <h2>The Benefit Dependency Numbers</h2>
+      </div>
+
+      <p>In July 2025 the DWP published, for the first time, a breakdown of Universal Credit claimants by immigration status. The figures were stark. Of the <strong>8 million people on Universal Credit</strong>, approximately <strong>1.27 million were non-British or non-Irish nationals</strong> — one in six of all claimants.</p>
+
+      <p>That number had risen <strong>40 percent in just three years</strong> — from 906,000 in June 2022 to 1.27 million in June 2025. At the same time, the government was publicly claiming to be tightening immigration rules.</p>
+
+      <p>Of those 1.27 million non-citizen UC claimants, <strong>737,799 are fully unemployed</strong>. Not low-paid workers receiving a top-up. Unemployed. Every single one of them has been legally resident in the UK for a minimum of five years — because that is the legal requirement to claim Universal Credit as a non-citizen. Five years minimum. Still not working.</p>
+
+      <p>Among refugees on UC the picture is even starker. Only <strong>22 percent are in work</strong>. That means 78 percent — roughly <strong>136,000 people</strong> — are on benefits having been granted protection in this country, with no apparent intention or requirement to contribute to it.</p>
+
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Of the 1.27 million non-citizen UC claimants, 737,799 are fully unemployed. Every one of them has been legally resident for a minimum of five years. Still not working."</blockquote>
+    </div>
+
+    <div class="columns">
+
+      <div class="section-head">
+        <span class="section-num">Part III</span>
+        <h2>What Removal Would Free Up</h2>
+      </div>
+
+      <p>Using Home Office occupancy figures and ONS household size data, the scale of housing relief from targeted removal becomes clear. Start with the most immediate cost.</p>
+
+      <p>At the end of December 2025, <strong>107,003 people</strong> were in Home Office asylum accommodation. Of these, <strong>30,657 were in hotels</strong> — at a cost running to over a billion pounds a month when benefits are included — and <strong>72,769 were in dispersal housing</strong>, properties spread across the country that are unavailable to the local rental market.</p>
+
+      <p>At average occupancy rates for this group — approximately 2.7 people per household, blending single adults in hotels with families in dispersal housing — that 107,000 people represents roughly <strong>38,000 to 40,000 housing units</strong>. Freed immediately. Hotel rooms returned to the tourism economy. Dispersal properties returned to local rental markets.</p>
+
+      <p>Then the longer-term picture. Targeting only the long-term unemployed non-citizen UC claimants — conservatively half to two-thirds of the 1.27 million, approximately <strong>600,000 to 900,000 people</strong> — frees up a further <strong>220,000 to 330,000 households</strong>, calculated at ONS household size averages for this demographic.</p>
+
+      <p>Combined total: <strong>260,000 to 370,000 homes freed</strong>. Without building a single one.</p>
+
+    </div>
+
+    <!-- HOUSING CHART -->
+    <div class="chart-wrap">
+      <div class="chart-title">Housing Demand: Government Target vs What Selective Repatriation Would Free</div>
+      <div class="bar-chart">
+        <div class="bar-group">
+          <div class="bar-value">300,000</div>
+          <div class="bar" style="height:180px; background: #8b1a1a;"></div>
+          <div class="bar-label">Gov't annual<br>housing target</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">38–40,000</div>
+          <div class="bar" style="height:24px; background: #5c4f42;"></div>
+          <div class="bar-label">Immediate:<br>asylum housing freed</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">220–330,000</div>
+          <div class="bar" style="height:140px; background: #1a3a5c;"></div>
+          <div class="bar-label">Medium-term:<br>UC claimants removed</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-value">260–370,000</div>
+          <div class="bar" style="height:164px; background: #8b6914;"></div>
+          <div class="bar-label">Combined total<br>freed</div>
+        </div>
+      </div>
+      <p class="chart-source">Sources: Home Office Immigration System Statistics YE Dec 2025 · DWP UC Statistics July 2025 · ONS Household Size Data · MHCLG Housing Target</p>
+    </div>
+
+    <div class="columns">
+
+      <p>The government's own housing target is <strong>300,000 new homes per year</strong>. The number of households that selective repatriation would free is equivalent to an entire year's building programme. The greenbelt destruction, the village expansions nobody voted for, the farmland being concreted over — none of it would be necessary if the government dealt honestly with who is occupying the housing stock.</p>
+
+      <div class="section-head">
+        <span class="section-num">Part IV</span>
+        <h2>The NHS Red Herring</h2>
+      </div>
+
+      <p>Every time this subject is raised, someone mentions the NHS. We cannot remove non-citizens because the NHS depends on them. This is a deliberate confusion of two entirely separate groups of people.</p>
+
+      <p>There are approximately <strong>180,000 to 220,000 non-citizen NHS workers</strong> in the UK. Every single one of them is on a skilled worker visa. Every single one is barred by the conditions of that visa from claiming Universal Credit. The overlap between NHS foreign workers and long-term unemployed non-citizen benefit claimants is <strong>effectively zero</strong>. They are not the same people. Presenting them as the same risk is either ignorance or deliberate dishonesty.</p>
+
+      <p>Those NHS workers stay. That is not a concession — it is simply what the policy already says. The BAME figure of 47.5 percent, which is frequently cited in this debate, includes British-born people of ethnic minority backgrounds who have nothing whatsoever to do with immigration status. Its inclusion in this argument is not a mistake. It is misdirection.</p>
+
+      <div class="section-head">
+        <span class="section-num">Part V</span>
+        <h2>The Skilled Visa Con</h2>
+      </div>
+
+      <p>There is a separate question about what actually qualifies as a skilled worker visa — and it deserves its own article. But briefly: when the government raised the skilled worker salary threshold to £41,700, applications in food preparation and hospitality <strong>collapsed by 81 percent</strong>. Care worker visa applications <strong>collapsed by 91 percent</strong>.</p>
+
+      <p>Genuinely skilled workers already earn above that threshold. The collapse proved these were low-wage, low-skill jobs being laundered through a skilled visa category to get round immigration controls. Between <strong>250,000 and 300,000 people</strong> are currently in the UK on Health and Care Worker visas doing care home and home care work — jobs with no mandatory qualifications, repeatedly flagged by the Care Quality Commission for poor standards. That is not skilled migration. That is cheap labour in a visa costume.</p>
+
+      <p>Then there are the back door routes. <strong>Charity worker visas</strong> require no qualifications. <strong>Religious worker visas</strong> have been abused repeatedly — multiple prosecutions have involved fake religious institutions set up purely as visa sponsors. <strong>Creative worker visas</strong> have been used to bring in performers for venues that turned out to be fronts. None of these withstand scrutiny as genuine skilled or necessary migration.</p>
+
+      <p>The proof is the salary threshold test. When the bar was raised, these routes collapsed. Genuine skill commands a genuine salary. The collapse told us everything.</p>
+
+    </div>
+
+    <!-- UC BREAKDOWN TABLE -->
+    <div class="info-box">
+      <div class="info-box-title">Non-Citizen Universal Credit Claimants — July 2025 (DWP Official Data)</div>
+      <table>
+        <tr>
+          <th>Immigration Status</th>
+          <th>Number on UC</th>
+          <th>% of Total UC</th>
+          <th>Employment Rate</th>
+        </tr>
+        <tr>
+          <td>EU Settlement Scheme</td>
+          <td class="num">~768,000</td>
+          <td>9.7%</td>
+          <td>47.1% in work</td>
+        </tr>
+        <tr>
+          <td>Indefinite Leave to Remain (non-EU)</td>
+          <td class="num">~216,000</td>
+          <td>2.7%</td>
+          <td>Partial — mixed</td>
+        </tr>
+        <tr>
+          <td>Refugees / Humanitarian protection</td>
+          <td class="num">~174,000</td>
+          <td>1.5–2.2%</td>
+          <td class="red">Only 22% in work</td>
+        </tr>
+        <tr>
+          <td>Limited Leave / Ukrainian / Afghan schemes</td>
+          <td class="num">~104,000</td>
+          <td>1.3%</td>
+          <td>Variable</td>
+        </tr>
+        <tr>
+          <td><strong>Total non-British/Irish on UC</strong></td>
+          <td class="num"><strong>~1.27m</strong></td>
+          <td><strong>16.4%</strong></td>
+          <td class="red"><strong>737,799 fully unemployed</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="columns">
+
+      <div class="section-head">
+        <span class="section-num">Part VI</span>
+        <h2>The Annual Flow Problem</h2>
+      </div>
+
+      <p>Dealing with the existing stock is one half of the equation. The other half is what keeps arriving each year and adding to demand.</p>
+
+      <p>In 2025, setting aside seasonal agricultural workers and the Youth Mobility Scheme — which is a broadly reciprocal arrangement — approximately <strong>64,000 people</strong> entered the UK through channels that serve no clear national interest: 46,000 detected illegal and irregular arrivals via small boats and clandestine methods, plus 18,000 on charity, religious and creative worker visas.</p>
+
+      <p>Add the <strong>54,887 asylum grants per year</strong> that move into mainstream housing and the NHS and school system, and you are generating between <strong>85,000 and 90,000 households of entirely avoidable new housing demand every single year</strong>. That is getting on for <strong>one new home in every three</strong> the government is currently building, needed solely because of flows a competent government would stop.</p>
+
+      <p>The UK's natural population growth — births minus deaths among the settled British population — is currently close to flat. Without migration-driven population growth, new housing demand from demographic change alone would be minimal. The housing crisis is not a British birth rate problem. It is a population growth problem driven almost entirely by migration, and the government is responding to it by destroying the British countryside rather than addressing the cause.</p>
+
+      <div class="section-head">
+        <span class="section-num">Part VII</span>
+        <h2>Reform UK's Plan</h2>
+      </div>
+
+      <p>Reform UK's <em>Operation Restoring Justice</em>, published August 2025, sets out a five-year programme to identify, detain and deport illegal migrants. The illegal migrant population alone — those with no lawful right to remain — is estimated at over <strong>one million people</strong>. The state currently spends over <strong>£7 billion a year</strong> housing and supporting them. Reform's figures project a net saving of <strong>£7 billion in the first parliamentary term</strong> and <strong>£42 billion over a decade</strong>.</p>
+
+      <p>The numbers in this article go beyond illegal migrants alone. They include the legal non-citizens who have been here for years, taken what the British taxpayer provides, and given nothing back. The question is not whether Britain is a welcoming country. It is. The question is whether welcome has an end point — and whether a government that builds on greenbelt land rather than asking that question is serving the people who already live here.</p>
+
+      <p>The maths is not complicated. The will to do it is the only thing that has ever been missing.</p>
+
+    </div>
+
+    <hr class="ruled-line">
+
+    <!-- SOURCES -->
+    <div class="sources-block">
+      <h3>Official Sources</h3>
+      <ul>
+        <li>Home Office Immigration System Statistics, Year Ending December 2025 (published 26 Feb 2026)</li>
+        <li>DWP Universal Credit Statistics — Immigration Status Tables, July 2025</li>
+        <li>ONS Provisional Population Estimates, Mid-2025</li>
+        <li>ONS Long-Term International Migration, Year Ending June 2025</li>
+        <li>Migration Observatory / House of Commons Library — Non-British Citizens Estimates, 2025–26</li>
+        <li>UNHCR UK Refugee Population Estimate, Mid-2025</li>
+        <li>Reform UK: Operation Restoring Justice, August 2025</li>
+        <li>MHCLG Housing Delivery Target, 2025</li>
+        <li>General Medical Council — International Medical Graduates Data, 2025</li>
+        <li>NHS England Workforce Statistics — Nationality, June 2025</li>
+      </ul>
+    </div>
+
+  </div><!-- end body-wrap -->
+
+  <footer class="footer">
+    The British Lions Roar &nbsp;·&nbsp; britishlionsroar.github.io &nbsp;·&nbsp; All statistics drawn from official UK government sources
+  </footer>
+
+</article>
+</body>
+</html>
