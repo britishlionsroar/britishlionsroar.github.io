@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VanLife Connectivity Range — Anvil Mobile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --anvil-teal:    #00b4a6;
+    --anvil-teal-d:  #009990;
+    --anvil-teal-l:  #e6f9f8;
+    --anvil-navy:    #1a2a3a;
+    --anvil-dark:    #0f1e2b;
+    --white:         #ffffff;
+    --off-white:     #f7f9fb;
+    --border:        #dde4ea;
+    --text:          #1a2a3a;
+    --muted:         #6b7f91;
+    --green:         #27ae60;
+    --amber:         #f39c12;
+    --card-shadow:   0 2px 16px rgba(0,0,0,0.08);
+    --card-shadow-h: 0 8px 32px rgba(0,180,166,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--off-white);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  a { color: var(--anvil-teal); }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--anvil-dark);
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    padding: 8px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .top-bar span { display: flex; align-items: center; gap: 6px; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  }
+  .logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--anvil-dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 34px; height: 34px;
+    background: var(--anvil-teal);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .header-sub { font-size: 12px; color: var(--muted); font-weight: 400; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--anvil-dark) 0%, #1a3a4a 100%);
+    color: white;
+    padding: 80px 40px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: var(--off-white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,180,166,0.15);
+    border: 1px solid rgba(0,180,166,0.3);
+    color: var(--anvil-teal);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: white;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--anvil-teal);
+  }
+  .hero-desc {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    max-width: 580px;
+    margin: 0 auto 32px;
+    font-weight: 300;
+  }
+  .hero-usp {
+    display: inline-block;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 16px 28px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+  .hero-usp strong { color: white; }
+
+  /* ── SECTION ── */
+  .wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section { padding: 72px 0; }
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--anvil-teal);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(26px, 3.5vw, 38px);
+    color: var(--anvil-dark);
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  /* ── PACKAGES ── */
+  .packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+  .pkg {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .pkg:hover {
+    box-shadow: var(--card-shadow-h);
+    border-color: var(--anvil-teal);
+    transform: translateY(-4px);
+  }
+  .pkg.featured { border-color: var(--anvil-teal); }
+  .pkg-ribbon {
+    background: var(--anvil-teal);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 0;
+    text-align: center;
+  }
+  .pkg-top {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pkg-level {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--anvil-teal);
+    margin-bottom: 8px;
+  }
+  .pkg-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--anvil-dark);
+    margin-bottom: 6px;
+  }
+  .pkg-tagline {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .pkg-price-wrap { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .pkg-price {
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--anvil-dark);
+    line-height: 1;
+  }
+  .pkg-price-note { font-size: 13px; color: var(--muted); }
+  .pkg-price-alt { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  .pkg-body { padding: 22px 28px; flex: 1; }
+  .pkg-desc { font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.6; }
+  .pkg-features {
+    list-style: none;
+    margin-bottom: 18px;
+  }
+  .pkg-features li {
+    font-size: 13px;
+    color: var(--text);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .pkg-features li:last-child { border-bottom: none; }
+  .tick {
+    width: 18px; height: 18px;
+    background: var(--anvil-teal-l);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--anvil-teal);
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .pkg-best {
+    background: var(--off-white);
+    border-left: 3px solid var(--anvil-teal);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 0;
+  }
+  .pkg-best strong { color: var(--anvil-dark); }
+
+  .pkg-footer { padding: 0 28px 28px; display: flex; flex-direction: column; gap: 10px; }
+  .btn-buy {
+    display: block;
+    width: 100%;
+    background: var(--anvil-teal);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    padding: 13px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    letter-spacing: 0.3px;
+  }
+  .btn-buy:hover { background: var(--anvil-teal-d); transform: translateY(-1px); color: white; }
+  .btn-basket {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: var(--anvil-teal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1.5px solid var(--anvil-teal);
+    border-radius: 6px;
+    padding: 11px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .btn-basket:hover { background: var(--anvil-teal-l); }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── BUILD YOUR SYSTEM ── */
+  .build-bg { background: var(--white); }
+  .build-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .build-group {
+    background: var(--off-white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .build-header {
+    background: var(--anvil-dark);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .step-badge {
+    width: 26px; height: 26px;
+    background: var(--anvil-teal);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .build-header-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.3px;
+  }
+  .build-items { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .build-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .build-item:hover { border-color: var(--anvil-teal); box-shadow: 0 0 0 3px rgba(0,180,166,0.08); }
+  .build-item input[type="checkbox"] {
+    width: 16px; height: 16px;
+    accent-color: var(--anvil-teal);
+    margin-top: 3px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .item-info { flex: 1; min-width: 0; }
+  .item-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--anvil-dark);
+    line-height: 1.4;
+  }
+  .item-name a {
+    color: var(--anvil-teal);
+    font-size: 11px;
+    text-decoration: none;
+    margin-left: 4px;
+  }
+  .item-name a:hover { text-decoration: underline; }
+  .item-kit { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .item-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--anvil-dark);
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+  .build-footer { padding: 12px 16px 16px; }
+
+  /* ── NOTICE BOXES ── */
+  .notice {
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .notice-teal { background: var(--anvil-teal-l); border: 1px solid rgba(0,180,166,0.25); color: var(--anvil-dark); }
+  .notice-green { background: #eafaf1; border: 1px solid rgba(39,174,96,0.25); color: var(--text); }
+  .notice-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .notice strong { color: var(--anvil-dark); }
+
+  /* ── INTERNAL PRICING ── */
+    width: 100%;
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    font-size: 13px;
+  }
+    background: var(--anvil-dark);
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+  }
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--anvil-dark);
+    color: rgba(255,255,255,0.5);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .site-footer strong { color: rgba(255,255,255,0.85); }
+  .site-footer a { color: var(--anvil-teal); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .site-header { padding: 14px 20px; }
+    .hero { padding: 56px 20px 64px; }
+    .packages { grid-template-columns: 1fr; }
+    .build-grid { grid-template-columns: 1fr; }
+    .top-bar { display: none; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .pkg { animation: fadeUp 0.45s ease both; }
+  .pkg:nth-child(1) { animation-delay: 0.05s; }
+  .pkg:nth-child(2) { animation-delay: 0.13s; }
+  .pkg:nth-child(3) { animation-delay: 0.21s; }
+  .pkg:nth-child(4) { animation-delay: 0.29s; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>📞 Mon–Fri 9am–5pm: 01799 218033</span>
+  <span>✉️ info@anvilmobile.com</span>
+  <span>🚚 Worldwide delivery</span>
+  <span>🛡️ 24/7 customer service</span>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="https://anvilmobile.com" class="logo">
+    <div class="logo-mark">A</div>
+    <div>
+      <div>Anvil Mobile</div>
+      <div class="header-sub">Home of 5G</div>
+    </div>
+  </a>
+  <div style="font-size:13px;color:var(--muted);">VanLife Connectivity Range</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">New Range — VanLife Connectivity</div>
+  <h1>Van Wi-Fi That<br><em>Actually Works.</em></h1>
+  <p class="hero-desc">Systems designed by vanlifers for vanlifers — not systems designed by people in offices.</p>
+  <div class="hero-usp">
+    Most van Wi-Fi systems try to pick up signal from <strong>inside a metal vehicle</strong>.<br>
+    Ours collects it from <strong>outside — before it gets blocked.</strong>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-eyebrow">The Full Range</div>
+    <div class="section-title">Four levels. One mission. Always connected.</div>
+
+    <div class="packages">
+
+      <!-- LEVEL 1 — TRAVELBUDDY -->
+      <div class="pkg">
+        <div class="pkg-top">
+          <div class="pkg-level">Level 1 — Entry</div>
+          <div class="pkg-name">TravelBuddy MiFi</div>
+          <div class="pkg-tagline">Stay connected wherever your journey takes you</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">£35</div>
+            <div class="pkg-price-note">inc 1GB data</div>
+          </div>
+          <div class="pkg-price-alt">Available in Stealth Black · Star White · Shocking Pink</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-desc">A pocket-sized, PAYG 4G MiFi with a multi-network SIM covering Vodafone, EE, O2 and Three — plus 139 countries worldwide. No installation, no contract, no technical knowledge.</p>
+          <ul class="pkg-features">
+            <li><span class="tick">✓</span>Connect up to 5 devices simultaneously</li>
+            <li><span class="tick">✓</span>Multi-network SIM — no UK blackspots, switches automatically</li>
+            <li><span class="tick">✓</span>1GB free data included — works in EU, UK, USA & more</li>
+            <li><span class="tick">✓</span>PAYG top-up online instantly — no apps, no contracts</li>
+            <li><span class="tick">✓</span>Keeps your phone free — walk away and leave Wi-Fi running</li>
+            <li><span class="tick">✓</span>QR code setup — instant connection, zero configuration</li>
+            <li><span class="tick">✓</span>Global coverage — 139 countries, same SIM works across EU</li>
+          </ul>
+          <div class="pkg-best"><strong>Best for:</strong> Travellers, occasional campers, any vehicle type — indoors, outdoors, open environments</div>
+        </div>
+        <div class="pkg-footer">
+          <a href="https://anvilmobile.com/product/travel-buddy-4g-mifi-router/" class="btn-buy">Buy Now — £35</a>
+          <a href="https://anvilmobile.com/product/travel-buddy-4g-mifi-router/?add-to-cart=5198" class="btn-basket">Add to Basket</a>
+        </div>
+      </div>
+
+      <!-- LEVEL 2 — ESSENTIAL -->
+      <div class="pkg">
+        <div class="pkg-top">
+          <div class="pkg-level">Level 2 — Essential</div>
+          <div class="pkg-name">Essential Kit</div>
+          <div class="pkg-tagline">Reliable Wi-Fi in your van — without signal dropouts</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">£199</div>
+            <div class="pkg-price-note">window/desk</div>
+          </div>
+          <div class="pkg-price-alt">or £239 with roof mount aerial</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-desc">4G system built for steel-bodied vans. Industrial Teltonika RUT200 router — the same hardware Maxview use in kits costing £325–£360, with a better aerial spec and pre-configured before dispatch.</p>
+          <ul class="pkg-features">
+            <li><span class="tick">✓</span>Picks up signal outside the van, not inside a metal box</li>
+            <li><span class="tick">✓</span>Automatically switches between campsite Wi-Fi and mobile data</li>
+            <li><span class="tick">✓</span>Pre-configured — just plug in and go</li>
+            <li><span class="tick">✓</span>128MB RAM — double Kuma's equivalent at the same price</li>
+            <li><span class="tick">✓</span>RutOS: band locking, WAN failover, auto-APN</li>
+          </ul>
+          <div class="pkg-best"><strong>Best for:</strong> Couples, weekend tourers, steel-bodied vans — anyone who wants campsite Wi-Fi pickup</div>
+        </div>
+        <div class="pkg-footer">
+          <a href="#build" class="btn-buy">Buy Now / Configure — from £199</a>
+          <a href="#build" class="btn-basket">Add to Basket</a>
+        </div>
+      </div>
+
+      <!-- LEVEL 3 — NOMAD PRO -->
+      <div class="pkg featured">
+        <div class="pkg-ribbon">Most Popular</div>
+        <div class="pkg-top">
+          <div class="pkg-level">Level 3 — Nomad Pro</div>
+          <div class="pkg-name">Nomad Pro Kit</div>
+          <div class="pkg-tagline">Fast, stable internet anywhere — built for full-time vanlife</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">£549</div>
+          </div>
+          <div class="pkg-price-alt">5G + Wi-Fi 6 · Maxview equivalent: £750–£899</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-desc">5G + Wi-Fi 6 system for streaming, remote work and multiple devices. Beats Maxview on aerial specification and saves you £200–£350. Wi-Fi 6 where Maxview only offers Wi-Fi 5.</p>
+          <ul class="pkg-features">
+            <li><span class="tick">✓</span>True 5G performance — full 4×4 MIMO aerial</li>
+            <li><span class="tick">✓</span>Wi-Fi 6 — handles multiple devices without slowing down</li>
+            <li><span class="tick">✓</span>Roof-mounted Wi-Fi pickup — works where other systems can't</li>
+            <li><span class="tick">✓</span>Dual SIM — switches networks automatically</li>
+            <li><span class="tick">✓</span>GPS element included in roof aerial</li>
+          </ul>
+          <div class="pkg-best"><strong>Best for:</strong> Full-time travellers, remote workers, heavy internet users</div>
+        </div>
+        <div class="pkg-footer">
+          <a href="#build" class="btn-buy">Buy Now / Configure — £549</a>
+          <a href="#build" class="btn-basket">Add to Basket</a>
+        </div>
+      </div>
+
+      <!-- LEVEL 4 — GOLD STANDARD -->
+      <div class="pkg">
+        <div class="pkg-top">
+          <div class="pkg-level">Level 4 — Gold Standard</div>
+          <div class="pkg-name">Gold Standard Kit</div>
+          <div class="pkg-tagline">Maximum performance. Maximum reliability. No compromises.</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">£669</div>
+          </div>
+          <div class="pkg-price-alt">Industrial 5G · Maxview equivalent: £699.99</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-desc">The same Teltonika RUTX50 router inside Maxview's £699.99 flagship — but with a superior 7-in-1 aerial that adds external Wi-Fi elements and GPS that Maxview don't supply.</p>
+          <ul class="pkg-features">
+            <li><span class="tick">✓</span>Same core router as Maxview's top kit — better aerial, lower price</li>
+            <li><span class="tick">✓</span>Full 4×4 MIMO + GPS + advanced networking</li>
+            <li><span class="tick">✓</span>5× Gigabit Ethernet — smart TVs, CCTV, NAS, Starlink</li>
+            <li><span class="tick">✓</span>-40°C to +75°C rated — built for long-term installs</li>
+            <li><span class="tick">✓</span>Full RutOS: VPN, firewall, remote management</li>
+          </ul>
+          <div class="pkg-best"><strong>Best for:</strong> Digital nomads, professional remote workers, demanding setups</div>
+        </div>
+        <div class="pkg-footer">
+          <a href="#build" class="btn-buy">Buy Now / Configure — £669</a>
+          <a href="#build" class="btn-basket">Add to Basket</a>
+        </div>
+      </div>
+
+    </div><!-- /packages -->
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- BUILD YOUR SYSTEM -->
+<div class="build-bg section" id="build">
+  <div class="wrap">
+    <div class="section-eyebrow">Modular Configuration</div>
+    <div class="section-title">Build Your System</div>
+
+    <div class="notice notice-teal">
+      <div class="notice-icon">⚙️</div>
+      <div><strong>Pre-configuration & testing included (+£50).</strong> Every router is fully set up and tested before dispatch — WAN failover active, auto-APN configured, default Wi-Fi credentials set. Genuinely plug and play from first power-on.</div>
+    </div>
+
+    <div class="build-grid">
+
+      <!-- STEP 1: ROUTERS -->
+      <div class="build-group">
+        <div class="build-header">
+          <div class="step-badge">1</div>
+          <div class="build-header-title">Choose Your Router</div>
+        </div>
+        <div class="build-items">
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">Teltonika RUT200 <a href="https://www.comms-express.com/products/teltonika-rut200-industrial-cellular-4g-router/" target="_blank">↗</a></div>
+              <div class="item-kit">Essential Kit — 4G LTE Cat 4 · 128MB RAM · RutOS</div>
+              <div class="item-price">£98.18 inc VAT</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">GL.iNet GL-X3000 Spitz AX <a href="https://store-uk.gl-inet.com/products/spitz-ax-gl-x3000-wi-fi-6-ax3000-5g-nr-dual-sim-failover-openwrt-21-02" target="_blank">↗</a></div>
+              <div class="item-kit">Nomad Pro — 5G NR · Wi-Fi 6 AX3000 · Dual SIM</div>
+              <div class="item-price">£337.99</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">Teltonika RUTX50 <a href="https://routerstore.com/product/rutx50/" target="_blank">↗</a></div>
+              <div class="item-kit">Gold Standard — 5G CAT20 · Industrial · 5× Gigabit</div>
+              <div class="item-price">£440.40 inc VAT</div>
+            </div>
+          </label>
+        </div>
+        <div class="build-footer">
+          <a href="#" class="btn-buy">Add Router to Basket</a>
+        </div>
+      </div>
+
+      <!-- STEP 2: AERIALS -->
+      <div class="build-group">
+        <div class="build-header">
+          <div class="step-badge">2</div>
+          <div class="build-header-title">Choose Your Aerial</div>
+        </div>
+        <div class="build-items">
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">LINOVISION 3-in-1 Roof Puck <a href="https://www.amazon.co.uk/LINOVISION-Antenna-Outdoor-compatible-Teltonika-Black/dp/B0F218JCLY" target="_blank">↗</a></div>
+              <div class="item-kit">Essential Roof Kit — 2× LTE MIMO + external Wi-Fi element · IP67</div>
+              <div class="item-price">£29.99 inc VAT</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">Panorama DMM-7-38 (window/desk/suction)</div>
+              <div class="item-kit">Essential Window Kit — 2×2 MIMO · No drilling required</div>
+              <div class="item-price">approx. £33–£40 inc VAT</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">Teltonika PR1KC640 7-in-1 Roof Antenna <a href="https://www.mouser.co.uk/ProductDetail/Teltonika/PR1KC640" target="_blank">↗</a></div>
+              <div class="item-kit">Nomad Pro / Gold Standard — 4×4 MIMO · 2× Wi-Fi · GPS</div>
+              <div class="item-price">£96.54 ex VAT</div>
+            </div>
+          </label>
+        </div>
+        <div class="build-footer">
+          <a href="#" class="btn-buy">Add Aerial to Basket</a>
+        </div>
+      </div>
+
+      <!-- STEP 3: POWER -->
+      <div class="build-group">
+        <div class="build-header">
+          <div class="step-badge">3</div>
+          <div class="build-header-title">Power Options</div>
+        </div>
+        <div class="build-items">
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">240V Mains Plug Power Supply</div>
+              <div class="item-kit">Essential Kit</div>
+              <div class="item-price">£10.50</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">12V Cigarette Plug (Teltonika) <a href="https://shop.thetechnologydoctors.co.uk/products/teltonika-12v-car-adapter-power-supply" target="_blank">↗</a></div>
+              <div class="item-kit">Essential / Gold Standard</div>
+              <div class="item-price">£8.50</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">12V Cigarette Plug (GL-X3000, 5.5mm × 2.1mm)</div>
+              <div class="item-kit">Nomad Pro specific</div>
+              <div class="item-price">£7.00</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">12V Hardwire Power Supply</div>
+              <div class="item-kit">Gold Standard</div>
+              <div class="item-price">£11.50</div>
+            </div>
+          </label>
+        </div>
+        <div class="build-footer">
+          <a href="#" class="btn-buy">Add Power to Basket</a>
+        </div>
+      </div>
+
+      <!-- STEP 4: MOUNTING -->
+      <div class="build-group">
+        <div class="build-header">
+          <div class="step-badge">4</div>
+          <div class="build-header-title">Mounting Options</div>
+        </div>
+        <div class="build-items">
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">Wall Mount (Teltonika RUT Series) <a href="https://offgridwifi.co.uk/product/teltonika-wall-surface-mounting-brackets/" target="_blank">↗</a></div>
+              <div class="item-kit">Essential Kit</div>
+              <div class="item-price">£8.50</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">Click Wall Mount (RUTX50 specific)</div>
+              <div class="item-kit">Gold Standard</div>
+              <div class="item-price">£22.00</div>
+            </div>
+          </label>
+          <label class="build-item">
+            <input type="checkbox">
+            <div class="item-info">
+              <div class="item-name">Wall Mount (GL-X3000)</div>
+              <div class="item-kit">Nomad Pro</div>
+              <div class="item-price">£10–£12</div>
+            </div>
+          </label>
+        </div>
+        <div class="build-footer">
+          <a href="#" class="btn-buy">Add Mounting to Basket</a>
+        </div>
+      </div>
+
+    </div><!-- /build-grid -->
+
+    <div class="notice notice-green" style="margin-top:28px;margin-bottom:0;">
+      <div class="notice-icon">🛡️</div>
+      <div><strong>Every unit tested before dispatch.</strong> Unlike most suppliers, we power up and check every item before it leaves — no factory DOA units sent out. All components covered by full manufacturer warranty.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <strong>Anvil Mobile Limited</strong> — Home of 5G<br>
+  Neville House, Station Road, Wendens Ambo, Essex, CB11 4LB<br>
+  <a href="tel:01799218033">01799 218033</a> · <a href="mailto:info@anvilmobile.com">info@anvilmobile.com</a><br><br>
+  <span style="font-size:11px;">This page is a VanLife product range concept for internal review. Prices correct at time of preparation — April 2026.</span>
+</footer>
+
+</body>
+</html>
