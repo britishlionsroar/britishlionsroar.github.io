@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Party Cloud Cuckoo Land: Should These People Be Sectioned?</title>
+  <style>
+    :root{
+      --paper:#f4ecd9;
+      --ink:#171411;
+      --muted:#5b5148;
+      --line:#b9a98f;
+      --accent:#7a5b1f;
+      --accent2:#2d241a;
+      --panel:#efe3cb;
+      --quote:#e7d7b8;
+      --footer:#d9c6a1;
+      --shadow:0 12px 32px rgba(0,0,0,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:#d8ccb7;
+      color:var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height:1.72;
+    }
+    a{color:#533d0f}
+    a:hover{color:#2f2208}
+    .page{
+      max-width:1020px;
+      margin:24px auto;
+      background:var(--paper);
+      border:1px solid #a89270;
+      box-shadow:var(--shadow);
+    }
+    .topbar{
+      border-bottom:3px double var(--line);
+      padding:14px 26px 12px;
+      background:linear-gradient(to bottom, #f6efde, #f2e7d0);
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-size:.84rem;
+      color:var(--muted);
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      font-weight:700;
+      color:var(--accent2);
+      letter-spacing:.11em;
+    }
+    .mast{
+      padding:34px 44px 10px;
+      border-bottom:1px solid var(--line);
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(2.35rem, 5.1vw, 4.3rem);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      font-weight:700;
+      text-wrap:balance;
+    }
+    .subtitle{
+      font-size:clamp(1.05rem, 2.05vw, 1.42rem);
+      color:#2d2823;
+      margin:0 0 18px;
+      max-width:860px;
+    }
+    .byline{
+      color:var(--muted);
+      font-size:.98rem;
+      border-top:1px solid var(--line);
+      padding-top:10px;
+    }
+    .deck{
+      padding:20px 44px 8px;
+      font-size:1.13rem;
+      color:#2a241e;
+    }
+    .stats{
+      padding:10px 44px 26px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      border-bottom:1px solid var(--line);
+    }
+    .stat{
+      background:var(--panel);
+      border:1px solid var(--line);
+      padding:16px 14px;
+      min-height:108px;
+    }
+    .stat .num{
+      display:block;
+      font-size:1.85rem;
+      line-height:1;
+      margin-bottom:8px;
+      font-weight:700;
+      color:#22180c;
+    }
+    .stat .label{
+      font-size:.94rem;
+      color:#3f372f;
+    }
+    .content{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 290px;
+      gap:0;
+    }
+    article{
+      padding:28px 44px 36px;
+      border-right:1px solid var(--line);
+    }
+    aside{
+      padding:28px 24px 36px;
+      background:#f1e6d1;
+    }
+    article p{
+      margin:0 0 1.15em;
+      font-size:1.08rem;
+    }
+    article p.lead:first-letter{
+      float:left;
+      font-size:4.2rem;
+      line-height:.86;
+      padding-right:10px;
+      padding-top:10px;
+      color:#22180c;
+    }
+    h2{
+      margin:32px 0 12px;
+      font-size:1.65rem;
+      line-height:1.15;
+      border-top:1px solid var(--line);
+      padding-top:18px;
+    }
+    .part{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.82rem;
+      color:var(--muted);
+      margin:10px 0 4px;
+    }
+    .quote{
+      margin:26px 0;
+      padding:20px 22px;
+      background:var(--quote);
+      border-left:6px solid var(--accent);
+      font-size:1.18rem;
+      line-height:1.5;
+      color:#20170b;
+    }
+    .mini{
+      margin:22px 0;
+      padding:18px;
+      border:1px solid var(--line);
+      background:#f7efdf;
+    }
+    .mini h3, aside h3{
+      margin:0 0 12px;
+      font-size:1rem;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      color:#3e362e;
+    }
+    .mini ul, aside ul{
+      margin:0;
+      padding-left:18px;
+    }
+    .mini li, aside li{
+      margin:0 0 10px;
+      font-size:.98rem;
+    }
+    .sidebox{
+      border:1px solid var(--line);
+      background:var(--panel);
+      padding:16px;
+      margin-bottom:18px;
+    }
+    .sidebox .big{
+      font-size:2.25rem;
+      line-height:1;
+      font-weight:700;
+      margin-bottom:8px;
+      color:#231a0d;
+    }
+    .side-note{
+      font-size:.95rem;
+      color:#3f372f;
+    }
+    .chart{
+      border:1px solid var(--line);
+      background:#f8f0e0;
+      padding:14px 14px 8px;
+      margin:0 0 18px;
+    }
+    .chart-title{
+      margin:0 0 8px;
+      font-size:.98rem;
+      font-weight:700;
+      color:#2d241a;
+    }
+    .rule{
+      height:1px;
+      background:var(--line);
+      margin:26px 0;
+    }
+    .editorial, .sources, .disclaimer{
+      padding:0 44px 28px;
+    }
+    .editorial h3, .sources h3, .disclaimer h3{
+      margin:0 0 12px;
+      font-size:1rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:#3b342d;
+    }
+    .sources ul{
+      margin:0;
+      padding-left:18px;
+    }
+    .sources li{
+      margin:0 0 8px;
+    }
+    .footer-strip{
+      border-top:3px double var(--line);
+      background:var(--footer);
+      text-align:center;
+      padding:14px 20px;
+      font-size:.92rem;
+      color:#3b3228;
+    }
+    .kicker{
+      font-style:italic;
+      color:#41372d;
+    }
+    .warning{
+      margin:22px 0;
+      padding:16px 18px;
+      background:#f7efdf;
+      border-left:6px solid #9a6a24;
+      font-size:1.02rem;
+    }
+    @media (max-width: 900px){
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .content{grid-template-columns:1fr}
+      article{border-right:none;border-bottom:1px solid var(--line)}
+      aside{border-top:none}
+    }
+    @media (max-width: 620px){
+      .page{margin:0;background:var(--paper)}
+      .mast,.deck,.stats,article,aside,.editorial,.sources,.disclaimer{padding-left:20px;padding-right:20px}
+      .topbar{padding-left:20px;padding-right:20px}
+      .stats{grid-template-columns:1fr}
+      h1{font-size:2.35rem}
+      article p{font-size:1rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">THE BRITISH LIONS ROAR</div>
+      <div>Political Commentary · April 2026 · Drugs · Crime · Migration · Britain</div>
+    </div>
+
+    <header class="mast">
+      <h1>Green Party Cloud Cuckoo Land:<br>Should These People Be Sectioned?</h1>
+      <p class="subtitle">The Green Party sells the public a softened election leaflet. Read more closely, and the direction of travel is something else entirely: decriminalised possession of all drugs, movement toward a legally regulated market, a radically softer justice model, and an immigration worldview that critics say dissolves borders in all but name.</p>
+      <div class="byline">By Special Correspondent · April 2026 · Sources: Green Party 2024 manifestos · Green Party migration policy · Leeds Green Party drug policy explainer</div>
+    </header>
+
+    <div class="deck">
+      <p class="kicker">The question is not whether the Greens package these positions in gentler language. The question is whether Britain is willing to look directly at what their own documents, manifesto wording and public-facing policy pages actually imply when taken seriously and read as a governing programme.</p>
+    </div>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="num">All drugs</span>
+        <div class="label">The 2024 manifesto commits to decriminalising personal possession of drugs, removing criminal penalties for substances including Class A drugs.</div>
+      </div>
+      <div class="stat">
+        <span class="num">“Legally regulated”</span>
+        <div class="label">The long-form manifesto says a National Commission would allow the UK to move toward a legally regulated market.</div>
+      </div>
+      <div class="stat">
+        <span class="num">“World without borders”</span>
+        <div class="label">The Green migration policy page says the party wants to see a world without borders, while proposing a much more open migration framework in the meantime.</div>
+      </div>
+      <div class="stat">
+        <span class="num">2 systems</span>
+        <div class="label">To supporters this is compassion and harm reduction. To critics it is a programme for drugs liberalisation, state retreat and national unravelling.</div>
+      </div>
+    </section>
+
+    <div class="content">
+      <article>
+        <div class="part">Part I</div>
+        <h2>The Friendly Leaflet and the Real Direction of Travel</h2>
+
+        <p class="lead">The Green Party’s public election pitch is often written in the language of warmth, care and harmless moral uplift. It is designed to feel humane, tidy and reassuring. That is why the Easy Read version matters. It shows you what they want casual voters to see: a cleaned-up, simplified picture with sharp edges removed.</p>
+
+        <p>But politics is not judged by mood music. It is judged by what a party says it will do when its words are read in full, line by line, and then matched against its wider policy ecosystem. On drugs in particular, the difference between the soft presentation and the harder substance is obvious enough to matter.</p>
+
+        <div class="quote">The short version promises decriminalisation. The longer version points toward a legally regulated market. That is not a wording accident. It is a policy ladder.</div>
+
+        <p>That gap is the story. The Greens are not unusual in simplifying for elections, but when the simplified pitch sounds modest and the fuller wording points toward a much more radical destination, voters are entitled to say so plainly.</p>
+
+        <div class="part">Part II</div>
+        <h2>Drugs — Decriminalisation First, Regulated Market Next</h2>
+
+        <p>The line that should concern voters most is also the one least likely to be shouted from the rooftops in a doorstep conversation. The Green manifesto commits to decriminalising personal possession of drugs. In practice, that means removing criminal penalties for the possession of all substances, including Class A drugs such as heroin and crack cocaine, and shifting drug use out of the criminal justice system entirely.</p>
+
+        <div class="quote">“A National Commission… will allow the UK to move towards a legally regulated market that stops criminal supply and profiteering, and that reduces harm including by preventing children accessing drugs.”</div>
+
+        <p>That long-form manifesto wording matters because it takes the policy beyond mere decriminalisation. It sets a clear direction of travel toward legal regulation. Once that phrase is in their own manifesto, nobody needs to play semantic games about whether decriminalisation really means legalisation. The party itself has already described the next step.</p>
+
+        <p>That is why local Green explainers have been able to discuss tiered access models without embarrassment: pharmacist-led supply for some substances, prescription-based provision for the hardest drugs, licensed outlets for cannabis, and controlled venue-based provision in some settings. However they dress it up, the broad trajectory is unmistakable. This is not a tough-on-drugs party trying to refine sentencing. It is a party trying to replace prohibition with state-managed access.</p>
+
+        <div class="mini">
+          <h3>What the settled wording allows you to say cleanly</h3>
+          <ul>
+            <li>The Green Party manifesto commits to decriminalising the possession of all drugs.</li>
+            <li>In practice, that means removing criminal penalties for possession of all substances, including heroin and crack cocaine.</li>
+            <li>The long-form manifesto also points toward a legally regulated market.</li>
+            <li>That combination is enough on its own to show the scale of the proposed shift.</li>
+          </ul>
+        </div>
+
+        <div class="part">Part III</div>
+        <h2>Prisons — Softening the System Until the System Barely Looks Like One</h2>
+
+        <p>The Greens and their fellow travellers tend to talk about criminal justice in the language of rehabilitation, dignity, alternatives to custody and scepticism toward prison as an institution. On one level that sounds civilised. On another, it reveals a deep hostility to punishment itself, particularly punishment that visibly signals moral disapproval and public protection.</p>
+
+        <p>The official positioning often centres on reducing reliance on prison rather than saying outright that prisons should disappear. But that distinction does only so much work. Once you begin from the belief that custody is itself a social failure, the logic almost always runs in one direction: shorter sentences, fewer remands, more diversions, more non-custodial disposal, and a presumption that prison should be used only as a shrinking last resort.</p>
+
+        <p>Critics do not need to invent a conspiracy here. They simply need to recognise the tendency. A politics that treats drug possession as a health issue, migration enforcement as cruelty, and punishment as social backwardness is not likely to rediscover a robust criminal justice philosophy by accident. It will keep walking toward a softer state, even when public order frays.</p>
+
+        <div class="part">Part IV</div>
+        <h2>Migration — Open Borders in Polite Language</h2>
+
+        <p>The Green migration worldview is not hidden. Their own migration policy page states that the party wants to see a world without borders, while proposing a fair and humane system of managed immigration until that day arrives. This is often defended as an ethical horizon rather than an immediate demand, but the practical policy implications are plain enough in the meantime: reduced detention, easier routes to remain, broader entitlements, weaker barriers and a moral suspicion of enforcement as such.</p>
+
+        <div class="quote">Once a party begins from the premise that borders are, in the long run, a thing to transcend, every concrete control starts to look temporary, regrettable or morally suspect.</div>
+
+        <p>This is why critics characterise the package as open borders in all but name. Not because the party literally says tomorrow morning there will be no passport control, but because the instinct behind the policy is consistently to weaken, soften or morally delegitimise the entire machinery of national control. The result is the same directional pressure: fewer meaningful barriers, faster incorporation, and less expectation that newcomers adapt to a historic national core.</p>
+
+        <p>That matters in a country already strained by housing shortages, service pressure, community fragmentation and the long, evasive politics of non-integration. To pretend Britain can absorb permanent demographic, cultural and institutional change without social cost is not compassion. It is magical thinking wearing a lanyard.</p>
+
+        <div class="part">Part V</div>
+        <h2>The Islamist Question They Prefer Not to Confront</h2>
+
+        <p>There is also a harder argument here that polite Westminster conversation tries to dodge. Policies that make borders softer, enforcement weaker, voting access broader and integration pressure lighter do not float in a vacuum. They operate inside a real country with real parallel communities, real communal blocs, real patronage politics, and real ideological networks that are perfectly capable of using democratic softness for illiberal ends.</p>
+
+        <p>On that reading, Green policy is not merely naive. It is structurally useful to the very forces that would like Britain to become less British, less cohesive and less governable. Immediate or accelerated access to status, rights and influence without corresponding integration pressure is not a neutral administrative change. It alters the political balance of the country.</p>
+
+        <div class="warning"><strong>On a serious note:</strong> this is the point at which airy moralism becomes dangerous. A politics that refuses to defend borders, cultural confidence and criminal enforcement does not remain merely sentimental. It hands leverage to the hardest, most organised and least assimilatory actors operating within the space it opens.</div>
+
+        <div class="part">Part VI</div>
+        <h2>Cloud Cuckoo Land, and the Sectioning Line</h2>
+
+        <p>The title question is obviously polemical. Political disagreement is not a medical diagnosis, and the Mental Health Act is not there to process rival parties out of public life. But satire works by testing a proposition under pressure, and the proposition here is simple enough: how detached from reality does a programme have to become before ordinary people stop calling it compassionate and start calling it unhinged?</p>
+
+        <p>Anyone looking at modern Britain — stretched services, insecure borders, drug harm, visible public disorder, housing pressure and cultural fragmentation — and deciding the answer is decriminalised possession of all drugs, movement toward a regulated drug market, a softer prison model and migration doctrine pulled toward border abolition has left the world of practical politics behind.</p>
+
+        <div class="quote">This is not realism with a conscience. It is moral vanity masquerading as policy, and expecting the rest of the country to live inside the consequences.</div>
+
+        <p>That is why the phrase cloud cuckoo land fits. It captures not just disagreement, but distance from reality: the sense that these ideas are being generated inside a sealed moral universe where trade-offs disappear, enforcement is always cruelty, nationhood is always suspicion, and social breakdown is always somebody else’s fault.</p>
+
+        <div class="part">Part VII</div>
+        <h2>The Choice</h2>
+
+        <p>Strip away the branding and the Green offer becomes much clearer. On drugs: retreat from criminalisation and move toward legal regulation. On justice: reduce confidence in prison and punishment. On migration: soften the border philosophy and widen access. On the nation itself: distrust cohesion whenever it begins to look like preference for one’s own civilisation.</p>
+
+        <p>Supporters will call that humane. Opponents will call it deranged. Voters can decide the adjective for themselves. But they should at least do so having read more than the friendly leaflet.</p>
+      </article>
+
+      <aside>
+        <div class="sidebox">
+          <div class="big">2024</div>
+          <div class="side-note">The Green Party published both a shorter Easy Read manifesto and a longer manifesto during the general election campaign.</div>
+        </div>
+
+        <div class="chart">
+          <div class="chart-title">At a glance: the argument in one view</div>
+          <svg viewBox="0 0 240 190" width="100%" height="auto" aria-label="Policy direction summary">
+            <rect x="20" y="20" width="150" height="20" fill="#a17a2d"></rect>
+            <text x="24" y="34" font-size="11" fill="#20170b" font-family="Georgia">Decriminalise possession</text>
+
+            <rect x="20" y="55" width="178" height="20" fill="#b48a37"></rect>
+            <text x="24" y="69" font-size="11" fill="#20170b" font-family="Georgia">Move to regulated market</text>
+
+            <rect x="20" y="90" width="135" height="20" fill="#c39a4b"></rect>
+            <text x="24" y="104" font-size="11" fill="#20170b" font-family="Georgia">Shrink role of prison</text>
+
+            <rect x="20" y="125" width="188" height="20" fill="#d0ac66"></rect>
+            <text x="24" y="139" font-size="11" fill="#20170b" font-family="Georgia">World without borders ideal</text>
+
+            <rect x="20" y="160" width="200" height="2" fill="#8a7656"></rect>
+          </svg>
+          <div class="side-note">Illustrative summary of the policy direction criticised in this article.</div>
+        </div>
+
+        <div class="sidebox">
+          <h3>Key manifesto line</h3>
+          <ul>
+            <li><strong>Drug possession:</strong> the party commits to decriminalising personal possession of drugs.</li>
+            <li><strong>Long-form addition:</strong> the longer manifesto says this would allow the UK to move towards a legally regulated market.</li>
+          </ul>
+        </div>
+
+        <div class="sidebox">
+          <h3>Why critics say it matters</h3>
+          <ul>
+            <li>It removes criminal penalties for possession of all drugs, including Class A substances.</li>
+            <li>It normalises a broader retreat from enforcement.</li>
+            <li>It aligns with a wider ideology suspicious of borders, prisons and punitive law.</li>
+            <li>It asks Britain to absorb sweeping change while pretending that trade-offs will not bite.</li>
+          </ul>
+        </div>
+
+        <div class="sidebox">
+          <h3>Why supporters defend it</h3>
+          <ul>
+            <li>They frame drug reform as harm reduction rather than permissiveness.</li>
+            <li>They see reduced detention and prison use as more humane and more effective.</li>
+            <li>They describe migration openness as fairness rather than border abolition.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="rule"></div>
+
+    <section class="editorial">
+      <h3>Editorial Approach</h3>
+      <p>This article is written in plain English, following George Orwell’s rule: if you can say something simply, do so. It combines investigative reporting with policy analysis and opinion. Satire is used where appropriate to test ideas by applying them consistently. Facts are sourced; opinions are labelled; institutions are not indulged.</p>
+    </section>
+
+    <section class="sources">
+      <h3>Want to Dive Deeper? Official sources you can link:</h3>
+      <ul>
+        <li><a href="https://greenparty.org.uk/app/uploads/2024/06/Green-Party-2024-General-Election-Manifesto-Long-version-with-cover.pdf">Green Party 2024 General Election Manifesto — long version</a></li>
+        <li><a href="https://greenparty.org.uk/app/uploads/2024/06/Green-Party-2024-General-Election-Manifesto-Easy-Read.pdf">Green Party 2024 General Election Manifesto — Easy Read version</a></li>
+        <li><a href="https://greenparty.org.uk/about/our-manifesto/2024-manifesto-downloads/">Green Party 2024 manifesto downloads page</a></li>
+        <li><a href="https://leeds.greenparty.org.uk/2026/03/26/green-drug-policy-closer-look/">Leeds Green Party — Green drug policy: a closer look</a></li>
+        <li><a href="https://migration.greenparty.org.uk/migration-policy/">Green Party migration policy page</a></li>
+        <li><a href="https://migration.greenparty.org.uk/policies/">Green Party migration and asylum policies</a></li>
+      </ul>
+    </section>
+
+    <section class="disclaimer">
+      <h3>Disclaimer</h3>
+      <p>Factual statements in this article are supported by cited sources. Analysis and interpretation are clearly presented as opinion. Nothing published here is intended to incite violence, harassment, or hatred, nor to cause harm. Disagreement with arguments or conclusions does not constitute harm or violence.</p>
+    </section>
+
+    <div class="footer-strip">
+      THE BRITISH LIONS ROAR – Political Commentary, News Analysis & Investigative Opinion Journalism – Editor: Steve English
+    </div>
+  </div>
+</body>
+</html>
