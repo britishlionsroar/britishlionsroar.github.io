@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campervan Air Conditioning – What I Learned After Spending Two Weeks Researching It</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+    --accent: #1e4d7b;
+    --accent-light: #e8f0f9;
+    --rule: #d8d4cc;
+    --chapter-bg: #1e4d7b;
+    --chapter-text: #ffffff;
+    --note-bg: #f0f4f9;
+    --note-border: #1e4d7b;
+  }
+
+  html { font-size: 17px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Merriweather', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--chapter-bg);
+    color: var(--chapter-text);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+
+  .site-header .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #a8c4e0;
+    margin-bottom: 1rem;
+  }
+
+  .site-header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.3;
+    max-width: 800px;
+    margin: 0 auto 1.25rem;
+    color: #ffffff;
+  }
+
+  .site-header .meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #a8c4e0;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  /* TABLE OF CONTENTS */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    margin: 2.5rem auto;
+    padding: 1.75rem 2rem;
+    max-width: 760px;
+  }
+
+  .toc h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .toc ol {
+    padding-left: 1.25rem;
+  }
+
+  .toc li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: var(--text-muted);
+  }
+
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .toc a:hover { text-decoration: underline; }
+
+  /* CHAPTERS */
+  .chapter {
+    background: var(--surface);
+    margin: 2rem auto;
+    max-width: 760px;
+    border: 1px solid var(--rule);
+  }
+
+  .chapter-header {
+    background: var(--chapter-bg);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .chapter-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a8c4e0;
+    white-space: nowrap;
+  }
+
+  .chapter-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+  }
+
+  .chapter-body {
+    padding: 2rem 2rem 2.25rem;
+  }
+
+  .chapter-body p {
+    margin-bottom: 1.15rem;
+    color: var(--text);
+  }
+
+  .chapter-body p:last-child { margin-bottom: 0; }
+
+  .chapter-body h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 1.75rem 0 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .chapter-body ul {
+    margin: 0.6rem 0 1.1rem 1.4rem;
+  }
+
+  .chapter-body ul li {
+    margin-bottom: 0.35rem;
+    color: var(--text);
+  }
+
+  /* SPEC TABLE */
+  .spec-block {
+    background: var(--note-bg);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+  }
+
+  .spec-block .spec-title {
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-size: 0.88rem;
+  }
+
+  .spec-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .spec-block ul li {
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #dde5ef;
+    color: var(--text);
+  }
+
+  .spec-block ul li:last-child { border-bottom: none; }
+
+  .spec-block ul li span {
+    color: var(--text-muted);
+    display: inline-block;
+    min-width: 160px;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* RABBIT HOLE */
+  .rabbit-hole {
+    background: var(--chapter-bg);
+    color: #ffffff;
+    padding: 1.75rem 2rem;
+    margin-top: 1.75rem;
+  }
+
+  .rabbit-hole h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    border: none;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .rabbit-hole p {
+    color: #c8daea;
+    margin-bottom: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .rabbit-hole p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  .site-footer {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 600px) {
+    .chapter-body { padding: 1.5rem 1.25rem; }
+    .chapter-header { padding: 1rem 1.25rem; }
+    .toc { padding: 1.25rem; }
+    .spec-block ul li span { min-width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="label">Personal Research &amp; Opinion</div>
+  <h1>Campervan Air Conditioning – What I Learned After Spending Two Weeks Researching It</h1>
+  <div class="meta">Research completed: 30th June 2026 &nbsp;|&nbsp; Steve English &nbsp;|&nbsp; Approx. reading time: 18–20 minutes</div>
+</header>
+
+<div class="container">
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#ch1">Introduction</a></li>
+      <li><a href="#ch2">How Air Conditioning Actually Works</a></li>
+      <li><a href="#ch3">Why I Treat Generic Marketplace Units Differently</a></li>
+      <li><a href="#ch4">Genuine 12V &amp; 24V Rooftop Units</a></li>
+      <li><a href="#ch5">Why I've Personally Chosen a 230V Rooftop Unit</a></li>
+      <li><a href="#ch6">Under-Bench (Split) Systems</a></li>
+      <li><a href="#ch7">Window-Mounted Air Conditioners</a></li>
+      <li><a href="#ch8">Domestic Wall-Mounted Split Air Conditioners</a></li>
+      <li><a href="#ch9">Fans, Air Movers and Evaporative Coolers</a></li>
+      <li><a href="#ch10">My Conclusions</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- WHO IS THIS FOR -->
+<div class="container">
+  <div class="chapter" style="border-left: 4px solid #1e4d7b;">
+    <div class="chapter-body">
+      <h3 style="margin-top:0;">Who Is This Guide For?</h3>
+      <ul>
+        <li>Anyone thinking of fitting air conditioning to a campervan or motorhome.</li>
+        <li>Anyone wondering whether 12V or 230V is the better option for their build.</li>
+        <li>Anyone looking at cheap marketplace units and wondering whether they're worth the risk.</li>
+        <li>Anyone trying to understand the real-world running costs before spending £1,000–£2,000.</li>
+      </ul>
+      <p style="margin-top:1rem; margin-bottom:0; color:#5a5a5a; font-size:0.92rem;">If none of those apply, you're probably already further along than this guide goes. If any of them do, read on.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER 1 -->
+<div class="container">
+<article class="chapter" id="ch1">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 1</span>
+    <span class="chapter-title">Introduction</span>
+  </div>
+  <div class="chapter-body">
+    <p>This isn't intended to be the definitive guide to campervan air conditioning, nor am I claiming to be an air-conditioning engineer.</p>
+    <p>Like many people, I became frustrated by the huge amount of conflicting advice online. Every Facebook group seemed to recommend something different, manufacturers all claimed to have the best product, and many adverts made claims that simply didn't add up.</p>
+    <p>Rather than relying on opinions, I decided to spend a solid two weeks researching the subject as thoroughly as I could — reading manufacturers' specifications, installation manuals and dealer information, watching installation videos and long-term ownership reviews, comparing electrical consumption, cooling capacities and battery requirements, and using several AI systems to challenge ideas and cross-reference conclusions.</p>
+    <p>AI is an incredibly useful research tool, but it's also well known for confidently making mistakes. Whenever an AI made a technical claim that influenced my thinking, I verified it against manufacturers' specifications, official manuals or reputable UK suppliers before drawing my own conclusions.</p>
+    <p>My original aim was simply to find the best roof-mounted air conditioner for my own Luton camper conversion. Interestingly, I ended up changing my opinion several times as new information came to light. Some products I originally dismissed deserved a second look. Others looked less attractive the deeper I dug.</p>
+    <p>These are my own findings and opinions based on information available at the time of writing. Technology changes quickly, new models are released every year, and there may well be products I've missed. I'd encourage anyone spending this sort of money to do their own research before making a final decision.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 2 -->
+<div class="container">
+<article class="chapter" id="ch2">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 2</span>
+    <span class="chapter-title">How Air Conditioning Actually Works</span>
+  </div>
+  <div class="chapter-body">
+    <p>Before looking at different makes and models, it's worth understanding one important point.</p>
+    <p>People often say that an air conditioner "makes cold air." In reality, it doesn't create cold from nothing — it removes heat from the air.</p>
+    <p>Here's what's actually happening. The unit pulls warm air from inside your campervan and passes it over very cold coils containing refrigerant. The refrigerant absorbs the heat from that air. What comes back out is the same air, but with much of its heat removed, so it feels cold when it's blown back into the vehicle. The heat that has been removed doesn't disappear — it's carried outside and released into the atmosphere.</p>
+    <p>As a side effect of this process, moisture is also extracted from the air as it passes over those cold coils. That's the dehumidification function you'll see listed on many air conditioner specifications — and in a damp British summer, it can make a significant difference to comfort inside a campervan.</p>
+    <p>Why does this matter? Because every bit of heat that gets into your campervan has to be removed again by the air conditioner. That means reducing the amount of heat entering the van is often just as important as choosing the air conditioner itself.</p>
+    <p>Good insulation, reflective window coverings, thermal curtains, parking in the shade and good ventilation all reduce the amount of heat the air conditioner has to remove. The less work it has to do, the more comfortable your van will be and the less electricity you'll use.</p>
+    <p>One of the biggest things I learned during this research was that many people naturally focus on buying the biggest air conditioner they can afford. In reality, reducing the heat entering the van in the first place is often the smarter and more cost-effective approach.</p>
+    <p>It's also worth remembering that bigger isn't always better. A larger air conditioner will cool a vehicle down faster, but modern inverter units can then reduce their output and quietly maintain the chosen temperature. Instead of repeatedly switching fully on and fully off, they continuously adjust their output to maintain a steadier temperature, reduce noise and often improve efficiency.</p>
+    <p>Finally, think about how you actually use your campervan. Someone who spends all day exploring and only sleeps in their van has very different requirements from someone who lives or works inside their vehicle for long periods. Where you travel, whether you usually have an electric hook-up, how well insulated your van is and how much time you spend inside should all influence the type of system you choose.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 3 -->
+<div class="container">
+<article class="chapter" id="ch3">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 3</span>
+    <span class="chapter-title">Why I Treat Generic Marketplace Units Differently</span>
+  </div>
+  <div class="chapter-body">
+    <p>One comparison kept coming up while I was researching campervan air conditioning.</p>
+    <p>People quite rightly say: <em>"My £120 Chinese diesel heater has been brilliant, so why wouldn't I take the same gamble on a £600–£800 rooftop air conditioner from eBay?"</em></p>
+    <p>It's a fair question. I've happily recommended Chinese diesel heaters to plenty of people over the years, so why have I come to a different conclusion regarding many of the generic rooftop air conditioners?</p>
+    <p>For me, it has very little to do with where they're manufactured and everything to do with the support ecosystem surrounding the product. Many excellent products are manufactured in China. The country of manufacture isn't really the issue — it's what happens if something goes wrong five years down the line.</p>
+
+    <h3>Chinese Diesel Heaters – A Mature Support Network</h3>
+    <p>Chinese diesel heaters have now been around for years and have become incredibly popular. Because of that popularity, a huge independent support network has developed around them. Today you can easily buy glow plugs, fuel pumps, control boards, fan motors, gaskets, wiring looms and complete rebuild kits. There are hundreds of YouTube repair videos, dedicated Facebook groups and countless people who have stripped them down, repaired them and modified them.</p>
+    <p>Even if the original seller disappears tomorrow, chances are someone else will still be selling compatible parts. They're relatively inexpensive to repair, relatively inexpensive to replace, and they don't require major structural alterations to your campervan.</p>
+
+    <h3>Generic Rooftop Air Conditioners – A Very Different Proposition</h3>
+    <p>When I started researching rooftop air conditioners, I expected to find something similar. Instead, I found very little. Unlike diesel heaters, I struggled to find UK suppliers selling replacement compressors, electronic control boards, fan motors, seals or other internal components for many of the generic marketplace rooftop air conditioners. Likewise, I found very little evidence of an established UK repair network openly advertising repairs for these products.</p>
+    <p>That doesn't necessarily mean they can't be repaired. It simply means that, unlike Chinese diesel heaters, there doesn't appear to be the same mature aftermarket ecosystem supporting them.</p>
+
+    <h3>Warranty... In Theory</h3>
+    <p>Many marketplace sellers advertise warranties. That's great. But I always ask myself one question: if this 30kg rooftop air conditioner develops a fault after six months, who's paying to send it back? Returning a large, heavy item internationally isn't cheap. Depending on the courier, destination and insurance required, returning a rooftop air conditioner overseas could cost a significant proportion of the unit's original purchase price. Realistically, many owners may simply decide that replacing the unit is cheaper than attempting to return it under warranty.</p>
+
+    <h3>Some Listings Arrive Without Refrigerant</h3>
+    <p>This genuinely surprised me. Several of the cheaper units I looked at are supplied without any refrigerant gas. That means they won't cool anything until they've been professionally vacuum evacuated, leak tested and charged with the correct refrigerant and compressor oil.</p>
+    <p>In the UK this is normally carried out by automotive air-conditioning specialists. Typical prices at the time of writing are roughly £60–£95 for R134a systems and £100–£140 for R1234yf systems, plus additional call-out fees if the vehicle can't be driven to the engineer. So that apparent £600 bargain may already be £700–£800 before you've even switched it on.</p>
+
+    <h3>Read the Specifications Carefully</h3>
+    <p>One listing I researched proudly advertised 13,500 BTU. Further down the same advert it stated a refrigeration capacity of 1,800W. 1,800W converts to approximately 6,100 BTU/h. Those two figures simply don't agree — that's not a rounding error, it's roughly half the headline figure.</p>
+    <p>That doesn't automatically make it a bad air conditioner. However, if a seller can't accurately describe their own product, I'd personally question what else in the advert might not be entirely accurate.</p>
+
+    <h3>Battery Claims Can Be Misleading</h3>
+    <p>One advert simply stated: <em>"Suitable for a minimum 120Ah battery."</em> Sounds reassuring. But 120Ah of what? AGM? Gel? Lithium? Those batteries behave very differently.</p>
+    <p>If a unit is drawing around 50 amps continuously, a typical 120Ah AGM battery would realistically provide only around half of its rated capacity before significantly shortening its life. That could mean little more than an hour of continuous operation. A 120Ah lithium battery performs considerably better, but even then, the air conditioner isn't the only thing drawing power — fridge, lighting, water pump, chargers, router and everything else are all sharing the same battery. The advert may not technically be wrong, but it certainly doesn't tell the whole story.</p>
+
+    <h3>High Current Means Good Installation Matters</h3>
+    <p>Unlike a diesel heater, which briefly draws a higher current during start-up before settling to only a few amps, a rooftop air conditioner can draw 40–60 amps continuously under demanding conditions. That means correct cable sizing, quality terminals, proper crimps, correct fusing and good installation practices become absolutely critical. The higher the current, the less room there is for poor workmanship.</p>
+
+    <h3>Refrigeration Systems Are More Complex</h3>
+    <p>A diesel heater and an air conditioner are fundamentally different machines. If a diesel heater develops a fault, replacing a glow plug or fuel pump is often a straightforward DIY repair. An air conditioner contains a sealed refrigeration circuit. If that develops a leak, repairs may involve leak detection, refrigeration repairs, vacuum evacuation, compressor oil replacement and refrigerant recharge — a much more specialised and potentially expensive process.</p>
+
+    <h3>My Personal View</h3>
+    <p>Could some of these generic marketplace rooftop air conditioners prove perfectly reliable? Absolutely. Some owners may have years of fault-free service. However, after two weeks researching the market, I personally wasn't comfortable taking that gamble.</p>
+    <p>A rooftop air conditioner isn't simply another accessory. It's a heavy appliance that requires permanently cutting a large hole in your roof. For my own campervan, I'm not just buying the air conditioner — I'm buying the technical documentation, the dealer network, the availability of spare parts, the warranty support, and the likelihood of still being able to obtain help years into the future. That's where I believe recognised manufacturers currently justify much of their higher purchase price.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 4 -->
+<div class="container">
+<article class="chapter" id="ch4">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 4</span>
+    <span class="chapter-title">Genuine 12V &amp; 24V Rooftop Air Conditioners</span>
+  </div>
+  <div class="chapter-body">
+    <p>After researching the cheaper marketplace units, I wanted to see what was available from recognised manufacturers with proper UK dealer support. I was actually quite surprised.</p>
+    <p>There are genuine, native 12V rooftop air conditioners on the market, and some are very impressive pieces of engineering. Unlike many of the marketplace imports, these units are sold through established UK campervan and motorhome dealers, have proper technical documentation, warranty support and parts availability.</p>
+    <p>The downside? They aren't cheap.</p>
+
+    <h3>Indel B Plein-Aircon 12V</h3>
+    <p>This Italian-built unit is one of the best-known genuine 12V rooftop air conditioners available in the UK.</p>
+
+    <div class="spec-block">
+      <div class="spec-title">Confirmed Specifications</div>
+      <ul>
+        <li><span>Cooling:</span> 1,200W (approx. 4,100 BTU/h)</li>
+        <li><span>Heating:</span> None</li>
+        <li><span>Current draw:</span> 16A (Auto mode) / 42A (Max mode)</li>
+        <li><span>Weight:</span> 23.1kg (external unit)</li>
+        <li><span>Price:</span> approx. £1,300–£1,600</li>
+      </ul>
+    </div>
+
+    <p>This is a very efficient unit and ideal for people wanting to cool a sleeping area or a smaller, well-insulated camper. It's worth noting that it's a cooling-only unit — there's no heat pump function, which is something to consider if you're planning year-round use in the UK.</p>
+
+    <h3>Mestic RTA-2000 12V</h3>
+    <p>The Mestic RTA-2000 is another genuine native 12V rooftop system available through reputable UK suppliers, and it stands out from the others in this section because it includes a heat pump function — making it a genuine all-season option.</p>
+
+    <div class="spec-block">
+      <div class="spec-title">Confirmed Specifications</div>
+      <ul>
+        <li><span>Cooling:</span> 1,230W (Eco) / 2,020W (Boost)</li>
+        <li><span>Heating:</span> 1,230W / 2,000W (heat pump)</li>
+        <li><span>Current – cooling:</span> 14.4A–29.8A</li>
+        <li><span>Current – heating:</span> 14.4A–56.4A</li>
+        <li><span>Price:</span> approx. £2,000</li>
+      </ul>
+    </div>
+
+    <p>The current draw figures are worth reading carefully. The higher end of the range (56.4A) only occurs in heating mode, not cooling. Direct comparisons with cooling-only units need to account for that distinction.</p>
+
+    <h3>Dometic CoolAir RTX 1000</h3>
+    <p>Dometic produce genuine native 12V units, often marketed as truck parking coolers rather than traditional campervan air conditioners. The RTX range includes different models with different outputs, so it's important to look at each individually rather than assuming the same performance across the range.</p>
+
+    <div class="spec-block">
+      <div class="spec-title">Confirmed Specifications – RTX 1000</div>
+      <ul>
+        <li><span>Cooling:</span> approx. 1,100W</li>
+        <li><span>Heating:</span> None</li>
+        <li><span>Voltage:</span> 12V DC</li>
+        <li><span>Refrigerant:</span> R134a</li>
+        <li><span>Weight:</span> 22.8kg</li>
+        <li><span>Price:</span> £2,100+</li>
+      </ul>
+    </div>
+
+    <p>These have earned an excellent reputation amongst long-distance HGV drivers because they're specifically designed to keep sleeper cabs comfortable without idling the engine all night. Like the Indel B, the RTX 1000 is a cooling-only unit.</p>
+
+    <h3>So Why Doesn't Everyone Buy One?</h3>
+    <p>This was probably the biggest lesson I learned during my research. Many people assume that because an air conditioner runs directly from 12V, it must automatically use less electricity. Unfortunately, physics doesn't work that way.</p>
+    <p>A 12V air conditioner does avoid the small losses associated with running through an inverter, but it still has to remove exactly the same amount of heat from the vehicle. Moving heat takes energy. The hotter it is outside, and the more cooling you want inside, the more electrical energy has to come from somewhere. That's why even the very best native 12V rooftop air conditioners can still draw 40, 50 or more amps under demanding conditions. They aren't inefficient. They're simply doing a very demanding job.</p>
+
+    <h3>Who Are These Units Best Suited To?</h3>
+    <p>In my opinion, they're an excellent choice for people who already have a substantial lithium battery bank, spend long periods away from electrical hook-up, want quiet overnight cooling, have relatively small or well-insulated vehicles, and accept the compromises in cooling capacity and runtime.</p>
+
+    <h3>Why I Eventually Looked Elsewhere</h3>
+    <p>When I started this research, I fully expected one of these units to end up on my own roof. After comparing specifications, prices and real-world performance, I gradually found myself looking more and more at modern 230V inverter rooftop air conditioners instead. Not because these 12V units are poor — quite the opposite. I simply reached the conclusion that, for my own build and the way I intend to use it, the current 230V market offers more choice, higher cooling and heating performance, and better overall value for money. That won't be the right answer for everyone, but it's where my own research eventually led me.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 5 -->
+<div class="container">
+<article class="chapter" id="ch5">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 5</span>
+    <span class="chapter-title">Why I've Personally Chosen a Modern 230V Rooftop Air Conditioner</span>
+  </div>
+  <div class="chapter-body">
+    <p>When I started researching campervan air conditioning, I was convinced I'd end up buying a native 12V or 24V rooftop unit. If your camper runs from batteries, surely your air conditioner should too.</p>
+    <p>A fortnight later, I found myself arriving at a completely different conclusion.</p>
+
+    <h3>Choice</h3>
+    <p>One of the first things I noticed was just how much more choice exists in the 230V market. Whether you're looking at Truma, Mestic, Dometic or several other recognised manufacturers, there are far more models available, covering a wider range of cooling capacities, heating outputs, price points and features. Genuine native 12V rooftop units remain a relatively small niche by comparison.</p>
+
+    <h3>Value for Money</h3>
+    <p>This was probably the biggest surprise of the entire research period. I'd assumed that choosing a premium 230V unit would cost considerably more than going native 12V. In many cases, the opposite turned out to be true.</p>
+    <p>At the time of writing, the Mestic RTA-2600i — an inverter-driven 230V rooftop unit with cooling, heating and dehumidification — is available from UK suppliers for around £1,200–£1,250. The Truma Aventa Comfort, a well-regarded 230V unit with a strong dealer network, sits closer to £1,500–£1,800 depending on where you buy. Meanwhile, the genuine 12V units discussed in the previous chapter start at around £1,300–£1,600 for the Indel B and climb to over £2,000 for the Mestic RTA-2000 12V — while generally offering lower cooling output and, in most cases, no heating function at all.</p>
+    <p>That comparison alone made me rethink my assumptions entirely.</p>
+
+    <h3>Inverter Technology</h3>
+    <p>Modern inverter units work very differently from older fixed-speed air conditioners. Instead of cooling at full power, switching off, waiting for the temperature to rise, then switching back on again, they continuously adjust compressor speed to match the amount of cooling or heating actually required. The result is a steadier cabin temperature, quieter running, better humidity control and, in many situations, lower average power consumption. For somebody who may spend weeks or months living and working inside a van, that's a significant practical advantage.</p>
+
+    <h3>My Own Shortlist</h3>
+    <p>When I started this project, I was almost certain I'd be buying a Truma Aventa Comfort. It's still an excellent air conditioner and the dealer support is first-rate. However, as my research continued I discovered the Mestic inverter range — specifically the RTA-2600i and RTA-3600i — and found it difficult to justify several hundred pounds more for the Truma given the performance comparison.</p>
+
+    <div class="callout">That isn't a recommendation. It's simply where my own research led me.</div>
+
+    <h3>Every Build Is Different</h3>
+    <p>There isn't a single best air conditioner — only the one that suits your vehicle, budget and style of use. In my case, my camper isn't being built primarily for holidays. It will effectively be my home while I'm away on long-term contracts, which means comfort, reliable sleep and effective heating in cooler months all matter as much as cooling in summer. A modern 230V inverter rooftop unit best fits those requirements.</p>
+    <p>Someone else's priorities may be completely different — and that's exactly why the next few chapters look at the alternatives.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 6 -->
+<div class="container">
+<article class="chapter" id="ch6">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 6</span>
+    <span class="chapter-title">Under-Bench (Split) Air Conditioning</span>
+  </div>
+  <div class="chapter-body">
+    <p>One option that doesn't get talked about nearly as much as rooftop units is the under-bench split air conditioner.</p>
+    <p>Unlike a rooftop unit, these are made up of two separate components. One part contains the compressor and condenser and is usually mounted underneath the vehicle or in an external locker. The second part, containing the evaporator and fan, is mounted inside the living area — often under a bench seat or bed — with ducting used to distribute the cooled or heated air around the vehicle. These systems are very common in boats and are also used in some premium campervan and motorhome conversions.</p>
+
+    <h3>The Advantages</h3>
+    <p>One of the biggest advantages is that they don't require a large air conditioner sitting on your roof. That means more roof space for solar panels, a lower overall vehicle height, better aerodynamics, less roof weight and often a neater appearance. Depending on the design, they can also be very quiet inside the vehicle because the compressor is mounted outside the living space.</p>
+
+    <h3>The Disadvantages</h3>
+    <p>The biggest drawback is installation complexity. Unlike a rooftop unit, which generally drops into a standard roof aperture, split systems usually require considerably more planning. Pipework has to run between the two halves of the system. Condensate drainage has to be provided. The outdoor unit needs somewhere with adequate airflow while remaining protected from road spray, dirt and damage. The indoor unit also takes up valuable storage space that many campervan owners simply can't afford to lose.</p>
+
+    <h3>Ducting Matters</h3>
+    <p>Cold air doesn't naturally find its way around a campervan — it has to be directed where it's needed. Long duct runs, sharp bends, poorly insulated ducting and small vents all reduce efficiency. Like central heating in a house, the ducting is just as important as the air conditioner itself. A poorly designed duct system can leave one end of the van freezing while the other remains stubbornly warm.</p>
+
+    <h3>The Floor Vent Issue</h3>
+    <p>One thing that immediately put me off many under-bench installations was the requirement for external airflow. Most systems need intake and exhaust vents through the vehicle floor or sidewall. Those holes aren't optional — without sufficient airflow, the outdoor section can't reject heat properly and the unit simply won't perform as designed. Every additional penetration is another potential route for water, dust, road salt and insects if not designed and sealed properly.</p>
+
+    <h3>My Personal View</h3>
+    <p>I actually think under-bench systems are an excellent solution for the right build. If you're designing a camper from scratch and have already planned space for the equipment, they can provide a neat, quiet installation while leaving the roof completely free.</p>
+    <p>However, for my own build, the additional installation complexity, ducting requirements and loss of internal storage outweighed the advantages. A modern rooftop unit simply suits my layout much better. That doesn't make one system better than the other — they're simply designed around different priorities.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 7 -->
+<div class="container">
+<article class="chapter" id="ch7">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 7</span>
+    <span class="chapter-title">Window-Mounted Air Conditioners</span>
+  </div>
+  <div class="chapter-body">
+    <p>During my research, another type of air conditioner kept appearing in recommendations, particularly for caravans and smaller campervans — the window-mounted split unit.</p>
+    <p>Unlike a rooftop air conditioner, these don't require cutting a hole in your roof. The unit hangs over a window frame, with one section inside the vehicle and the compressor outside. The heat is rejected directly outside without the need for long duct runs or refrigerant pipework. Both sections are connected by a flat hose that passes through the window gap, allowing the window to remain almost fully closed.</p>
+    <p>The best-known example in the UK market is the Mestic SPA range, which currently includes two models. The SPA-3100 produces around 895W (approximately 3,050 BTU/h) of cooling and is aimed at vehicles up to 5 metres. The SPA-5100 produces around 1,495W (approximately 5,100 BTU/h) and is suited to vehicles up to 6 metres. Both are 230V units, so they require a mains hook-up or an inverter — the same as any 230V rooftop air conditioner. Current UK retail prices range from approximately £425 to £550 depending on model and retailer.</p>
+
+    <h3>The Advantages</h3>
+    <p>The biggest attraction is undoubtedly the price combined with the simplicity of installation. There's no permanent roof modification, no need to lift a heavy unit onto the roof, and if the unit ever fails it can simply be removed and replaced. For people who mainly stay on campsites with electric hook-up, they're a genuinely attractive budget option.</p>
+
+    <h3>The Downsides</h3>
+    <p>The first compromise is cooling capacity. Even the more powerful SPA-5100 at around 1,495W produces considerably less cooling than most quality rooftop air conditioners. They're perfectly capable of improving comfort, but they're not intended to rapidly cool a large campervan that's been sitting in full summer sun.</p>
+    <p>The second issue is practicality. They occupy one window while in use, reducing both the view and natural ventilation. The compressor protrudes outside the vehicle, making them less suitable for roadside stops, stealth camping or anywhere security might be a concern. They also need to be fitted, removed and stored if not left permanently installed — which, given that they can't be used while driving, adds a layer of inconvenience on a touring trip.</p>
+
+    <h3>Who Are They Best For?</h3>
+    <p>Personally, I think these units make far more sense for caravans than campervans. A caravan is usually stationary once pitched, connected to mains electricity and doesn't need to worry about driving away every day. For campervans used for touring, they feel more like a compromise.</p>
+
+    <h3>My Personal View</h3>
+    <p>If my budget simply wouldn't stretch to a quality rooftop unit, I'd probably consider a window-mounted air conditioner before gambling on one of the very cheap generic marketplace rooftop units. At least you're buying from an established manufacturer, you avoid permanently modifying your roof, and if it eventually fails it's easy to remove and replace.</p>
+    <p>That said, for my own build it isn't the route I'll be taking. My campervan is intended to be lived in for extended periods, and I wanted something permanently installed, ready to use at the press of a button, without sacrificing a window or having equipment hanging outside the vehicle.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 8 -->
+<div class="container">
+<article class="chapter" id="ch8">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 8</span>
+    <span class="chapter-title">Domestic Wall-Mounted Split Air Conditioners</span>
+  </div>
+  <div class="chapter-body">
+    <p>At one stage, I seriously considered fitting a domestic wall-mounted split air conditioner to my campervan. After all, they're incredibly efficient, relatively inexpensive for the amount of cooling they produce, and millions of homes use them every day.</p>
+    <p>So why don't we see them fitted to campervans very often? After researching them, the answer becomes fairly obvious.</p>
+
+    <h3>They Were Never Designed For Vehicles</h3>
+    <p>A domestic split system consists of two separate units. The quiet indoor unit is mounted on an internal wall, while the much larger outdoor condenser is permanently mounted outside the building. In a house, that's easy. In a campervan, it raises an immediate question — where do you put the outdoor unit?</p>
+    <p>Every mile travelled means vibration, potholes, speed bumps, twisting chassis and constant exposure to road spray. Finding somewhere to mount a large outdoor condenser quickly becomes the biggest challenge.</p>
+
+    <h3>The Weight Problem</h3>
+    <p>Domestic outdoor condensers are considerably heavier than most purpose-built campervan air conditioners. They're designed to sit on a concrete base or wall brackets attached to brickwork — not to spend years bouncing around on the back of a vehicle. Even with a strong mounting frame, you've added considerable weight outside the vehicle and introduced another item that has to cope with constant vibration.</p>
+
+    <h3>Pipework Becomes More Complicated</h3>
+    <p>Unlike a rooftop unit, which is largely self-contained, a domestic split system requires insulated refrigerant pipework running between the indoor and outdoor units. Those pipes need protecting from stone strikes, road dirt, water, corrosion and vibration. The longer and more exposed those pipes become, the more complex the installation becomes.</p>
+
+    <h3>It's Also Visually Obvious</h3>
+    <p>Most people spend a lot of time trying to make their campervan look neat and well finished. A domestic condenser hanging from the rear of the vehicle, mounted on custom brackets or attached to a rear carrier, isn't exactly subtle. That won't bother everyone, but it wasn't something I particularly wanted for my own build.</p>
+
+    <h3>The Positives</h3>
+    <p>To be fair, domestic split systems do have genuine advantages. They offer excellent cooling performance. Many use highly efficient inverter compressors. Replacement parts are generally easy to obtain, and they're well understood by refrigeration engineers. Compared with some specialist campervan air conditioners, they can represent very good value for money in a static setting.</p>
+
+    <h3>My Personal View</h3>
+    <p>Could somebody make one work in a campervan? Absolutely. People have, and I've seen some very clever installations. However, for a vehicle that spends its life travelling, the compromises in mounting the outdoor unit, protecting the pipework, managing the extra weight and keeping everything looking tidy outweighed the potential savings.</p>
+    <p>For my own build, I'd much rather fit equipment that was specifically designed from the outset to live on a moving vehicle.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 9 -->
+<div class="container">
+<article class="chapter" id="ch9">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 9</span>
+    <span class="chapter-title">Fans, Air Movers and Evaporative Coolers – Useful, But Know Their Limits</span>
+  </div>
+  <div class="chapter-body">
+    <p>Before continuing, I want to clarify what I'm referring to here — portable fans, desktop fans, floor-standing fans, and evaporative coolers ("swamp coolers"). I'm not talking about roof-mounted ventilation systems such as the MaxxFan Deluxe, which actively exchange the hot air inside the vehicle with cooler outside air and are a completely different product.</p>
+    <p>Portable fans certainly have their place and I wouldn't be without one.</p>
+    <p>However, it's important to understand what they're actually doing. They do not reduce the temperature of the air. Instead, they make you feel cooler by moving air across your skin, helping sweat evaporate and allowing your body to lose heat more efficiently.</p>
+    <p>Many of the inexpensive "portable air conditioners" sold online work in exactly the same way, sometimes adding a small water reservoir or damp filter to create an evaporative cooling effect. That can make you feel cooler under the right conditions — but it isn't the same as true refrigerated air conditioning.</p>
+    <p>During extreme heatwaves, once the air temperature approaches around 35°C, the situation changes. The air itself can be as warm as, or warmer than, your skin. At that point, blowing more warm air around becomes progressively less effective and can in some circumstances contribute to heat stress and dehydration, particularly in humid conditions or for vulnerable people. This is why the UK Health Security Agency and the World Health Organization advise that fans should not be relied upon as the primary cooling method during extreme heat events.</p>
+    <p>That doesn't mean fans suddenly become useless. Good ventilation remains incredibly important, especially when combined with roof-mounted extraction fans that are constantly replacing hot interior air with cooler outside air. It simply highlights the fundamental difference between moving heat around and actually removing it from the vehicle.</p>
+    <p>A true refrigerated air conditioner physically extracts heat from inside the campervan and rejects it outside. That's something no fan or evaporative cooler can do.</p>
+  </div>
+</article>
+</div>
+
+<!-- CHAPTER 10 -->
+<div class="container">
+<article class="chapter" id="ch10">
+  <div class="chapter-header">
+    <span class="chapter-number">Chapter 10</span>
+    <span class="chapter-title">My Conclusions</span>
+  </div>
+  <div class="chapter-body">
+    <p>After spending the best part of two weeks researching campervan air conditioning, one thing became very clear.</p>
+
+    <div class="callout">I hadn't simply been comparing air conditioners. I'd been comparing complete cooling systems.</div>
+
+    <p>At first I was concentrating almost entirely on the units themselves — cooling capacity, noise, weight, power consumption, price. But the more I dug in, the more I realised none of those things exist in isolation. The battery bank, the inverter, the campsite hook-up, the solar system, the insulation, the size of the vehicle, the amount of glass, how often you go off-grid — they're all part of exactly the same equation.</p>
+    <p>That's why I don't think there's a single best air conditioner. There is only the one that best suits your particular vehicle, budget and style of use.</p>
+    <p>Someone touring Europe on campsites with full hook-up every night will probably make a completely different choice to someone living almost entirely off-grid. Someone using a camper for occasional weekends has different priorities to someone building a vehicle that will regularly be their home for weeks at a time. For my own build, reliability, comfort, heating performance and long-term support became more important than simply having the cheapest unit or the biggest number on the box.</p>
+    <p>Another thing this research reinforced was that there are very few genuine shortcuts. As tempting as some of the cheaper marketplace rooftop units appear, I kept coming back to the same question: if this unit develops a fault two years from now, who is actually going to repair it? For something that involves permanently cutting a large hole in your roof, that's a question worth asking before handing over your money.</p>
+    <p>That doesn't mean everyone needs to spend thousands of pounds. For some people, a quality roof fan and good insulation may be all they ever need. Others may be perfectly happy with a window-mounted unit on campsites, or find that a genuine 12V rooftop unit suits their style of travelling perfectly. None of those choices are wrong.</p>
+    <p>Hopefully this article has simply made the advantages and disadvantages of each option clear enough for you to make an informed decision for your own build.</p>
+
+    <div class="rabbit-hole">
+      <h3>My Next Rabbit Hole... Inverter Generators</h3>
+      <p>One thing I definitely didn't expect was where this research eventually led me.</p>
+      <p>Once I'd accepted that buying an air conditioner also meant thinking carefully about how to power it, I found myself researching inverter generators in exactly the same level of detail.</p>
+      <p>Before I started, I had all the usual assumptions. Heavy. Noisy. Expensive. Thirsty. Suitable only for building sites.</p>
+      <p>I couldn't have been more wrong.</p>
+      <p>Modern inverter generators are far quieter, lighter, smaller and cheaper to buy and run than most people realise — and for some campervan owners they may actually make more financial sense than spending thousands upgrading battery banks and solar systems purely to run air conditioning for occasional periods.</p>
+      <p>I've now completed that research too. If enough people are interested, I'll write that one next. Let me know in the comments.</p>
+    </div>
+  </div>
+</article>
+</div>
+
+<div class="container">
+  <div class="chapter" style="border-left: 4px solid #1e4d7b; margin-bottom: 0.5rem;">
+    <div class="chapter-body">
+      <p style="margin-bottom:0;">If you've owned any of the units mentioned here, I'd genuinely like to hear your experience. Technology changes quickly and real-world ownership is often just as valuable as manufacturers' specifications. Drop your thoughts in the comments.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Personal research and opinion &nbsp;|&nbsp; Steve English &nbsp;|&nbsp; June 2026</p>
+  <p style="margin-top:0.4rem;">Factual statements supported by cited sources. Analysis and interpretation are opinion.</p>
+</footer>
+
+</body>
+</html>
