@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Britain After Reform — Launch Edition</title>
+<style>
+  :root{
+    --ink:#101820;
+    --paper:#f6f1e7;
+    --paper2:#fffdf8;
+    --teal:#00a7a5;
+    --teal-dark:#007d7b;
+    --red:#b3192d;
+    --gold:#c99a33;
+    --muted:#606a70;
+    --line:#c9c2b4;
+  }
+  *{box-sizing:border-box}
+  html{background:#d5d4d0;scroll-behavior:smooth}
+  body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#d5d4d0}
+  .instructions{
+    width:1080px;max-width:calc(100vw - 24px);margin:18px auto 8px;padding:10px 16px;
+    font-family:Arial,sans-serif;font-size:14px;background:#fff;border:1px solid #bbb;border-radius:8px;
+  }
+  .page{
+    position:relative;width:1080px;height:1350px;margin:18px auto;background:var(--paper2);
+    overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.22);padding:54px 64px 48px;
+  }
+  .page::after{
+    content:"BRITAIN AFTER REFORM • HYPOTHETICAL FUTURE REPORT";
+    position:absolute;left:64px;right:64px;bottom:22px;border-top:1px solid var(--line);
+    padding-top:10px;font:700 12px/1 Arial,sans-serif;letter-spacing:1.4px;color:#596168;
+  }
+  .masthead{display:flex;align-items:flex-end;justify-content:space-between;border-top:9px solid var(--teal);border-bottom:3px solid var(--ink);padding:15px 0 10px;margin-bottom:24px}
+  .brand{font:900 54px/.92 Arial,sans-serif;letter-spacing:-2.5px;text-transform:uppercase}
+  .brand span{color:var(--teal-dark)}
+  .edition{text-align:right;font:700 14px/1.25 Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+  .future-badge{display:inline-block;background:var(--ink);color:#fff;padding:8px 12px;margin:0 0 16px;font:800 13px/1 Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase}
+  h1{font:900 68px/.94 Arial,sans-serif;letter-spacing:-2.9px;text-transform:uppercase;margin:0 0 14px}
+  h2{font:900 39px/1 Arial,sans-serif;letter-spacing:-1.4px;text-transform:uppercase;margin:0 0 14px}
+  h3{font:900 24px/1.05 Arial,sans-serif;text-transform:uppercase;margin:0 0 10px}
+  .deck{font:700 25px/1.22 Arial,sans-serif;color:#28343b;margin:0 0 22px;max-width:930px}
+  .dateline{font:800 15px/1 Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--teal-dark);margin:0 0 16px}
+  p{font-size:21px;line-height:1.38;margin:0 0 15px}
+  .lead:first-letter{float:left;font:900 84px/.72 Georgia,serif;color:var(--teal-dark);padding:9px 10px 0 0}
+  .rule{height:4px;background:var(--ink);margin:20px 0}
+  .thin-rule{height:1px;background:var(--line);margin:18px 0}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin:16px 0 19px}
+  .result-card{border:2px solid var(--ink);padding:14px 16px;background:#fff}
+  .result-card strong{display:block;font:900 45px/.9 Arial,sans-serif;color:var(--teal-dark)}
+  .result-card span{font:800 14px/1.15 Arial,sans-serif;text-transform:uppercase;letter-spacing:.8px}
+  .seat-wrap{background:var(--ink);padding:16px 18px 14px;margin:12px 0 18px;color:#fff}
+  .seat-title{display:flex;justify-content:space-between;align-items:center;font:800 14px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;margin-bottom:11px}
+  #seatDots{display:grid;grid-template-columns:repeat(50,1fr);gap:3px}
+  .dot{aspect-ratio:1;border-radius:50%;background:#59656d}
+  .dot.reform{background:var(--teal)}
+  .caption{font:italic 15px/1.25 Georgia,serif;color:#5d6468;margin-top:6px}
+  .pullquote{border-left:10px solid var(--teal);padding:8px 0 8px 22px;margin:20px 0;font:900 31px/1.12 Arial,sans-serif;text-transform:uppercase;letter-spacing:-.6px}
+  .two-col{columns:2;column-gap:38px;column-rule:1px solid var(--line)}
+  .two-col p{break-inside:avoid}
+  .section-kicker{font:900 14px/1 Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin:0 0 8px}
+  .timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0 20px}
+  .timebox{border-top:6px solid var(--teal);background:#f2eee5;padding:13px 12px;min-height:122px}
+  .timebox b{display:block;font:900 19px/1 Arial,sans-serif;text-transform:uppercase;margin-bottom:7px}
+  .timebox span{font:15px/1.25 Arial,sans-serif;color:#303b42}
+  .cabinet-note{font:italic 17px/1.3 Georgia,serif;color:#4a5358;margin-bottom:15px}
+  .cabinet-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cabinet-card{position:relative;border:1px solid var(--line);border-left:8px solid var(--teal);background:#fff;padding:14px 16px 13px;min-height:138px}
+  .cabinet-card .name{font:900 22px/1 Arial,sans-serif;text-transform:uppercase;margin-bottom:5px}
+  .cabinet-card .role{font:800 15px/1.2 Arial,sans-serif;color:var(--teal-dark);text-transform:uppercase;margin-bottom:8px}
+  .cabinet-card p{font:16px/1.28 Arial,sans-serif;margin:0;color:#354149}
+  .cabinet-card.spec::after{content:"TIPPED";position:absolute;right:10px;top:10px;font:800 10px/1 Arial,sans-serif;background:#ece7dc;padding:5px 7px;letter-spacing:1px}
+  .developing{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .newsbox{background:#fff;border-top:9px solid var(--teal);border-bottom:1px solid var(--line);padding:18px 19px;min-height:215px}
+  .newsbox.red{border-top-color:var(--red)}
+  .newsbox.gold{border-top-color:var(--gold)}
+  .newsbox h3{font-size:25px;line-height:1.02;margin-bottom:10px}
+  .newsbox p{font:17px/1.35 Arial,sans-serif;margin:0;color:#303b42}
+  .ticker{font:900 14px/1 Arial,sans-serif;background:var(--ink);color:#fff;display:inline-block;padding:7px 9px;margin-bottom:12px;letter-spacing:1px;text-transform:uppercase}
+  .policy-box{border:3px solid var(--ink);background:#fff;padding:20px 24px;margin:15px 0}
+  .policy-box h3{color:var(--teal-dark)}
+  .policy-quote{font:700 20px/1.38 Georgia,serif;margin:7px 0 0}
+  .source-list{font:14px/1.38 Consolas,"Courier New",monospace;word-break:break-all;background:#eeebe4;padding:15px 17px;margin-top:14px}
+  .source-list div{margin:0 0 9px}
+  .small{font-size:16px;line-height:1.32}
+  .disclaimer{background:#fff5d9;border:2px solid #d2a940;padding:14px 17px;font:700 16px/1.35 Arial,sans-serif;margin:14px 0}
+  .footer-number{position:absolute;right:64px;bottom:19px;font:900 14px/1 Arial,sans-serif;color:var(--teal-dark);z-index:2}
+  @media(max-width:1100px){
+    .page{transform-origin:top center}
+  }
+  @media print{
+    html,body{background:#fff}
+    .instructions{display:none}
+    .page{margin:0;box-shadow:none;page-break-after:always}
+  }
+</style>
+</head>
+<body>
+<div class="instructions"><strong>Screenshot layout:</strong> this file contains six fixed portrait pages (1080 × 1350). Open at 100% zoom and capture each page separately, or print to PDF. Everything is stored inside this one offline HTML file.</div>
+
+<section class="page" id="page1">
+  <div class="masthead">
+    <div class="brand">Britain <span>After Reform</span></div>
+    <div class="edition">Launch Edition<br>Sunday 10 June 2029</div>
+  </div>
+  <div class="future-badge">Hypothetical future news report</div>
+  <h1>The Uniparty’s Three-Century Rule Is Over</h1>
+  <div class="deck">Reform wins 432 seats and a historic majority of 214 as Britain rejects Labour, the Conservatives and the Liberal Democrats.</div>
+
+  <div class="result-grid">
+    <div class="result-card"><strong>432</strong><span>Reform UK seats</span></div>
+    <div class="result-card"><strong>214</strong><span>Overall majority</span></div>
+    <div class="result-card"><strong>650</strong><span>Commons seats</span></div>
+  </div>
+
+  <div class="seat-wrap">
+    <div class="seat-title"><span>House of Commons — fictional 2029 result</span><span>Reform 432 • All others 218</span></div>
+    <div id="seatDots" aria-label="650 seat dots, 432 Reform and 218 other"></div>
+  </div>
+
+  <div class="dateline">London — Sunday 10 June 2029</div>
+  <p class="lead">The final constituency has declared, the counting is over and Britain has delivered the greatest political upheaval in its modern democratic history.</p>
+
+  <p>Reform UK has won 432 of the 650 seats in the House of Commons, giving Nigel Farage a commanding overall majority of 214 and the power to form a government without coalition partners, confidence agreements or support from any of the old parties.</p>
+
+  <p>Labour, the Conservatives and the Liberal Democrats — the three parties of the Uniparty — have been decisively rejected.</p>
+
+  <div class="pullquote">No coalition. No compromise deal. No excuses.</div>
+
+  <p>When the historic count reached 305 years in 2026, Britain was still passing power between the Tory–Conservative, Whig–Liberal and Labour traditions. Three years later, after 308 years of establishment rule, that chain has finally been broken.</p>
+  <div class="footer-number">1 / 6</div>
+</section>
+
+<section class="page" id="page2">
+  <div class="masthead">
+    <div class="brand">Britain <span>After Reform</span></div>
+    <div class="edition">The New Government<br>10 June 2029</div>
+  </div>
+  <div class="section-kicker">The morning after the landslide</div>
+  <h2>A Majority Large Enough to Deliver the Contract</h2>
+  <div class="dateline">Westminster — Sunday morning</div>
+
+  <div class="two-col">
+    <p class="lead">Nigel Farage is expected to travel to Buckingham Palace this morning and accept the King’s invitation to form Britain’s first Reform UK government.</p>
+
+    <p>The scale of the result means there will be no negotiations with Labour, no deal with the Conservatives and no Liberal Democrat demands attached to a coalition agreement.</p>
+
+    <p>Reform has the votes to govern alone, pass its programme and survive even substantial rebellions from within its own ranks.</p>
+
+    <p>The incoming Prime Minister is expected to begin appointing his Cabinet immediately, with the first senior posts announced before the end of the day and the full ministerial team taking shape on Monday.</p>
+
+    <p>Whitehall departments have been told to prepare rapid implementation papers covering the first week, first 30 days and first 100 days of the new administration.</p>
+
+    <p>The first King’s Speech is expected to place border control, deportation, constitutional reform, tax cuts, policing, energy and the reduction of government waste at the centre of the legislative programme.</p>
+
+    <p>Reform officials have stressed throughout the campaign that <em>Our Contract with You</em> is not one enormous Bill. Its promises will require separate legislation, Budget measures, executive instructions and departmental action.</p>
+
+    <p>The government’s first test will therefore be speed without chaos: introducing urgent measures quickly while ensuring that every change can survive Parliament, the courts and the permanent machinery of the state.</p>
+  </div>
+
+  <div class="rule"></div>
+  <h3>The first 100 days</h3>
+  <div class="timeline">
+    <div class="timebox"><b>Election Night</b><span>432 seats. Majority 214. Reform governs alone.</span></div>
+    <div class="timebox"><b>Day One</b><span>Cabinet formed and first executive instructions issued.</span></div>
+    <div class="timebox"><b>Week One</b><span>Emergency border, sovereignty and crime measures begin.</span></div>
+    <div class="timebox"><b>Day 30</b><span>First Budget and early legislation move through Parliament.</span></div>
+    <div class="timebox"><b>Day 100</b><span>The country judges what has begun, passed and changed.</span></div>
+  </div>
+
+  <div class="disclaimer">This report is fiction set in a possible 2029. No future appointment, result or event shown here is an official Reform UK announcement. The policies quoted in the final pages are genuine published commitments.</div>
+  <div class="footer-number">2 / 6</div>
+</section>
+
+<section class="page" id="page3">
+  <div class="masthead">
+    <div class="brand">Britain <span>After Reform</span></div>
+    <div class="edition">Cabinet Watch<br>10 June 2029</div>
+  </div>
+  <div class="section-kicker">Who will run Reform Britain?</div>
+  <h2>The Names Tipped for the First Reform Cabinet</h2>
+  <p class="cabinet-note">The following appointments are fictional newspaper speculation based on the senior roles these figures hold within Reform UK in 2026. They are not official appointments or promises.</p>
+
+  <div class="cabinet-grid">
+    <div class="cabinet-card spec">
+      <div class="name">Nigel Farage</div>
+      <div class="role">Prime Minister</div>
+      <p>Party leader and architect of the election victory, expected to lead the government’s sovereignty, border and institutional-reform programme.</p>
+    </div>
+    <div class="cabinet-card spec">
+      <div class="name">Richard Tice</div>
+      <div class="role">Deputy Prime Minister</div>
+      <p>The current deputy leader is also being linked with a combined business and energy brief, placing him at the centre of growth and Net Zero reform.</p>
+    </div>
+    <div class="cabinet-card spec">
+      <div class="name">Robert Jenrick</div>
+      <div class="role">Chancellor of the Exchequer</div>
+      <p>Reform’s current Shadow Chancellor is expected to prepare the first Budget and lead the tax, spending and British-workers programme.</p>
+    </div>
+    <div class="cabinet-card spec">
+      <div class="name">Zia Yusuf</div>
+      <div class="role">Home Secretary</div>
+      <p>The current Shadow Home Secretary is the leading candidate to oversee borders, deportations, policing and the new enforcement machinery.</p>
+    </div>
+    <div class="cabinet-card spec">
+      <div class="name">Suella Braverman</div>
+      <div class="role">Education Secretary</div>
+      <p>Reform’s current Shadow Education Secretary is expected to lead changes to curriculum, discipline, standards and parental rights.</p>
+    </div>
+    <div class="cabinet-card spec">
+      <div class="name">Laila Cunningham</div>
+      <div class="role">Safeguarding & Violence Against Women and Girls</div>
+      <p>The London chair, mayoral candidate and former senior prosecutor is being tipped for a Home Office safeguarding role.</p>
+    </div>
+    <div class="cabinet-card spec">
+      <div class="name">Lee Anderson</div>
+      <div class="role">Senior Cabinet Role</div>
+      <p>The party chairman is expected to join the Cabinet, with Leader of the House or a Cabinet Office position among the possibilities.</p>
+    </div>
+    <div class="cabinet-card spec">
+      <div class="name">James Orr</div>
+      <div class="role">Policy Delivery</div>
+      <p>Reform’s Head of Policy is expected to take a central role ensuring departments turn the published programme into legislation and action.</p>
+    </div>
+  </div>
+
+  <div class="pullquote">The speculation ends when the Cabinet doors open. Delivery begins immediately afterwards.</div>
+  <div class="footer-number">3 / 6</div>
+</section>
+
+<section class="page" id="page4">
+  <div class="masthead">
+    <div class="brand">Britain <span>After Reform</span></div>
+    <div class="edition">Also Developing<br>Future News Desk</div>
+  </div>
+  <div class="future-badge">All items below are fictional</div>
+  <h2>The Result Is Already Changing Behaviour</h2>
+
+  <div class="developing">
+    <article class="newsbox">
+      <div class="ticker">Channel</div>
+      <h3>Zero Small-Boat Arrivals Recorded Since Reform Victory</h3>
+      <p>No successful Channel arrivals have been recorded in the first 48 hours since the result. Officials cautioned that weather and short-term disruption may be factors, but smugglers are reported to be reassessing promises that passengers will be allowed to remain in Britain.</p>
+    </article>
+
+    <article class="newsbox red">
+      <div class="ticker">France</div>
+      <h3>Calais Camps Begin to Thin as Britain Route Is Reconsidered</h3>
+      <p>French charities and local officials report early movement away from makeshift camps near the coast. Some migrants are said to be considering other destinations or returning along the routes by which they entered France.</p>
+    </article>
+
+    <article class="newsbox gold">
+      <div class="ticker">Travel</div>
+      <h3>One-Way Flight Bookings Surge After Deportation Pledge</h3>
+      <p>Airlines have reported an unusual rise in outbound one-way searches and bookings. Travel agents say the increase appears concentrated among people uncertain whether they will retain a lawful right to remain once enforcement operations begin.</p>
+    </article>
+
+    <article class="newsbox">
+      <div class="ticker">Westminster</div>
+      <h3>Peers Prepare to Fight Plan to Replace House of Lords</h3>
+      <p>Senior peers are preparing a parliamentary campaign against Reform’s proposal for a much smaller and more democratic second chamber. Ministers are expected to begin the reform process within the government’s first 100 days.</p>
+    </article>
+
+    <article class="newsbox red">
+      <div class="ticker">Whitehall</div>
+      <h3>Departments Ordered to Produce 100-Day Delivery Plans</h3>
+      <p>Permanent secretaries have been instructed to identify the laws, spending decisions, contracts and staffing changes required to begin delivering the published programme at once.</p>
+    </article>
+
+    <article class="newsbox gold">
+      <div class="ticker">Coming Next</div>
+      <h3>Britain After Reform: Day One</h3>
+      <p>The next report follows the first Cabinet appointments, the opening instructions to the Home Office and the measures prepared for immediate introduction in Parliament.</p>
+    </article>
+  </div>
+  <div class="footer-number">4 / 6</div>
+</section>
+
+<section class="page" id="page5">
+  <div class="masthead">
+    <div class="brand">Britain <span>After Reform</span></div>
+    <div class="edition">The Reality<br>Behind the Fiction</div>
+  </div>
+  <div class="section-kicker">Why this series exists</div>
+  <h2>A Future Report Built on Real Published Policies</h2>
+
+  <p>Many Reform supporters know what they want changed but have never sat down and read a full policy document. <strong>Britain After Reform</strong> turns those commitments into short future news reports showing what they might look like when carried out by a majority government.</p>
+
+  <p>The election result, dates, Cabinet appointments and events are fictional. The policy quotations are real. Each later report will focus on one main promise and end with the exact published wording and its official source.</p>
+
+  <p>Where Reform UK has issued a newer formal policy that expands or replaces wording in the 2024 Contract, the newer official policy will be used and identified.</p>
+
+  <div class="policy-box">
+    <h3>Our Contract with You</h3>
+    <div class="policy-quote">“Our Contract with You is not just another party manifesto. It sets out the reforms that Britain needs in the first 100 days following a general election and thereafter.”</div>
+  </div>
+
+  <div class="policy-box">
+    <h3>Immigration and the boats</h3>
+    <div class="policy-quote">“Illegal migrants who come to the UK will be detained and deported.”</div>
+  </div>
+
+  <div class="policy-box">
+    <h3>House of Lords reform</h3>
+    <div class="policy-quote">“Replace the crony-filled House of Lords with a much smaller, more democratic second chamber.”</div>
+  </div>
+
+  <div class="policy-box">
+    <h3>Current official immigration policy</h3>
+    <div class="policy-quote">“A Reform government will stop the boats by immediately leaving the ECHR, restoring full control of our borders, intercepting and detaining all illegal arrivals, and deporting them.”</div>
+  </div>
+
+  <div class="disclaimer"><strong>Series notice:</strong> This is political future fiction, not current news and not an official Reform UK publication. The next instalment begins on Day One of the imagined government.</div>
+  <div class="footer-number">5 / 6</div>
+</section>
+
+<section class="page" id="page6">
+  <div class="masthead">
+    <div class="brand">Britain <span>After Reform</span></div>
+    <div class="edition">Source Desk<br>Launch Edition</div>
+  </div>
+  <div class="section-kicker">Verify the real promises</div>
+  <h2>Official Sources and the Road Ahead</h2>
+
+  <p>The full addresses below are included so every genuine policy quotation can be checked against Reform UK’s own published material. The fictional report itself does not depend on readers clicking away to another website.</p>
+
+  <h3>Official sources</h3>
+  <div class="source-list" style="font-size:15px;line-height:1.5;padding:20px 22px;">
+    <div><strong>Reform UK leadership and senior team</strong><br>https://www.reformparty.uk/</div>
+    <div><strong>Reform UK current policies</strong><br>https://www.reformparty.uk/policies</div>
+    <div><strong>Reform UK — Our Contract with You (PDF)</strong><br>https://assets.nationbuilder.com/reformuk/pages/253/attachments/original/1718625371/Reform_UK_Our_Contract_with_You.pdf</div>
+    <div><strong>Laila Cunningham — official Reform UK article/profile context</strong><br>https://www.reformparty.uk/news/ten-months-ago-i-was-alone-in-london-today-we-are-a-movement</div>
+  </div>
+
+  <div class="rule"></div>
+  <h3>Coming in Britain After Reform</h3>
+  <div class="timeline" style="grid-template-columns:repeat(3,1fr);">
+    <div class="timebox"><b>Day One</b><span>The Cabinet forms and the first Home Office and Whitehall instructions are issued.</span></div>
+    <div class="timebox"><b>Week One</b><span>The first border, sovereignty and public-order measures enter Parliament.</span></div>
+    <div class="timebox"><b>Day 30</b><span>The first Reform Budget begins turning tax and spending promises into law.</span></div>
+    <div class="timebox"><b>Day 50</b><span>Energy, Net Zero and British-industry reforms move from policy to delivery.</span></div>
+    <div class="timebox"><b>Day 75</b><span>House of Lords and Civil Service reform reaches the centre of Westminster.</span></div>
+    <div class="timebox"><b>Day 100</b><span>A full audit of what has passed, begun, changed — and what remains to be done.</span></div>
+  </div>
+
+  <div class="policy-box">
+    <h3>Editorial rule for the series</h3>
+    <div class="policy-quote">One main policy per report. Short, readable future journalism. Exact genuine wording at the end. No invented policy passed off as Reform UK’s own.</div>
+  </div>
+
+  <div class="disclaimer"><strong>Important:</strong> Future election results, appointments, quotations and events will always be labelled as hypothetical. Genuine Reform UK commitments will always be separated and sourced.</div>
+  <div class="footer-number">6 / 6</div>
+</section>
+
+<script>
+  const seatDots = document.getElementById('seatDots');
+  for(let i=0;i<650;i++){
+    const d=document.createElement('span');
+    d.className='dot'+(i<432?' reform':'');
+    seatDots.appendChild(d);
+  }
+</script>
+</body>
+</html>
