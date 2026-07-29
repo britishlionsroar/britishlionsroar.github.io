@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Executive summary for the Electrasthetics commercial product proposal.">
+<title>Electrasthetics — Executive Summary</title>
+<style>
+:root{
+  --ink:#15191c;
+  --ink-2:#252b2f;
+  --paper:#f7f4ee;
+  --paper-2:#ece6dc;
+  --white:#fff;
+  --line:rgba(21,25,28,.13);
+  --gold:#a8844f;
+  --gold-light:#d7c19c;
+  --copper:#8c5f2e;
+  --shadow:0 22px 70px rgba(15,18,20,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+  line-height:1.65;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,244,238,.9);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+.header-inner{
+  min-height:82px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;
+}
+.logo{height:48px;width:auto;object-fit:contain}
+.header-nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.header-nav a{text-decoration:none;color:#525a60}
+.header-nav a:hover{color:var(--copper)}
+.pill{
+  padding:10px 16px;border:1px solid var(--ink);
+  border-radius:999px;font-weight:750;
+}
+
+.hero{
+  min-height:670px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 79% 20%,rgba(215,193,156,.22),transparent 24%),
+    radial-gradient(circle at 18% 80%,rgba(140,95,46,.15),transparent 24%),
+    linear-gradient(135deg,#0f1214,#20282c 58%,#111517);
+  display:flex;align-items:center;overflow:hidden;position:relative;
+}
+.hero:after{
+  content:"";position:absolute;width:520px;height:520px;
+  border:1px solid rgba(255,255,255,.08);border-radius:50%;
+  right:-170px;bottom:-190px;
+}
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:70px;align-items:center;padding:90px 0;
+}
+.kicker{
+  text-transform:uppercase;letter-spacing:.22em;
+  font-size:.77rem;font-weight:800;color:var(--gold-light);
+}
+.hero h1{
+  margin:16px 0 24px;
+  font-size:clamp(3.8rem,7vw,7.2rem);
+  line-height:.91;letter-spacing:-.055em;
+}
+.hero p{
+  max-width:720px;color:#d8dfe2;
+  font-size:1.17rem;margin:0;
+}
+.hero-side{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:28px;padding:30px;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(12px);
+  box-shadow:0 30px 85px rgba(0,0,0,.28);
+}
+.hero-side img{
+  height:70px;width:auto;background:#fff;
+  padding:8px 12px;border-radius:12px;margin-bottom:50px;
+}
+.hero-side strong{
+  display:block;color:var(--gold-light);
+  font-size:4rem;line-height:1;
+  margin-bottom:16px;letter-spacing:-.05em;
+}
+.hero-side span{color:#e1e6e8;font-size:1.02rem}
+
+.contents{
+  background:#fff;border-bottom:1px solid var(--line);
+}
+.contents-inner{
+  padding:24px 0;display:flex;align-items:center;
+  gap:12px;flex-wrap:wrap;
+}
+.contents-label{
+  font-size:.75rem;text-transform:uppercase;
+  letter-spacing:.15em;font-weight:800;color:var(--copper);
+  margin-right:8px;
+}
+.contents a{
+  text-decoration:none;padding:8px 12px;
+  border:1px solid var(--line);border-radius:999px;
+  font-size:.88rem;background:#fff;
+}
+.contents a:hover{border-color:var(--copper);color:var(--copper)}
+
+section.content{padding:100px 0}
+.section-grid{
+  display:grid;grid-template-columns:.72fr 1.28fr;
+  gap:70px;align-items:start;
+}
+.section-no{
+  color:var(--gold);font-size:5.5rem;
+  line-height:.9;letter-spacing:-.07em;font-weight:800;
+}
+.label{
+  text-transform:uppercase;letter-spacing:.15em;
+  font-size:.74rem;font-weight:800;color:var(--copper);
+  margin-top:18px;
+}
+h2{
+  margin:0 0 22px;
+  font-size:clamp(2.6rem,5vw,5.2rem);
+  line-height:.98;letter-spacing:-.045em;
+}
+.lead{font-size:1.2rem;color:#434b50}
+.copy p{color:#4e565c}
+.copy strong{color:var(--ink)}
+
+.callout{
+  margin-top:30px;padding:28px;
+  border-left:6px solid var(--gold);
+  background:#fff;box-shadow:var(--shadow);
+  font-size:1.08rem;
+}
+.dark{
+  background:var(--ink);color:#fff;
+}
+.dark p{color:#d3dadd}
+.dark .label{color:var(--gold-light)}
+.dark .section-no{color:rgba(215,193,156,.42)}
+.dark .callout{
+  background:rgba(255,255,255,.055);
+  box-shadow:none;border-left-color:var(--gold-light);
+}
+
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:18px;margin-top:36px;
+}
+.card{
+  padding:26px;border-radius:20px;
+  border:1px solid var(--line);background:#fff;
+  min-height:220px;
+}
+.card .num{
+  color:var(--gold);font-weight:800;
+  letter-spacing:.12em;font-size:.78rem;
+}
+.card h3{font-size:1.25rem;line-height:1.15;margin:38px 0 10px}
+.card p{margin:0;color:#626a70;font-size:.95rem}
+
+.dark .card{
+  background:rgba(255,255,255,.045);
+  border-color:rgba(255,255,255,.12);
+}
+.dark .card p{color:#cbd2d5}
+.dark .card h3{color:#fff}
+
+.statement{
+  padding:100px 0;
+  background:
+    linear-gradient(125deg,rgba(168,132,79,.13),transparent 42%),
+    var(--paper-2);
+}
+.statement-card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:30px;padding:64px;
+  box-shadow:var(--shadow);
+}
+.statement-card img{
+  height:68px;width:auto;margin-bottom:30px;
+}
+.statement-card blockquote{
+  margin:0;max-width:900px;
+  font-size:clamp(2.2rem,4vw,4.6rem);
+  line-height:1.02;letter-spacing:-.04em;
+  font-weight:750;
+}
+.statement-card p{max-width:730px;color:#596167;margin:24px 0 0}
+
+.return{
+  margin-top:48px;
+  display:inline-flex;align-items:center;
+  text-decoration:none;font-weight:750;
+  color:var(--copper);
+}
+.return:hover{text-decoration:underline}
+
+.chapter-nav{
+  border-top:1px solid var(--line);
+  background:#fff;
+}
+.chapter-nav-inner{
+  padding:34px 0 48px;
+  display:flex;justify-content:space-between;
+  gap:20px;align-items:center;
+}
+.chapter-nav a{
+  text-decoration:none;padding:13px 18px;
+  border-radius:999px;border:1px solid var(--line);
+  font-weight:750;
+}
+.chapter-nav a:hover{border-color:var(--copper);color:var(--copper)}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:28px 0 40px;color:#646c72;font-size:.9rem;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.back-top{
+  position:fixed;right:22px;bottom:22px;
+  width:48px;height:48px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--ink);color:#fff;text-decoration:none;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+
+@media(max-width:900px){
+  .hero-grid,.section-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .header-nav a:not(.pill){display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 26px,1180px)}
+  .site-header{position:relative}
+  .logo{height:40px}
+  .hero{min-height:auto}
+  .hero-grid{padding:70px 0}
+  .hero h1{font-size:3.7rem}
+  .hero-side{padding:24px}
+  section.content,.statement{padding:70px 0}
+  .cards{grid-template-columns:1fr}
+  .statement-card{padding:38px 24px}
+  .chapter-nav-inner,.footer-inner{display:block}
+  .chapter-nav a{display:block;text-align:center;margin:10px 0}
+}
+@media print{
+  .site-header,.contents,.back-top,.chapter-nav{display:none}
+  .hero{min-height:100vh;page-break-after:always}
+  section.content{page-break-before:always}
+}
+</style>
+</head>
+
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="Electrasthetics_Index.html" aria-label="Electrasthetics proposal home">
+      <img class="logo" src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics logo">
+    </a>
+    <nav class="header-nav" aria-label="Page navigation">
+      <a href="#contents">Contents</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#proposition">Proposition</a>
+      <a class="pill" href="Electrasthetics_Index.html#contents">Full proposal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Chapter 01</div>
+      <h1>Executive Summary</h1>
+      <p>
+        Electrasthetics is a proposed family of design-led electrical housings and installation accessories for campervans, motorhomes and specialist vehicles—created to solve the visible mismatch between high-quality electrical systems and poorly coordinated interior fittings.
+      </p>
+    </div>
+    <aside class="hero-side">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <strong>One system.</strong>
+      <span>Multiple product categories, one recognisable visual language and a commercially expandable platform.</span>
+    </aside>
+  </div>
+</section>
+
+<nav class="contents" id="contents" aria-label="Chapter contents">
+  <div class="wrap contents-inner">
+    <span class="contents-label">On this page</span>
+    <a href="#opportunity">The opportunity</a>
+    <a href="#proposition">The proposition</a>
+    <a href="#range">The product range</a>
+    <a href="#commercial">Commercial rationale</a>
+    <a href="#development">Development path</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="content" id="opportunity">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">01</div>
+      <div class="label">The opportunity</div>
+    </div>
+    <div class="copy">
+      <h2>Vehicle electrics are engineered as systems—but presented as unrelated parts.</h2>
+      <p class="lead">
+        Modern campervan interiors increasingly use premium materials, carefully coordinated colours and high-value appliances. Yet the switches, sockets, controllers, lights and cable fittings remain visually fragmented.
+      </p>
+      <p>
+        Most visible electrical components are designed around manufacturing convenience or domestic and automotive conventions. Converters therefore assemble finished interiors from products with different dimensions, colours, corner radii, fixing methods and bezel depths.
+      </p>
+      <div class="callout">
+        The gap is not a lack of electrical hardware. It is the lack of a coordinated system for presenting that hardware properly.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="proposition">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">02</div>
+      <div class="label">The proposition</div>
+    </div>
+    <div class="copy">
+      <h2>A modular exterior architecture around proven electrical components.</h2>
+      <p class="lead">
+        Electrasthetics does not need to reinvent every switch, socket or control. Its value lies in creating original housings, adapter systems and installation products that allow those components to share one premium visual identity.
+      </p>
+      <p>
+        The core strategy is to separate the visible enclosure from the internal electrical module. Common backplates, interchangeable inserts and concealed-fixing outer housings create a system that can expand across multiple applications without starting again each time.
+      </p>
+      <div class="callout">
+        This turns a series of individual accessories into a repeatable product ecosystem.
+      </div>
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="range">
+  <div class="wrap">
+    <div class="label">The proposed range</div>
+    <h2>Built around products installers already need.</h2>
+    <p class="lead" style="max-width:850px">
+      The first range combines universal architecture with specialist housings for recurring campervan installation problems.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Universal modular housings</h3>
+        <p>Shared enclosures and inserts for round sockets, USB modules, rocker switches, push buttons and related controls.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Surface-mounted backboxes</h3>
+        <p>Clean, concealed-fixing housings for installations where cutting finished cabinetry is undesirable or impossible.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Modular control panels</h3>
+        <p>Coordinated mixed-control arrangements capable of presenting complete electrical functions as one system.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Smart downlight housings</h3>
+        <p>Surface enclosures that allow modern low-profile recessed fittings to become intentional interior features.</p>
+      </div>
+      <div class="card">
+        <div class="num">05</div>
+        <h3>Specialist equipment housings</h3>
+        <p>Purpose-designed solutions for heater controllers, routers, Wema instruments and compact security viewers.</p>
+      </div>
+      <div class="card">
+        <div class="num">06</div>
+        <h3>Cable-management details</h3>
+        <p>Visible routing products designed to finish installations rather than merely conceal the worst of them.</p>
+      </div>
+    </div>
+
+    <a class="return" href="#contents">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content dark" id="commercial">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">03</div>
+      <div class="label">Commercial rationale</div>
+    </div>
+    <div class="copy">
+      <h2>Commercial strength comes from the family—not only the first product.</h2>
+      <p class="lead">
+        A converter who adopts one Electrasthetics fitting has a reason to select matching products elsewhere in the same vehicle. Every additional insert or specialist housing increases the usefulness of the full system.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="num">A</div>
+          <h3>Repeat purchasing</h3>
+          <p>A coordinated range encourages multiple fittings per installation and future additions.</p>
+        </div>
+        <div class="card">
+          <div class="num">B</div>
+          <h3>Installer standardisation</h3>
+          <p>Converters can build a familiar installation method into repeat vehicle designs.</p>
+        </div>
+        <div class="card">
+          <div class="num">C</div>
+          <h3>Expandable compatibility</h3>
+          <p>New adapter inserts can widen the range without replacing its core architecture.</p>
+        </div>
+      </div>
+
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="development">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">04</div>
+      <div class="label">Development path</div>
+    </div>
+    <div class="copy">
+      <h2>Start narrow, validate properly, then expand the system.</h2>
+      <p class="lead">
+        The recommended approach is to select a small number of high-value products for measured development and real-world prototype testing.
+      </p>
+      <p>
+        Initial manufacture can use additive processes to prove geometry, retention, wiring access and customer demand. Once a product achieves reliable volume, its production method can be reviewed independently without changing the broader product language.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="num">STEP 01</div>
+          <h3>Select</h3>
+          <p>Choose the strongest first products based on market gap, development complexity and cross-range value.</p>
+        </div>
+        <div class="card">
+          <div class="num">STEP 02</div>
+          <h3>Measure and prototype</h3>
+          <p>Build from physical samples, white papers and verified component dimensions.</p>
+        </div>
+        <div class="card">
+          <div class="num">STEP 03</div>
+          <h3>Install and refine</h3>
+          <p>Test fit, service access, retention, cable routing, finish quality and installer experience.</p>
+        </div>
+        <div class="card">
+          <div class="num">STEP 04</div>
+          <h3>Launch and extend</h3>
+          <p>Release a coherent starter range, then add compatible inserts and specialist housings.</p>
+        </div>
+      </div>
+
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <div class="statement-card">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <blockquote>
+        The proposal is simple: make the visible parts of vehicle electrics look as considered as the systems behind them.
+      </blockquote>
+      <p>
+        The following chapters set out the market gap, design rules, product architecture and individual commercial opportunities in detail.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="wrap chapter-nav-inner">
+    <a href="Electrasthetics_Index.html">← Proposal home</a>
+    <a href="Electrasthetics_Market_Opportunity.html">Next chapter: Market Opportunity →</a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Electrasthetics Commercial Product Proposal</div>
+    <div>Chapter 01 — Executive Summary</div>
+  </div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Return to top">↑</a>
+
+</body>
+</html>
