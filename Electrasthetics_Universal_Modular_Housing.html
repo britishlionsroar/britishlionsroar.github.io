@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electrasthetics Universal Modular Housing</title>
+<style>
+:root{
+  --ink:#1f2529;
+  --muted:#667078;
+  --paper:#ffffff;
+  --soft:#eef2f4;
+  --line:#d7dde1;
+  --brand:#294f62;
+  --brand-dark:#173442;
+  --accent:#b88b4a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Segoe UI,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--soft);
+  line-height:1.65;
+}
+.hero{
+  min-height:74vh;
+  display:flex;
+  align-items:flex-end;
+  background:
+    linear-gradient(120deg,rgba(16,31,40,.95),rgba(41,79,98,.78)),
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.13),transparent 30%);
+  color:#fff;
+  padding:70px 8vw;
+}
+.hero-inner{max-width:980px}
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:.8rem;
+  opacity:.82;
+  margin-bottom:14px;
+}
+h1{
+  font-size:clamp(2.8rem,7vw,6rem);
+  line-height:.98;
+  margin:0 0 22px;
+  font-weight:700;
+}
+.hero p{
+  max-width:780px;
+  font-size:clamp(1.05rem,2vw,1.35rem);
+  margin:0;
+  color:#e9f0f3;
+}
+main{
+  max-width:1180px;
+  margin:-42px auto 60px;
+  background:var(--paper);
+  box-shadow:0 12px 40px rgba(0,0,0,.16);
+}
+section{padding:64px 7vw}
+section+section{border-top:1px solid var(--line)}
+h2{
+  font-size:clamp(2rem,4vw,3.2rem);
+  line-height:1.1;
+  margin:0 0 24px;
+  color:var(--brand-dark);
+}
+h3{
+  margin:0 0 10px;
+  color:var(--brand-dark);
+  font-size:1.18rem;
+}
+.lead{
+  font-size:1.2rem;
+  color:#3e484f;
+  max-width:900px;
+}
+.statement{
+  margin:32px 0 0;
+  padding:26px 28px;
+  background:#f3f7f9;
+  border-left:6px solid var(--brand);
+  font-size:1.16rem;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.card{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:24px;
+  background:linear-gradient(180deg,#fff,#fafbfc);
+}
+.card strong{
+  display:block;
+  color:var(--brand-dark);
+  margin-bottom:8px;
+  font-size:1.05rem;
+}
+.problem{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:36px;
+  align-items:start;
+}
+.panel{
+  background:var(--brand-dark);
+  color:#fff;
+  padding:30px;
+  border-radius:14px;
+}
+.panel h3{color:#fff;font-size:1.4rem}
+.panel ul{padding-left:20px;margin:16px 0 0}
+.system-map{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:28px;
+}
+.system-map div{
+  border:1px solid var(--line);
+  padding:22px;
+  border-radius:10px;
+  text-align:center;
+  background:#fbfcfd;
+}
+.system-map span{
+  display:block;
+  font-weight:700;
+  color:var(--brand-dark);
+  margin-bottom:6px;
+}
+.table-wrap{overflow-x:auto;margin-top:28px}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+}
+th,td{
+  padding:15px 16px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  vertical-align:top;
+}
+th{
+  background:var(--brand-dark);
+  color:#fff;
+}
+tr:nth-child(even) td{background:#fafbfc}
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  background:#edf3f6;
+  border:1px solid #d1dde3;
+  border-radius:999px;
+  margin:3px 4px 3px 0;
+  font-size:.85rem;
+}
+.variants{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:28px;
+}
+.variant{
+  min-height:250px;
+  border-radius:14px;
+  padding:28px;
+  color:#fff;
+  background:linear-gradient(145deg,var(--brand),var(--brand-dark));
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.variant h3{color:#fff;font-size:1.5rem}
+.variant p{margin:0;color:#e6eef2}
+.steps{
+  counter-reset:step;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:30px;
+}
+.step{
+  counter-increment:step;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+}
+.step:before{
+  content:counter(step);
+  display:grid;
+  place-items:center;
+  width:34px;height:34px;
+  border-radius:50%;
+  background:var(--brand);
+  color:#fff;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.colours{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:24px;
+}
+.swatch{
+  min-width:125px;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+}
+.links{
+  margin-top:24px;
+  padding:22px;
+  background:#f7f9fa;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.links a{
+  color:var(--brand);
+  word-break:break-word;
+}
+.cta{
+  background:linear-gradient(135deg,var(--brand-dark),#274e62);
+  color:#fff;
+}
+.cta h2,.cta h3{color:#fff}
+.cta p{color:#e6eef2}
+.nav{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:30px 7vw 50px;
+  background:#fff;
+}
+.nav a{
+  display:inline-block;
+  text-decoration:none;
+  color:#fff;
+  background:var(--brand);
+  padding:13px 20px;
+  border-radius:8px;
+  font-weight:600;
+}
+.nav a:hover{background:var(--brand-dark)}
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:28px;
+  font-size:.9rem;
+}
+@media(max-width:850px){
+  .grid,.variants,.steps,.system-map,.problem{grid-template-columns:1fr}
+  .hero{min-height:62vh;padding:55px 24px}
+  main{margin:-24px 12px 36px}
+  section{padding:46px 24px}
+  .nav{padding:24px;flex-direction:column}
+  .nav a{text-align:center}
+}
+@media print{
+  body{background:#fff}
+  main{box-shadow:none;margin:0;max-width:none}
+  .hero{min-height:auto;page-break-after:always}
+  section{page-break-inside:avoid}
+  .nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Electrasthetics Product Proposal</div>
+    <h1>Universal Modular Housing System</h1>
+    <p>A coordinated family of surface-mounted housings designed to accept a wide range of campervan electrical modules while preserving one consistent visual language.</p>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <h2>The flagship product family</h2>
+  <p class="lead">
+    The Universal Modular Housing System is conceived as the foundation of the Electrasthetics range. Instead of designing a separate enclosure for every switch, socket or control, the system creates a common housing architecture that can accept multiple module types through interchangeable fronts, inserts and adapter plates.
+  </p>
+  <div class="statement">
+    One exterior design. Multiple internal configurations. A product family that can expand without forcing converters to accept a mismatched collection of visible fittings.
+  </div>
+</section>
+
+<section>
+  <div class="problem">
+    <div>
+      <h2>The market problem</h2>
+      <p>
+        Campervan electrical installations are assembled from products made by unrelated manufacturers. Even where the equipment is technically excellent, the finished installation often contains conflicting shapes, colours, fixing methods and surface finishes.
+      </p>
+      <p>
+        A converter may need to combine round 12V sockets, rectangular rocker switches, USB modules, push buttons, voltmeters and CBE or Powerpart components within the same visible area. Current solutions rarely make those items look intentionally related.
+      </p>
+    </div>
+    <div class="panel">
+      <h3>Typical compromises</h3>
+      <ul>
+        <li>Visible screws and exposed fixings</li>
+        <li>Different bezel depths and corner radii</li>
+        <li>Black-only or very limited colour choice</li>
+        <li>Cut-outs made directly into finished cabinetry</li>
+        <li>Poor service access after installation</li>
+        <li>No consistent system for mixed module types</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The Electrasthetics solution</h2>
+  <p class="lead">
+    The proposed system separates the visible housing from the electrical module it contains. This makes it possible to standardise the exterior appearance while adapting the interior geometry to suit each component.
+  </p>
+
+  <div class="system-map">
+    <div><span>Common Backplate</span>Provides the mounting interface and hidden fixing structure.</div>
+    <div><span>Application Insert</span>Supports the required switch, socket, control or adapter plate.</div>
+    <div><span>Snap-Fit Housing</span>Creates the finished visible surface and shared product identity.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Supported module categories</h2>
+  <p>
+    The system is intended to accommodate the most common electrical fittings used in campervan and motorhome conversions. Final compatibility would be confirmed through measured samples, manufacturer drawings and prototype testing.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Module type</th>
+          <th>Typical application</th>
+          <th>Proposed integration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>29 mm round modules</td>
+          <td>12V sockets, USB outlets, voltmeters</td>
+          <td>Dedicated circular insert within the common housing</td>
+        </tr>
+        <tr>
+          <td>20 mm rocker switches</td>
+          <td>Lighting, pumps, fans and accessories</td>
+          <td>Single, twin or multi-position rectangular insert</td>
+        </tr>
+        <tr>
+          <td>22 mm push buttons</td>
+          <td>Momentary switching and smart-control inputs</td>
+          <td>Round insert with controlled bezel spacing</td>
+        </tr>
+        <tr>
+          <td>12 mm toggle switches</td>
+          <td>Compact switching applications</td>
+          <td>Reinforced insert with anti-rotation geometry</td>
+        </tr>
+        <tr>
+          <td>Automotive rocker switches</td>
+          <td>Higher-current and illuminated switching</td>
+          <td>Rectangular adapter plate matched to the product family</td>
+        </tr>
+        <tr>
+          <td>CBE / Powerpart C-Line</td>
+          <td>Modular sockets, switches and controls</td>
+          <td>Dedicated frame or adapter plate using the same external housing language</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:24px">
+    <span class="badge">USB-A</span>
+    <span class="badge">USB-C</span>
+    <span class="badge">Engel socket</span>
+    <span class="badge">Cigarette socket</span>
+    <span class="badge">Voltmeter</span>
+    <span class="badge">Rocker switch</span>
+    <span class="badge">Push button</span>
+    <span class="badge">Toggle switch</span>
+    <span class="badge">CBE</span>
+    <span class="badge">Powerpart</span>
+  </div>
+</section>
+
+<section>
+  <h2>Housing variants</h2>
+  <p>
+    The Universal Modular range is proposed in three principal forms. Each shares the same core aesthetic but serves a different installation requirement.
+  </p>
+
+  <div class="variants">
+    <div class="variant">
+      <h3>Vertical Housing</h3>
+      <p>For narrow wall spaces, furniture ends and stacked controls.</p>
+    </div>
+    <div class="variant">
+      <h3>Horizontal Housing</h3>
+      <p>For grouped sockets and controls above worktops, beds and seating areas.</p>
+    </div>
+    <div class="variant">
+      <h3>Tilted Housing</h3>
+      <p>For improved visibility and access beneath cupboards or on low surfaces.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Concealed mounting concept</h2>
+  <p class="lead">
+    The proposed installation system uses a separate backplate with hidden retention features. The visible housing clips into place after wiring and testing, leaving no exposed front screws.
+  </p>
+
+  <div class="steps">
+    <div class="step"><strong>Position</strong><br>Set out the backplate and cable entry point.</div>
+    <div class="step"><strong>Fix</strong><br>Secure using appropriate mechanical fixings or 3M VHB where suitable.</div>
+    <div class="step"><strong>Connect</strong><br>Install and test the selected electrical module.</div>
+    <div class="step"><strong>Finish</strong><br>Clip the housing into place to conceal the mounting system.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Colour and finish</h2>
+  <p>
+    A core commercial advantage is the ability to offer finishes that better complement contemporary camper interiors. The initial palette can remain deliberately restrained while still providing far more choice than conventional black-only components.
+  </p>
+
+  <div class="colours">
+    <div class="swatch"><strong>White</strong><br>Clean contemporary interiors</div>
+    <div class="swatch"><strong>Warm White</strong><br>Soft neutral cabinetry</div>
+    <div class="swatch"><strong>Cream</strong><br>Traditional motorhome finishes</div>
+    <div class="swatch"><strong>Grey</strong><br>Modern neutral schemes</div>
+    <div class="swatch"><strong>Anthracite</strong><br>Dark premium interiors</div>
+    <div class="swatch"><strong>Black</strong><br>Technical and industrial installations</div>
+  </div>
+</section>
+
+<section>
+  <h2>Manufacturing logic</h2>
+  <div class="grid">
+    <div class="card"><strong>Designed in the UK</strong>Developed around real campervan installation problems rather than adapted from domestic products.</div>
+    <div class="card"><strong>Rapid prototyping</strong>Dimensions, clips and module fit can be refined quickly before committing to volume manufacture.</div>
+    <div class="card"><strong>Shared components</strong>Common backplates and housings reduce duplicated development across the range.</div>
+    <div class="card"><strong>Batch production</strong>Additive manufacture supports low-volume launch and product validation.</div>
+    <div class="card"><strong>Scalable range</strong>New inserts can extend compatibility without redesigning the complete enclosure.</div>
+    <div class="card"><strong>Future options</strong>Selected high-volume components could later move to alternative manufacturing processes.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Commercial value</h2>
+  <p class="lead">
+    The Universal Modular Housing System is commercially stronger than a one-off accessory because every additional compatible module increases the usefulness of the complete ecosystem.
+  </p>
+  <div class="grid">
+    <div class="card"><strong>Repeat purchases</strong>Customers can add matching components throughout a vehicle.</div>
+    <div class="card"><strong>Installer loyalty</strong>Converters can standardise around one visual system.</div>
+    <div class="card"><strong>Low-risk expansion</strong>New inserts can be introduced without replacing the core architecture.</div>
+    <div class="card"><strong>Recognisable identity</strong>The same housing language creates immediate brand recognition.</div>
+    <div class="card"><strong>Cross-sector potential</strong>Suitable for campervans, motorhomes, boats, trailers and specialist vehicles.</div>
+    <div class="card"><strong>Range-building opportunity</strong>Creates a platform for future smart controls and specialist accessories.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Reference products and compatibility research</h2>
+  <p>
+    Existing market products are referenced for dimensional research and compatibility planning. Electrasthetics does not propose copying those products; the objective is to design original housings that accept widely used standard modules.
+  </p>
+  <div class="links">
+    <p><strong>CBE / Powerpart C-Line modules and back boxes</strong><br>
+    <a href="https://www.aandlleisure.co.uk/cbe--c-line-modules--back-boxes-b1fbanproducts40curpage-2-40-c.asp" target="_blank" rel="noopener">
+      https://www.aandlleisure.co.uk/cbe--c-line-modules--back-boxes-b1fbanproducts40curpage-2-40-c.asp
+    </a></p>
+    <p><strong>Additional module references</strong><br>
+    Final product links, dimensions and white-paper data to be inserted during the detailed engineering stage.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Development status</h2>
+  <p>
+    Product name, exact range placement, final dimensions, retention geometry and manufacturing specification remain under development. The purpose of this proposal is to demonstrate the system-level opportunity and provide a basis for selecting the first prototypes for commercial evaluation.
+  </p>
+</section>
+
+<div class="nav">
+  <a href="Electrasthetics_Design_Philosophy.html">← Design Philosophy</a>
+  <a href="Electrasthetics_Surface_Mounted_Backboxes.html">Next → Surface-Mounted Backboxes</a>
+</div>
+
+</main>
+
+<footer>Electrasthetics Commercial Product Proposal</footer>
+
+</body>
+</html>
