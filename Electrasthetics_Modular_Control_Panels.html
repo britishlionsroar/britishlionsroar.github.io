@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Modular Control Panels chapter for the Electrasthetics commercial product proposal.">
+<title>Electrasthetics — Modular Control Panels</title>
+<style>
+:root{
+  --ink:#111518;
+  --ink-2:#222a2f;
+  --paper:#f5f1ea;
+  --paper-2:#e9e2d7;
+  --white:#fff;
+  --line:rgba(17,21,24,.13);
+  --gold:#ad8752;
+  --gold-light:#d8c39e;
+  --copper:#8e5f31;
+  --shadow:0 24px 80px rgba(13,16,18,.15);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,241,234,.9);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+.header-inner{
+  min-height:82px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;
+}
+.logo{height:48px;width:auto;object-fit:contain}
+.header-nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.header-nav a{text-decoration:none;color:#525a60}
+.header-nav a:hover{color:var(--copper)}
+.pill{
+  padding:10px 16px;border:1px solid var(--ink);
+  border-radius:999px;font-weight:750;
+}
+.hero{
+  min-height:760px;color:#fff;
+  background:
+    radial-gradient(circle at 76% 18%,rgba(216,195,158,.18),transparent 24%),
+    radial-gradient(circle at 14% 84%,rgba(142,95,49,.17),transparent 26%),
+    linear-gradient(135deg,#0c1012,#222c31 58%,#101517);
+  display:flex;align-items:center;overflow:hidden;position:relative;
+}
+.hero:after{
+  content:"";position:absolute;width:640px;height:640px;
+  border:1px solid rgba(255,255,255,.08);border-radius:50%;
+  right:-230px;bottom:-250px;
+}
+.hero-grid{
+  position:relative;z-index:2;display:grid;
+  grid-template-columns:1.02fr .98fr;gap:70px;
+  align-items:center;padding:95px 0;
+}
+.kicker{
+  text-transform:uppercase;letter-spacing:.22em;
+  font-size:.77rem;font-weight:800;color:var(--gold-light);
+}
+.hero h1{
+  margin:16px 0 24px;font-size:clamp(3.7rem,7vw,7.2rem);
+  line-height:.91;letter-spacing:-.055em;
+}
+.hero p{
+  max-width:720px;color:#d8dfe2;font-size:1.17rem;margin:0;
+}
+.hero-panel{
+  position:relative;min-height:470px;border-radius:32px;
+  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+  box-shadow:0 30px 85px rgba(0,0,0,.3);
+  overflow:hidden;
+}
+.panel{
+  position:absolute;left:50%;top:50%;
+  width:360px;height:230px;transform:translate(-50%,-50%);
+  border-radius:28px;background:linear-gradient(145deg,#f5f1ea,#d6cbbb);
+  box-shadow:0 26px 54px rgba(0,0,0,.34);
+  padding:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  align-items:center;
+}
+.control{
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(145deg,#4c565c,#151a1d);
+  box-shadow:0 12px 22px rgba(0,0,0,.28);
+}
+.control.square{border-radius:14px}
+.control.small{width:34px;height:34px;justify-self:center}
+.tag{
+  position:absolute;padding:8px 12px;border-radius:999px;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);
+  color:#e5eaec;font-size:.8rem;backdrop-filter:blur(10px);
+}
+.tag.one{left:24px;top:28px}
+.tag.two{right:24px;top:102px}
+.tag.three{left:34px;bottom:40px}
+.contents{background:#fff;border-bottom:1px solid var(--line)}
+.contents-inner{
+  padding:24px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.contents-label{
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;
+  font-weight:800;color:var(--copper);margin-right:8px;
+}
+.contents a{
+  text-decoration:none;padding:8px 12px;border:1px solid var(--line);
+  border-radius:999px;font-size:.88rem;background:#fff;
+}
+.contents a:hover{border-color:var(--copper);color:var(--copper)}
+section.content{padding:105px 0}
+.section-grid{
+  display:grid;grid-template-columns:.72fr 1.28fr;
+  gap:70px;align-items:start;
+}
+.section-no{
+  color:var(--gold);font-size:5.5rem;line-height:.9;
+  letter-spacing:-.07em;font-weight:800;
+}
+.label{
+  text-transform:uppercase;letter-spacing:.15em;
+  font-size:.74rem;font-weight:800;color:var(--copper);margin-top:18px;
+}
+h2{
+  margin:0 0 22px;font-size:clamp(2.6rem,5vw,5.2rem);
+  line-height:.98;letter-spacing:-.045em;
+}
+.lead{font-size:1.2rem;color:#434b50}
+.copy p{color:#4e565c}
+.callout{
+  margin-top:30px;padding:28px;border-left:6px solid var(--gold);
+  background:#fff;box-shadow:var(--shadow);font-size:1.08rem;
+}
+.dark{background:var(--ink);color:#fff}
+.dark p{color:#d3dadd}
+.dark .label{color:var(--gold-light)}
+.dark .section-no{color:rgba(216,195,158,.42)}
+.dark .callout{
+  background:rgba(255,255,255,.055);box-shadow:none;
+  border-left-color:var(--gold-light);
+}
+.architecture{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:18px;margin-top:38px;
+}
+.block{
+  min-height:240px;border-radius:22px;padding:26px;
+  background:#fff;border:1px solid var(--line);
+}
+.block .num{
+  color:var(--gold);font-size:.78rem;letter-spacing:.14em;font-weight:800;
+}
+.block h3{font-size:1.28rem;margin:42px 0 10px}
+.block p{margin:0;color:#626a70}
+.layout-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:18px;margin-top:38px;
+}
+.layout-card{
+  min-height:340px;border-radius:24px;background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.12);padding:24px;
+}
+.mock-panel{
+  min-height:170px;border-radius:20px;background:linear-gradient(145deg,#eee7dc,#d6cbbb);
+  padding:24px;display:grid;gap:14px;align-items:center;margin-bottom:24px;
+}
+.mock-panel.two{grid-template-columns:repeat(2,1fr)}
+.mock-panel.four{grid-template-columns:repeat(4,1fr)}
+.mock-panel.six{grid-template-columns:repeat(3,1fr)}
+.mock-control{
+  aspect-ratio:1;border-radius:50%;background:#1b2226;max-width:52px;width:100%;
+  justify-self:center;
+}
+.mock-control.square{border-radius:12px}
+.layout-card h3{font-size:1.3rem;margin:0 0 10px}
+.layout-card p{margin:0;color:#cbd2d5}
+.compat{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:18px;margin-top:36px;
+}
+.compat-card{
+  min-height:220px;border-radius:22px;padding:26px;
+  background:#fff;border:1px solid var(--line);
+}
+.compat-icon{
+  width:56px;height:56px;border-radius:18px;background:var(--ink);
+  color:#fff;display:grid;place-items:center;font-weight:800;
+  margin-bottom:38px;box-shadow:0 12px 24px rgba(0,0,0,.14);
+}
+.compat-card h3{margin:0 0 10px;font-size:1.24rem}
+.compat-card p{margin:0;color:#626a70}
+.workflow{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:14px;margin-top:38px;
+}
+.stage{
+  min-height:230px;border-radius:22px;padding:24px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.045);
+}
+.stage strong{color:var(--gold-light);font-size:2.6rem}
+.stage h3{font-size:1.15rem;margin:34px 0 10px}
+.stage p{margin:0;color:#cbd2d5;font-size:.95rem}
+.specs{
+  margin-top:38px;overflow:auto;border-radius:24px;
+  border:1px solid var(--line);background:#fff;
+}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:18px 20px;border-bottom:1px solid var(--line);text-align:left}
+th{
+  background:#f0ebe3;font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.1em;color:#6a5a48;
+}
+td:first-child{font-weight:750}
+.market-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;
+}
+.market{
+  min-height:270px;border-radius:24px;padding:30px;border:1px solid var(--line);
+}
+.market.light{background:#fff}
+.market.dark-card{
+  background:linear-gradient(145deg,#252d31,#111517);color:#fff;
+  border-color:rgba(255,255,255,.08);
+}
+.market h3{font-size:1.5rem;margin:0 0 16px}
+.market p{margin:0;color:#61696f}
+.market.dark-card p{color:#d3dadd}
+.return{
+  margin-top:48px;display:inline-flex;align-items:center;
+  text-decoration:none;font-weight:750;color:var(--copper);
+}
+.return:hover{text-decoration:underline}
+.statement{
+  padding:100px 0;
+  background:
+    linear-gradient(125deg,rgba(173,135,82,.13),transparent 42%),
+    var(--paper-2);
+}
+.statement-card{
+  background:#fff;border:1px solid var(--line);border-radius:30px;
+  padding:64px;box-shadow:var(--shadow);
+}
+.statement-card img{height:68px;width:auto;margin-bottom:30px}
+.statement-card blockquote{
+  margin:0;max-width:920px;font-size:clamp(2.2rem,4vw,4.6rem);
+  line-height:1.02;letter-spacing:-.04em;font-weight:750;
+}
+.statement-card p{max-width:760px;color:#596167;margin:24px 0 0}
+.chapter-nav{border-top:1px solid var(--line);background:#fff}
+.chapter-nav-inner{
+  padding:34px 0 48px;display:flex;justify-content:space-between;
+  gap:20px;align-items:center;
+}
+.chapter-nav a{
+  text-decoration:none;padding:13px 18px;border-radius:999px;
+  border:1px solid var(--line);font-weight:750;
+}
+.chapter-nav a:hover{border-color:var(--copper);color:var(--copper)}
+footer{
+  border-top:1px solid var(--line);padding:28px 0 40px;
+  color:#646c72;font-size:.9rem;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.back-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;
+  border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);color:#fff;text-decoration:none;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+@media(max-width:980px){
+  .hero-grid,.section-grid{grid-template-columns:1fr}
+  .architecture,.compat{grid-template-columns:repeat(2,1fr)}
+  .layout-grid{grid-template-columns:1fr}
+  .workflow{grid-template-columns:repeat(2,1fr)}
+  .header-nav a:not(.pill){display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 26px,1180px)}
+  .site-header{position:relative}.logo{height:40px}
+  .hero{min-height:auto}.hero-grid{padding:70px 0}
+  .hero h1{font-size:3.45rem}.hero-panel{min-height:360px}
+  .panel{width:270px;height:185px;padding:20px;gap:10px}
+  .control{width:42px;height:42px}
+  section.content,.statement{padding:70px 0}
+  .architecture,.compat,.workflow,.market-grid{grid-template-columns:1fr}
+  .statement-card{padding:38px 24px}
+  .chapter-nav-inner,.footer-inner{display:block}
+  .chapter-nav a{display:block;text-align:center;margin:10px 0}
+}
+@media print{
+  .site-header,.contents,.back-top,.chapter-nav{display:none}
+  .hero{min-height:100vh;page-break-after:always}
+  section.content{page-break-before:always}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="Electrasthetics_Index.html" aria-label="Electrasthetics proposal home">
+      <img class="logo" src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics logo">
+    </a>
+    <nav class="header-nav" aria-label="Page navigation">
+      <a href="#contents">Contents</a>
+      <a href="#layouts">Layouts</a>
+      <a href="#compatibility">Compatibility</a>
+      <a class="pill" href="Electrasthetics_Index.html#contents">Full proposal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Chapter 06</div>
+      <h1>Modular Control Panels</h1>
+      <p>
+        Configurable control centres for lighting, pumps, heating, charging and auxiliary systems—built from the same visual and mechanical language as the wider Electrasthetics range.
+      </p>
+    </div>
+    <div class="hero-panel" aria-label="Conceptual modular control panel">
+      <div class="panel">
+        <div class="control"></div>
+        <div class="control square"></div>
+        <div class="control small"></div>
+        <div class="control"></div>
+        <div class="control square"></div>
+        <div class="control"></div>
+        <div class="control small"></div>
+        <div class="control square"></div>
+      </div>
+      <div class="tag one">Configurable layouts</div>
+      <div class="tag two">Mixed switch formats</div>
+      <div class="tag three">Shared housing system</div>
+    </div>
+  </div>
+</section>
+
+<nav class="contents" id="contents" aria-label="Chapter contents">
+  <div class="wrap contents-inner">
+    <span class="contents-label">On this page</span>
+    <a href="#concept">The concept</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#layouts">Panel layouts</a>
+    <a href="#compatibility">Compatibility</a>
+    <a href="#assembly">Assembly</a>
+    <a href="#specification">Specification</a>
+    <a href="#commercial">Commercial value</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="content" id="concept">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">01</div>
+      <div class="label">The concept</div>
+    </div>
+    <div class="copy">
+      <h2>From scattered switches to one considered control point.</h2>
+      <p class="lead">
+        Vehicle electrical controls are often assembled from unrelated parts with inconsistent spacing, colours and fixing methods.
+      </p>
+      <p>
+        Electrasthetics modular control panels provide a structured alternative: one coordinated enclosure that can accept different combinations of switches, sockets, dimmers, push buttons and indicator modules.
+      </p>
+      <div class="callout">
+        The customer chooses the function. Electrasthetics controls the appearance, spacing and installation quality.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="architecture">
+  <div class="wrap">
+    <div class="label">Architecture</div>
+    <h2>A repeatable framework for custom configurations.</h2>
+    <p class="lead" style="max-width:860px;color:#d3dadd">
+      Each finished panel is assembled from a limited family of shared parts rather than designed from scratch.
+    </p>
+
+    <div class="architecture">
+      <div class="block">
+        <div class="num">01</div>
+        <h3>Common backplate</h3>
+        <p>Provides the fixing points, cable clearances and structural base for the complete assembly.</p>
+      </div>
+      <div class="block">
+        <div class="num">02</div>
+        <h3>Grid carrier</h3>
+        <p>Establishes consistent module spacing and supports multiple adapter formats.</p>
+      </div>
+      <div class="block">
+        <div class="num">03</div>
+        <h3>Module adapters</h3>
+        <p>Accept round, rectangular and specialist controls within the same panel geometry.</p>
+      </div>
+      <div class="block">
+        <div class="num">04</div>
+        <h3>Decorative fascia</h3>
+        <p>Conceals all fixing points and gives the panel its finished colour, texture and edge profile.</p>
+      </div>
+    </div>
+
+    <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content" id="layouts">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">02</div>
+      <div class="label">Panel layouts</div>
+    </div>
+    <div class="copy">
+      <h2>Standard footprints with configurable internals.</h2>
+      <p class="lead">
+        A small number of panel sizes can cover most practical installations while still allowing customised control combinations.
+      </p>
+
+      <div class="layout-grid">
+        <div class="layout-card" style="background:#fff;border-color:var(--line)">
+          <div class="mock-panel two">
+            <span class="mock-control"></span>
+            <span class="mock-control square"></span>
+          </div>
+          <h3>Compact Two-Way</h3>
+          <p style="color:#626a70">For paired lighting, water pump, heater or charging controls in tight spaces.</p>
+        </div>
+
+        <div class="layout-card" style="background:#fff;border-color:var(--line)">
+          <div class="mock-panel four">
+            <span class="mock-control"></span>
+            <span class="mock-control square"></span>
+            <span class="mock-control"></span>
+            <span class="mock-control square"></span>
+          </div>
+          <h3>Four-Way Utility</h3>
+          <p style="color:#626a70">A general-purpose control point for the most commonly used vehicle systems.</p>
+        </div>
+
+        <div class="layout-card" style="background:#fff;border-color:var(--line)">
+          <div class="mock-panel six">
+            <span class="mock-control"></span>
+            <span class="mock-control square"></span>
+            <span class="mock-control"></span>
+            <span class="mock-control square"></span>
+            <span class="mock-control"></span>
+            <span class="mock-control square"></span>
+          </div>
+          <h3>Six-Way System Panel</h3>
+          <p style="color:#626a70">For larger conversions needing a clear central location for multiple circuits and functions.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        Custom legends, icon sets and pre-wired configurations can create converter-specific or customer-specific variants without changing the core panel system.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="compatibility">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">03</div>
+      <div class="label">Compatibility</div>
+    </div>
+    <div class="copy">
+      <h2>Mixed controls. One coherent panel.</h2>
+      <p class="lead">
+        The modular grid supports the low-voltage components already familiar to installers and self-builders.
+      </p>
+
+      <div class="compat">
+        <div class="compat-card">
+          <div class="compat-icon">20</div>
+          <h3>Rocker switches</h3>
+          <p>Round and rectangular switching formats for lighting and auxiliary circuits.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">22</div>
+          <h3>Push buttons</h3>
+          <p>Illuminated momentary or latching controls for premium installations.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">Ø</div>
+          <h3>Rotary controls</h3>
+          <p>Dimmers, fan-speed controls and other knob-operated modules.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">V</div>
+          <h3>Indicators</h3>
+          <p>Voltage displays, warning lamps and status indicators within the same visual system.</p>
+        </div>
+      </div>
+
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="assembly">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">04</div>
+      <div class="label">Assembly</div>
+    </div>
+    <div class="copy">
+      <h2>Designed for repeatable production and straightforward installation.</h2>
+
+      <div class="workflow">
+        <div class="stage">
+          <strong>01</strong>
+          <h3>Select panel size</h3>
+          <p>Choose the standard footprint that suits the number of required controls.</p>
+        </div>
+        <div class="stage">
+          <strong>02</strong>
+          <h3>Choose modules</h3>
+          <p>Specify the required switches, indicators, sockets or rotary controls.</p>
+        </div>
+        <div class="stage">
+          <strong>03</strong>
+          <h3>Fit adapters</h3>
+          <p>Install the matching inserts into the common carrier grid.</p>
+        </div>
+        <div class="stage">
+          <strong>04</strong>
+          <h3>Wire and test</h3>
+          <p>Complete the harness or pre-wired assembly before closing the panel.</p>
+        </div>
+        <div class="stage">
+          <strong>05</strong>
+          <h3>Fit fascia</h3>
+          <p>Attach the decorative front to conceal the fixings and finish the installation.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        The same panel can be sold as an empty configurable housing, a populated kit or a fully pre-wired assembly.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="specification">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">05</div>
+      <div class="label">Indicative specification</div>
+    </div>
+    <div class="copy">
+      <h2>A practical foundation for CAD and prototype development.</h2>
+
+      <div class="specs">
+        <table>
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Initial requirement</th>
+              <th>Design purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Launch formats</td><td>Two-way, four-way and six-way</td><td>Cover the majority of common installations</td></tr>
+            <tr><td>Module spacing</td><td>Standardised grid</td><td>Consistent appearance and easier adapter development</td></tr>
+            <tr><td>Front fixing</td><td>Concealed fascia retention</td><td>Premium finished surface</td></tr>
+            <tr><td>Backplate fixing</td><td>Screw fixing with optional adhesive assistance</td><td>Secure mounting across varied substrates</td></tr>
+            <tr><td>Cable access</td><td>Rear entry with optional side routes</td><td>Flexible vehicle installation</td></tr>
+            <tr><td>Labelling</td><td>Printed, engraved or applied legends</td><td>Converter and customer customisation</td></tr>
+            <tr><td>Production</td><td>3D printed initially</td><td>Low tooling cost and fast product iteration</td></tr>
+            <tr><td>Future scale</td><td>Moulded fascia and backplate options</td><td>Lower unit cost at higher volumes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="commercial">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">06</div>
+      <div class="label">Commercial value</div>
+    </div>
+    <div class="copy">
+      <h2>A product family with both retail and trade potential.</h2>
+      <p class="lead">
+        Modular control panels can serve self-build customers, professional converters and branded trade accounts from the same underlying parts.
+      </p>
+
+      <div class="market-grid">
+        <div class="market light">
+          <h3>Retail configurations</h3>
+          <p>Customers can buy empty housings, standard populated kits or coordinated control packs for common van systems.</p>
+        </div>
+        <div class="market dark-card">
+          <h3>Trade configurations</h3>
+          <p>Converters can specify repeatable panel layouts, custom legends and pre-wired harnesses under their own agreed specification.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        Every additional compatible switch or control expands the catalogue without requiring a completely new enclosure.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <div class="statement-card">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <blockquote>
+        Custom control without custom chaos.
+      </blockquote>
+      <p>
+        Electrasthetics modular control panels turn a collection of separate electrical parts into a repeatable, serviceable and visually coherent product.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="wrap chapter-nav-inner">
+    <a href="Electrasthetics_Surface_Mounted_Back_Boxes.html">← Previous: Surface Mounted Back Boxes</a>
+    <a href="Electrasthetics_Smart_Downlights.html">Next: Smart Downlights →</a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Electrasthetics Commercial Product Proposal</div>
+    <div>Chapter 06 — Modular Control Panels</div>
+  </div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Return to top">↑</a>
+
+</body>
+</html>
