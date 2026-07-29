@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Surface Mounted Back Boxes chapter for the Electrasthetics commercial product proposal.">
+<title>Electrasthetics — Surface Mounted Back Boxes</title>
+<style>
+:root{
+  --ink:#111518;
+  --ink-2:#222a2f;
+  --paper:#f5f1ea;
+  --paper-2:#e9e2d7;
+  --white:#fff;
+  --line:rgba(17,21,24,.13);
+  --gold:#ad8752;
+  --gold-light:#d8c39e;
+  --copper:#8e5f31;
+  --shadow:0 24px 80px rgba(13,16,18,.15);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,241,234,.9);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+.header-inner{
+  min-height:82px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;
+}
+.logo{height:48px;width:auto;object-fit:contain}
+.header-nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.header-nav a{text-decoration:none;color:#525a60}
+.header-nav a:hover{color:var(--copper)}
+.pill{
+  padding:10px 16px;border:1px solid var(--ink);
+  border-radius:999px;font-weight:750;
+}
+.hero{
+  min-height:750px;color:#fff;
+  background:
+    radial-gradient(circle at 78% 20%,rgba(216,195,158,.2),transparent 24%),
+    radial-gradient(circle at 15% 82%,rgba(142,95,49,.17),transparent 25%),
+    linear-gradient(135deg,#0c1012,#222c31 58%,#101517);
+  display:flex;align-items:center;overflow:hidden;position:relative;
+}
+.hero:after{
+  content:"";position:absolute;width:620px;height:620px;
+  border:1px solid rgba(255,255,255,.08);border-radius:50%;
+  right:-220px;bottom:-230px;
+}
+.hero-grid{
+  position:relative;z-index:2;display:grid;
+  grid-template-columns:1.02fr .98fr;gap:70px;
+  align-items:center;padding:95px 0;
+}
+.kicker{
+  text-transform:uppercase;letter-spacing:.22em;
+  font-size:.77rem;font-weight:800;color:var(--gold-light);
+}
+.hero h1{
+  margin:16px 0 24px;font-size:clamp(3.7rem,7vw,7.1rem);
+  line-height:.91;letter-spacing:-.055em;
+}
+.hero p{
+  max-width:720px;color:#d8dfe2;font-size:1.17rem;margin:0;
+}
+.hero-product{
+  position:relative;min-height:460px;border-radius:32px;
+  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+  box-shadow:0 30px 85px rgba(0,0,0,.3);
+  overflow:hidden;
+}
+.box{
+  position:absolute;left:50%;top:51%;
+  width:310px;height:220px;transform:translate(-50%,-50%);
+  border-radius:28px;background:linear-gradient(145deg,#f6f2eb,#d4c8b8);
+  box-shadow:0 26px 54px rgba(0,0,0,.34);
+}
+.box:before{
+  content:"";position:absolute;inset:16px;border-radius:20px;
+  border:1px solid rgba(17,21,24,.12);
+}
+.socket{
+  position:absolute;width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(145deg,#454f55,#14191c);
+  top:74px;box-shadow:0 12px 24px rgba(0,0,0,.3);
+}
+.socket.one{left:48px}
+.socket.two{left:119px}
+.socket.three{left:190px}
+.tag{
+  position:absolute;padding:8px 12px;border-radius:999px;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);
+  color:#e5eaec;font-size:.8rem;backdrop-filter:blur(10px);
+}
+.tag.one{left:24px;top:28px}
+.tag.two{right:24px;top:98px}
+.tag.three{left:34px;bottom:38px}
+.contents{background:#fff;border-bottom:1px solid var(--line)}
+.contents-inner{
+  padding:24px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.contents-label{
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;
+  font-weight:800;color:var(--copper);margin-right:8px;
+}
+.contents a{
+  text-decoration:none;padding:8px 12px;border:1px solid var(--line);
+  border-radius:999px;font-size:.88rem;background:#fff;
+}
+.contents a:hover{border-color:var(--copper);color:var(--copper)}
+section.content{padding:105px 0}
+.section-grid{
+  display:grid;grid-template-columns:.72fr 1.28fr;
+  gap:70px;align-items:start;
+}
+.section-no{
+  color:var(--gold);font-size:5.5rem;line-height:.9;
+  letter-spacing:-.07em;font-weight:800;
+}
+.label{
+  text-transform:uppercase;letter-spacing:.15em;
+  font-size:.74rem;font-weight:800;color:var(--copper);margin-top:18px;
+}
+h2{
+  margin:0 0 22px;font-size:clamp(2.6rem,5vw,5.2rem);
+  line-height:.98;letter-spacing:-.045em;
+}
+.lead{font-size:1.2rem;color:#434b50}
+.copy p{color:#4e565c}
+.callout{
+  margin-top:30px;padding:28px;border-left:6px solid var(--gold);
+  background:#fff;box-shadow:var(--shadow);font-size:1.08rem;
+}
+.dark{background:var(--ink);color:#fff}
+.dark p{color:#d3dadd}
+.dark .label{color:var(--gold-light)}
+.dark .section-no{color:rgba(216,195,158,.42)}
+.dark .callout{
+  background:rgba(255,255,255,.055);box-shadow:none;
+  border-left-color:var(--gold-light);
+}
+.catalogue{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:18px;margin-top:38px;
+}
+.product-card{
+  border-radius:24px;background:#fff;border:1px solid var(--line);
+  overflow:hidden;min-height:360px;
+}
+.product-top{
+  min-height:190px;background:linear-gradient(145deg,#eee7dc,#d8cdbf);
+  display:grid;place-items:center;padding:24px;
+}
+.mini-box{
+  width:190px;height:126px;border-radius:20px;
+  background:linear-gradient(145deg,#fff,#d3c7b8);
+  box-shadow:0 18px 34px rgba(0,0,0,.15);
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.mini-hole{
+  width:40px;height:40px;border-radius:50%;
+  background:#1b2226;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.product-body{padding:24px}
+.product-body .sku{
+  color:var(--gold);font-size:.76rem;letter-spacing:.14em;font-weight:800;
+}
+.product-body h3{font-size:1.4rem;margin:10px 0}
+.product-body p{margin:0;color:#626a70}
+.feature-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:18px;margin-top:36px;
+}
+.feature{
+  min-height:230px;border-radius:22px;padding:26px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);
+}
+.feature strong{
+  color:var(--gold-light);font-size:2.8rem;line-height:1;
+}
+.feature h3{font-size:1.28rem;margin:36px 0 10px}
+.feature p{margin:0;color:#cbd2d5}
+.install-flow{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:18px;margin-top:36px;
+}
+.step{
+  min-height:220px;border-radius:22px;padding:26px;
+  background:#fff;border:1px solid var(--line);
+}
+.step .num{
+  width:52px;height:52px;border-radius:16px;background:var(--ink);
+  color:#fff;display:grid;place-items:center;font-weight:800;
+  margin-bottom:38px;
+}
+.step h3{font-size:1.25rem;margin:0 0 10px}
+.step p{margin:0;color:#626a70}
+.specs{
+  margin-top:38px;overflow:auto;border-radius:24px;
+  border:1px solid var(--line);background:#fff;
+}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:18px 20px;border-bottom:1px solid var(--line);text-align:left}
+th{
+  background:#f0ebe3;font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.1em;color:#6a5a48;
+}
+td:first-child{font-weight:750}
+.finish-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:18px;margin-top:36px;
+}
+.finish{
+  min-height:240px;border-radius:24px;padding:22px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.finish h3{margin:0 0 8px;font-size:1.25rem}
+.finish p{margin:0;font-size:.93rem}
+.finish.white{background:linear-gradient(145deg,#fff,#e8e2d9)}
+.finish.black{background:linear-gradient(145deg,#30383d,#111517);color:#fff}
+.finish.graphite{background:linear-gradient(145deg,#7b8185,#3c4246);color:#fff}
+.finish.copper{background:linear-gradient(145deg,#c29a69,#71461f);color:#fff}
+.market-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;
+}
+.market-card{
+  min-height:270px;border-radius:24px;padding:30px;border:1px solid var(--line);
+}
+.market-card.light{background:#fff}
+.market-card.dark-card{
+  background:linear-gradient(145deg,#252d31,#111517);color:#fff;
+  border-color:rgba(255,255,255,.08);
+}
+.market-card h3{font-size:1.5rem;margin:0 0 16px}
+.market-card p{margin:0;color:#61696f}
+.market-card.dark-card p{color:#d3dadd}
+.return{
+  margin-top:48px;display:inline-flex;align-items:center;
+  text-decoration:none;font-weight:750;color:var(--copper);
+}
+.return:hover{text-decoration:underline}
+.statement{
+  padding:100px 0;
+  background:
+    linear-gradient(125deg,rgba(173,135,82,.13),transparent 42%),
+    var(--paper-2);
+}
+.statement-card{
+  background:#fff;border:1px solid var(--line);border-radius:30px;
+  padding:64px;box-shadow:var(--shadow);
+}
+.statement-card img{height:68px;width:auto;margin-bottom:30px}
+.statement-card blockquote{
+  margin:0;max-width:920px;font-size:clamp(2.2rem,4vw,4.6rem);
+  line-height:1.02;letter-spacing:-.04em;font-weight:750;
+}
+.statement-card p{max-width:760px;color:#596167;margin:24px 0 0}
+.chapter-nav{border-top:1px solid var(--line);background:#fff}
+.chapter-nav-inner{
+  padding:34px 0 48px;display:flex;justify-content:space-between;
+  gap:20px;align-items:center;
+}
+.chapter-nav a{
+  text-decoration:none;padding:13px 18px;border-radius:999px;
+  border:1px solid var(--line);font-weight:750;
+}
+.chapter-nav a:hover{border-color:var(--copper);color:var(--copper)}
+footer{
+  border-top:1px solid var(--line);padding:28px 0 40px;
+  color:#646c72;font-size:.9rem;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.back-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;
+  border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);color:#fff;text-decoration:none;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+@media(max-width:980px){
+  .hero-grid,.section-grid{grid-template-columns:1fr}
+  .catalogue,.feature-grid{grid-template-columns:repeat(2,1fr)}
+  .install-flow,.finish-grid{grid-template-columns:repeat(2,1fr)}
+  .header-nav a:not(.pill){display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 26px,1180px)}
+  .site-header{position:relative}.logo{height:40px}
+  .hero{min-height:auto}.hero-grid{padding:70px 0}
+  .hero h1{font-size:3.45rem}.hero-product{min-height:360px}
+  .box{width:250px;height:180px}
+  .socket{width:58px;height:58px;top:61px}
+  .socket.one{left:38px}.socket.two{left:96px}.socket.three{left:154px}
+  section.content,.statement{padding:70px 0}
+  .catalogue,.feature-grid,.install-flow,.finish-grid,.market-box{grid-template-columns:1fr}
+  .statement-card{padding:38px 24px}
+  .chapter-nav-inner,.footer-inner{display:block}
+  .chapter-nav a{display:block;text-align:center;margin:10px 0}
+}
+@media print{
+  .site-header,.contents,.back-top,.chapter-nav{display:none}
+  .hero{min-height:100vh;page-break-after:always}
+  section.content{page-break-before:always}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="Electrasthetics_Index.html" aria-label="Electrasthetics proposal home">
+      <img class="logo" src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics logo">
+    </a>
+    <nav class="header-nav" aria-label="Page navigation">
+      <a href="#contents">Contents</a>
+      <a href="#range">Range</a>
+      <a href="#installation">Installation</a>
+      <a class="pill" href="Electrasthetics_Index.html#contents">Full proposal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Chapter 05</div>
+      <h1>Surface Mounted Back Boxes</h1>
+      <p>
+        A coordinated range of premium enclosures for switches, sockets and controls—created specifically for campervans, motorhomes and compact specialist interiors.
+      </p>
+    </div>
+    <div class="hero-product" aria-label="Conceptual three-module surface mounted back box">
+      <div class="box">
+        <div class="socket one"></div>
+        <div class="socket two"></div>
+        <div class="socket three"></div>
+      </div>
+      <div class="tag one">No visible front screws</div>
+      <div class="tag two">Single to triple modules</div>
+      <div class="tag three">Adhesive or mechanical fixing</div>
+    </div>
+  </div>
+</section>
+
+<nav class="contents" id="contents" aria-label="Chapter contents">
+  <div class="wrap contents-inner">
+    <span class="contents-label">On this page</span>
+    <a href="#problem">The problem</a>
+    <a href="#range">Product range</a>
+    <a href="#features">Key features</a>
+    <a href="#installation">Installation</a>
+    <a href="#specification">Specification</a>
+    <a href="#finishes">Finishes</a>
+    <a href="#commercial">Commercial case</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="content" id="problem">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">01</div>
+      <div class="label">The problem</div>
+    </div>
+    <div class="copy">
+      <h2>Most surface boxes are designed to be tolerated, not displayed.</h2>
+      <p class="lead">
+        Existing products are typically utility enclosures: deep, visually heavy, limited in colour and secured with exposed screws.
+      </p>
+      <p>
+        They may function adequately, but they rarely complement premium cabinetry or the carefully designed interiors now common in modern conversions. Many also offer poor compatibility with the mixed low-voltage components used in campervans.
+      </p>
+      <div class="callout">
+        The gap is not simply for another backbox. It is for a surface-mounted finishing system that belongs in the living space.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="range">
+  <div class="wrap">
+    <div class="label">Product range</div>
+    <h2>A compact family for single and grouped controls.</h2>
+    <p class="lead" style="max-width:860px;color:#d3dadd">
+      The initial range can launch around three core outer housings, each accepting interchangeable adapter plates.
+    </p>
+
+    <div class="catalogue">
+      <article class="product-card">
+        <div class="product-top">
+          <div class="mini-box"><span class="mini-hole"></span></div>
+        </div>
+        <div class="product-body">
+          <div class="sku">EA-SM1</div>
+          <h3>Single Module</h3>
+          <p>For one socket, switch, dimmer, push button or compact control module.</p>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-top">
+          <div class="mini-box"><span class="mini-hole"></span><span class="mini-hole"></span></div>
+        </div>
+        <div class="product-body">
+          <div class="sku">EA-SM2</div>
+          <h3>Double Module</h3>
+          <p>For paired charging, switching or mixed-control combinations in one coordinated enclosure.</p>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-top">
+          <div class="mini-box"><span class="mini-hole"></span><span class="mini-hole"></span><span class="mini-hole"></span></div>
+        </div>
+        <div class="product-body">
+          <div class="sku">EA-SM3</div>
+          <h3>Triple Module</h3>
+          <p>For grouped control points where a larger panel would be unnecessary or visually intrusive.</p>
+        </div>
+      </article>
+    </div>
+
+    <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content" id="features">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">02</div>
+      <div class="label">Key features</div>
+    </div>
+    <div class="copy">
+      <h2>Designed around the realities of vehicle installation.</h2>
+      <p class="lead">
+        Appearance matters, but the system must also accommodate thin wall panels, limited voids, awkward cable routes and later servicing.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <strong>01</strong>
+          <h3>Concealed front fixing</h3>
+          <p>No visible screw heads across the finished face.</p>
+        </div>
+        <div class="feature">
+          <strong>02</strong>
+          <h3>Separate backplate</h3>
+          <p>The installer mounts and wires the functional assembly before fitting the decorative cover.</p>
+        </div>
+        <div class="feature">
+          <strong>03</strong>
+          <h3>Adhesive-ready rear face</h3>
+          <p>Designed to accept 3M VHB 5952 for suitable no-drill installations.</p>
+        </div>
+        <div class="feature">
+          <strong>04</strong>
+          <h3>Optional screw fixing</h3>
+          <p>Mechanical fixing points remain available where the substrate or load requires them.</p>
+        </div>
+        <div class="feature">
+          <strong>05</strong>
+          <h3>Multiple cable entries</h3>
+          <p>Rear and side knockout positions support surface wiring and concealed wiring routes.</p>
+        </div>
+        <div class="feature">
+          <strong>06</strong>
+          <h3>Replaceable inserts</h3>
+          <p>Different module formats can use the same outer housing.</p>
+        </div>
+      </div>
+
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="installation">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">03</div>
+      <div class="label">Installation</div>
+    </div>
+    <div class="copy">
+      <h2>Four straightforward stages from surface to finished product.</h2>
+
+      <div class="install-flow">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Prepare</h3>
+          <p>Select the module insert, cable entry and appropriate mounting method for the surface.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Mount</h3>
+          <p>Secure the backplate using adhesive, screws or a combined fixing method.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Wire</h3>
+          <p>Connect the electrical component while access remains open and unrestricted.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h3>Close</h3>
+          <p>Engage the lower hook rail and lock the outer housing onto the concealed catches.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        The housing can be removed later for maintenance without pulling adhesive from the wall or disturbing the wiring backplate.
+      </div>
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="specification">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">04</div>
+      <div class="label">Indicative specification</div>
+    </div>
+    <div class="copy">
+      <h2>A practical starting specification for CAD development.</h2>
+      <p class="lead">
+        Final dimensions should be confirmed against the selected component library and installation clearances.
+      </p>
+
+      <div class="specs">
+        <table>
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Initial requirement</th>
+              <th>Design purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Housing formats</td><td>Single, double and triple</td><td>Core launch family</td></tr>
+            <tr><td>Module acceptance</td><td>29 mm, 20 mm, 22 mm, 12 mm and rectangular formats</td><td>Broad compatibility</td></tr>
+            <tr><td>Front fixing</td><td>Fully concealed</td><td>Premium appearance</td></tr>
+            <tr><td>Backplate fixing</td><td>VHB, screws or combined</td><td>Flexible installation</td></tr>
+            <tr><td>Cable access</td><td>Rear plus selectable side entries</td><td>Surface and concealed wiring</td></tr>
+            <tr><td>Cover retention</td><td>Lower hook rail plus twin catches</td><td>Secure, serviceable closure</td></tr>
+            <tr><td>Material</td><td>Engineering-grade print polymer initially</td><td>Low-tooling launch</td></tr>
+            <tr><td>Finish strategy</td><td>Neutral core range plus premium variants</td><td>Interior coordination</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="finishes">
+  <div class="wrap">
+    <div class="label">Finishes</div>
+    <h2>Made to coordinate with the interior—not fight it.</h2>
+    <p class="lead" style="max-width:860px;color:#d3dadd">
+      The same housing can serve very different design styles through a controlled finish palette.
+    </p>
+
+    <div class="finish-grid">
+      <div class="finish white">
+        <h3>Warm White</h3>
+        <p>For light cabinetry, ceilings and contemporary interiors.</p>
+      </div>
+      <div class="finish black">
+        <h3>Soft Black</h3>
+        <p>For modern technical interiors without the harshness of gloss black.</p>
+      </div>
+      <div class="finish graphite">
+        <h3>Graphite</h3>
+        <p>A neutral bridge between black fittings and lighter furniture.</p>
+      </div>
+      <div class="finish copper">
+        <h3>Hammered Copper</h3>
+        <p>A premium character finish for rustic, industrial or heritage-inspired builds.</p>
+      </div>
+    </div>
+
+    <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content" id="commercial">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">05</div>
+      <div class="label">Commercial case</div>
+    </div>
+    <div class="copy">
+      <h2>A straightforward launch product with platform value.</h2>
+      <p class="lead">
+        Surface-mounted back boxes are easy to understand, widely applicable and well suited to early additive manufacturing.
+      </p>
+      <p>
+        The product can be sold individually, in matched sets or as part of pre-configured electrical packs. Professional converters gain a repeatable finishing component, while self-builders gain a cleaner alternative to generic utility boxes.
+      </p>
+
+      <div class="market-box">
+        <div class="market-card light">
+          <h3>Direct product opportunity</h3>
+          <p>Single, double and triple enclosures can generate sales across upgrades, new conversions and replacement installations.</p>
+        </div>
+        <div class="market-card dark-card">
+          <h3>Platform opportunity</h3>
+          <p>Each backbox sale creates demand for compatible inserts, matching control panels and future Electrasthetics products.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        This range is suitable as an early flagship because the visual improvement is immediate and easily demonstrated in photographs, prototypes and installer videos.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <div class="statement-card">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <blockquote>
+        The box no longer has to look like the compromise.
+      </blockquote>
+      <p>
+        Electrasthetics surface-mounted back boxes turn a basic installation necessity into a coordinated part of the finished interior.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="wrap chapter-nav-inner">
+    <a href="Electrasthetics_Universal_Modular_Housing.html">← Previous: Universal Modular Housing</a>
+    <a href="Electrasthetics_Modular_Control_Panels.html">Next: Modular Control Panels →</a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Electrasthetics Commercial Product Proposal</div>
+    <div>Chapter 05 — Surface Mounted Back Boxes</div>
+  </div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Return to top">↑</a>
+
+</body>
+</html>
