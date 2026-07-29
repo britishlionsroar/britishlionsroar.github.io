@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Design philosophy chapter for the Electrasthetics commercial product proposal.">
+<title>Electrasthetics — Design Philosophy</title>
+<style>
+:root{
+  --ink:#15191c;
+  --ink-2:#252b2f;
+  --paper:#f7f4ee;
+  --paper-2:#ece6dc;
+  --white:#fff;
+  --line:rgba(21,25,28,.13);
+  --gold:#a8844f;
+  --gold-light:#d7c19c;
+  --copper:#8c5f2e;
+  --shadow:0 22px 70px rgba(15,18,20,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,244,238,.9);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+.header-inner{
+  min-height:82px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;
+}
+.logo{height:48px;width:auto;object-fit:contain}
+.header-nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.header-nav a{text-decoration:none;color:#525a60}
+.header-nav a:hover{color:var(--copper)}
+.pill{
+  padding:10px 16px;border:1px solid var(--ink);
+  border-radius:999px;font-weight:750;
+}
+.hero{
+  min-height:690px;color:#fff;
+  background:
+    radial-gradient(circle at 78% 22%,rgba(215,193,156,.2),transparent 24%),
+    radial-gradient(circle at 16% 78%,rgba(140,95,46,.16),transparent 24%),
+    linear-gradient(135deg,#0f1214,#20282c 58%,#111517);
+  display:flex;align-items:center;overflow:hidden;position:relative;
+}
+.hero:after{
+  content:"";position:absolute;width:520px;height:520px;
+  border:1px solid rgba(255,255,255,.08);border-radius:50%;
+  right:-170px;bottom:-190px;
+}
+.hero-grid{
+  position:relative;z-index:2;display:grid;
+  grid-template-columns:1.05fr .95fr;gap:70px;
+  align-items:center;padding:90px 0;
+}
+.kicker{
+  text-transform:uppercase;letter-spacing:.22em;
+  font-size:.77rem;font-weight:800;color:var(--gold-light);
+}
+.hero h1{
+  margin:16px 0 24px;font-size:clamp(3.8rem,7vw,7.2rem);
+  line-height:.91;letter-spacing:-.055em;
+}
+.hero p{
+  max-width:720px;color:#d8dfe2;font-size:1.17rem;margin:0;
+}
+.hero-side{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:28px;padding:30px;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(12px);
+  box-shadow:0 30px 85px rgba(0,0,0,.28);
+}
+.hero-side img{
+  height:70px;width:auto;background:#fff;
+  padding:8px 12px;border-radius:12px;margin-bottom:44px;
+}
+.hero-side strong{
+  display:block;color:var(--gold-light);
+  font-size:3.4rem;line-height:1;letter-spacing:-.05em;
+  margin-bottom:16px;
+}
+.hero-side span{color:#e1e6e8;font-size:1.02rem}
+.contents{background:#fff;border-bottom:1px solid var(--line)}
+.contents-inner{
+  padding:24px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.contents-label{
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;
+  font-weight:800;color:var(--copper);margin-right:8px;
+}
+.contents a{
+  text-decoration:none;padding:8px 12px;border:1px solid var(--line);
+  border-radius:999px;font-size:.88rem;background:#fff;
+}
+.contents a:hover{border-color:var(--copper);color:var(--copper)}
+section.content{padding:100px 0}
+.section-grid{
+  display:grid;grid-template-columns:.72fr 1.28fr;
+  gap:70px;align-items:start;
+}
+.section-no{
+  color:var(--gold);font-size:5.5rem;line-height:.9;
+  letter-spacing:-.07em;font-weight:800;
+}
+.label{
+  text-transform:uppercase;letter-spacing:.15em;
+  font-size:.74rem;font-weight:800;color:var(--copper);margin-top:18px;
+}
+h2{
+  margin:0 0 22px;font-size:clamp(2.6rem,5vw,5.2rem);
+  line-height:.98;letter-spacing:-.045em;
+}
+.lead{font-size:1.2rem;color:#434b50}
+.copy p{color:#4e565c}
+.copy strong{color:var(--ink)}
+.callout{
+  margin-top:30px;padding:28px;border-left:6px solid var(--gold);
+  background:#fff;box-shadow:var(--shadow);font-size:1.08rem;
+}
+.dark{background:var(--ink);color:#fff}
+.dark p{color:#d3dadd}
+.dark .label{color:var(--gold-light)}
+.dark .section-no{color:rgba(215,193,156,.42)}
+.dark .callout{
+  background:rgba(255,255,255,.055);box-shadow:none;
+  border-left-color:var(--gold-light);
+}
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:18px;margin-top:36px;
+}
+.card{
+  padding:26px;border-radius:20px;border:1px solid var(--line);
+  background:#fff;min-height:220px;
+}
+.card .num{
+  color:var(--gold);font-weight:800;letter-spacing:.12em;font-size:.78rem;
+}
+.card h3{font-size:1.25rem;line-height:1.15;margin:38px 0 10px}
+.card p{margin:0;color:#626a70;font-size:.95rem}
+.dark .card{
+  background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.12);
+}
+.dark .card p{color:#cbd2d5}
+.dark .card h3{color:#fff}
+.principles{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:18px;margin-top:36px;
+}
+.principle{
+  min-height:260px;border-radius:24px;padding:30px;
+  border:1px solid var(--line);background:#fff;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.principle strong{
+  color:var(--gold);font-size:3rem;line-height:1;
+}
+.principle h3{font-size:1.5rem;margin:34px 0 10px}
+.principle p{margin:0;color:#626a70}
+.material-band{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;
+}
+.material{
+  border-radius:24px;padding:30px;min-height:280px;
+  border:1px solid var(--line);
+}
+.material.light{background:linear-gradient(145deg,#fff,#ede7dd)}
+.material.dark-card{
+  background:linear-gradient(145deg,#252d31,#111517);
+  color:#fff;border-color:rgba(255,255,255,.08);
+}
+.material h3{font-size:1.5rem;margin:0 0 16px}
+.material p{margin:0;color:#61696f}
+.material.dark-card p{color:#d3dadd}
+.return{
+  margin-top:48px;display:inline-flex;align-items:center;
+  text-decoration:none;font-weight:750;color:var(--copper);
+}
+.return:hover{text-decoration:underline}
+.statement{
+  padding:100px 0;
+  background:
+    linear-gradient(125deg,rgba(168,132,79,.13),transparent 42%),
+    var(--paper-2);
+}
+.statement-card{
+  background:#fff;border:1px solid var(--line);border-radius:30px;
+  padding:64px;box-shadow:var(--shadow);
+}
+.statement-card img{height:68px;width:auto;margin-bottom:30px}
+.statement-card blockquote{
+  margin:0;max-width:900px;font-size:clamp(2.2rem,4vw,4.6rem);
+  line-height:1.02;letter-spacing:-.04em;font-weight:750;
+}
+.statement-card p{max-width:730px;color:#596167;margin:24px 0 0}
+.chapter-nav{border-top:1px solid var(--line);background:#fff}
+.chapter-nav-inner{
+  padding:34px 0 48px;display:flex;justify-content:space-between;
+  gap:20px;align-items:center;
+}
+.chapter-nav a{
+  text-decoration:none;padding:13px 18px;border-radius:999px;
+  border:1px solid var(--line);font-weight:750;
+}
+.chapter-nav a:hover{border-color:var(--copper);color:var(--copper)}
+footer{
+  border-top:1px solid var(--line);padding:28px 0 40px;
+  color:#646c72;font-size:.9rem;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.back-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;
+  border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);color:#fff;text-decoration:none;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+@media(max-width:900px){
+  .hero-grid,.section-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .header-nav a:not(.pill){display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 26px,1180px)}
+  .site-header{position:relative}.logo{height:40px}
+  .hero{min-height:auto}.hero-grid{padding:70px 0}
+  .hero h1{font-size:3.7rem}.hero-side{padding:24px}
+  section.content,.statement{padding:70px 0}
+  .cards,.principles,.material-band{grid-template-columns:1fr}
+  .statement-card{padding:38px 24px}
+  .chapter-nav-inner,.footer-inner{display:block}
+  .chapter-nav a{display:block;text-align:center;margin:10px 0}
+}
+@media print{
+  .site-header,.contents,.back-top,.chapter-nav{display:none}
+  .hero{min-height:100vh;page-break-after:always}
+  section.content{page-break-before:always}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="Electrasthetics_Index.html" aria-label="Electrasthetics proposal home">
+      <img class="logo" src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics logo">
+    </a>
+    <nav class="header-nav" aria-label="Page navigation">
+      <a href="#contents">Contents</a>
+      <a href="#principles">Principles</a>
+      <a href="#materials">Materials</a>
+      <a class="pill" href="Electrasthetics_Index.html#contents">Full proposal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Chapter 03</div>
+      <h1>Design Philosophy</h1>
+      <p>
+        Electrasthetics is built around one central idea: every visible component should feel intentional, coordinated and appropriate to the interior around it.
+      </p>
+    </div>
+    <aside class="hero-side">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <strong>Form with purpose.</strong>
+      <span>Premium appearance, practical installation and long-term adaptability must work together.</span>
+    </aside>
+  </div>
+</section>
+
+<nav class="contents" id="contents" aria-label="Chapter contents">
+  <div class="wrap contents-inner">
+    <span class="contents-label">On this page</span>
+    <a href="#intent">Design intent</a>
+    <a href="#principles">Core principles</a>
+    <a href="#installation">Installation logic</a>
+    <a href="#materials">Materials and finishes</a>
+    <a href="#identity">Range identity</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="content" id="intent">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">01</div>
+      <div class="label">Design intent</div>
+    </div>
+    <div class="copy">
+      <h2>The housing should improve the whole interior—not merely contain a component.</h2>
+      <p class="lead">
+        The visible enclosure is the part the customer judges. It therefore needs the same attention given to cabinetry, lighting and furniture hardware.
+      </p>
+      <p>
+        Electrasthetics products should look designed rather than improvised. Their proportions, edge treatment, fixing method and finish should remain consistent even when the electrical modules behind them differ.
+      </p>
+      <div class="callout">
+        The goal is quiet confidence: distinctive enough to feel premium, restrained enough to suit many interiors.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="principles">
+  <div class="wrap">
+    <div class="label">Core principles</div>
+    <h2>Six rules for every product in the range.</h2>
+
+    <div class="principles">
+      <div class="principle">
+        <strong>01</strong>
+        <div>
+          <h3>Conceal the fixings</h3>
+          <p>Visible screw heads should be avoided wherever a secure snap, hook, rail or hidden fastening can do the job better.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <strong>02</strong>
+        <div>
+          <h3>Keep the front clean</h3>
+          <p>The face should be visually simple, with controlled gaps, consistent radii and no unnecessary moulding detail.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <strong>03</strong>
+        <div>
+          <h3>Design for replacement</h3>
+          <p>Electrical modules should remain serviceable and replaceable without destroying finished cabinetry or the outer housing.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <strong>04</strong>
+        <div>
+          <h3>Share the architecture</h3>
+          <p>Backplates, insert sizes and closure methods should be reused wherever possible to reduce development and increase compatibility.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <strong>05</strong>
+        <div>
+          <h3>Respect compact spaces</h3>
+          <p>Depth, cable bend radius and access must suit campervan walls, furniture voids and surface-mount installations.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <strong>06</strong>
+        <div>
+          <h3>Offer visual choice</h3>
+          <p>Colour and finish options should allow the range to coordinate with timber, painted cabinetry, metalwork and upholstery.</p>
+        </div>
+      </div>
+    </div>
+
+    <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content" id="installation">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">02</div>
+      <div class="label">Installation logic</div>
+    </div>
+    <div class="copy">
+      <h2>Simple from the front. Thoughtful behind it.</h2>
+      <p class="lead">
+        Premium appearance is only useful when the product remains practical to fit, wire, remove and service.
+      </p>
+      <p>
+        The preferred architecture uses a separate backplate and outer housing. The backplate can carry the electrical module and provide screw, adhesive or mixed mounting options. The outer housing then attaches using a bottom hook rail and concealed retention points.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="num">A</div>
+          <h3>Backplate first</h3>
+          <p>Installers can secure and wire the functional part before fitting the finished outer cover.</p>
+        </div>
+        <div class="card">
+          <div class="num">B</div>
+          <h3>Multiple mounting options</h3>
+          <p>Screws, 3M VHB adhesive or a combined method can suit different substrates and access conditions.</p>
+        </div>
+        <div class="card">
+          <div class="num">C</div>
+          <h3>Controlled removal</h3>
+          <p>The cover should release deliberately for maintenance without appearing loose during normal use.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        The finished product should hide complexity from the customer without making life harder for the installer.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="materials">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">03</div>
+      <div class="label">Materials and finishes</div>
+    </div>
+    <div class="copy">
+      <h2>The range should feel at home in both modern and character interiors.</h2>
+      <p class="lead">
+        A single black plastic finish would repeat the problem Electrasthetics is intended to solve.
+      </p>
+      <p>
+        The initial range can be developed in print-friendly engineering polymers, with finish options chosen around durability, repeatability and visual fit. The housing geometry should also remain suitable for later production methods if volume justifies them.
+      </p>
+
+      <div class="material-band">
+        <div class="material light">
+          <h3>Core neutral finishes</h3>
+          <p>Warm white, soft black, graphite, light grey and cabinetry-matched colours provide broad compatibility for professional converters.</p>
+        </div>
+        <div class="material dark-card">
+          <h3>Character finishes</h3>
+          <p>Hammered copper, aged brass, textured stone and specialist paint systems can create higher-margin variants and limited collections.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        Finishes should be offered as a controlled palette, not an uncontrolled list of colours.
+      </div>
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="identity">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">04</div>
+      <div class="label">Range identity</div>
+    </div>
+    <div class="copy">
+      <h2>Different products should remain visibly related.</h2>
+      <p class="lead">
+        Consistency will be created through shared proportions, edge radii, shadow gaps, finish options and closure details.
+      </p>
+      <p>
+        A downlight housing, router enclosure and switch backbox do not need to look identical. They do need to look as though the same design team created them for the same vehicle.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>Recognisable silhouette</h3>
+          <p>Soft geometric forms and controlled depth create a family resemblance across different product sizes.</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>Consistent detailing</h3>
+          <p>Shared edge treatment, reveal lines and concealed fixing produce continuity at close range.</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>Brand restraint</h3>
+          <p>The product should remain the hero; branding should be subtle, durable and never visually intrusive.</p>
+        </div>
+      </div>
+
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <div class="statement-card">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <blockquote>
+        Every product should look simple because the difficult decisions have already been made.
+      </blockquote>
+      <p>
+        The design philosophy creates a clear filter for future development: if a product cannot improve appearance, installation and serviceability together, it does not belong in the range.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="wrap chapter-nav-inner">
+    <a href="Electrasthetics_Market_Opportunity.html">← Previous: Market Opportunity</a>
+    <a href="Electrasthetics_Universal_Modular_Housing.html">Next: Universal Modular Housing →</a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Electrasthetics Commercial Product Proposal</div>
+    <div>Chapter 03 — Design Philosophy</div>
+  </div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Return to top">↑</a>
+
+</body>
+</html>
