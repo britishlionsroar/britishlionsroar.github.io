@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Universal Modular Housing chapter for the Electrasthetics commercial product proposal.">
+<title>Electrasthetics — Universal Modular Housing</title>
+<style>
+:root{
+  --ink:#111518;
+  --ink-2:#222a2f;
+  --paper:#f5f1ea;
+  --paper-2:#e9e2d7;
+  --white:#fff;
+  --line:rgba(17,21,24,.13);
+  --gold:#ad8752;
+  --gold-light:#d8c39e;
+  --copper:#8e5f31;
+  --shadow:0 24px 80px rgba(13,16,18,.15);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,241,234,.9);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+.header-inner{
+  min-height:82px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;
+}
+.logo{height:48px;width:auto;object-fit:contain}
+.header-nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.header-nav a{text-decoration:none;color:#525a60}
+.header-nav a:hover{color:var(--copper)}
+.pill{
+  padding:10px 16px;border:1px solid var(--ink);
+  border-radius:999px;font-weight:750;
+}
+.hero{
+  min-height:760px;color:#fff;
+  background:
+    radial-gradient(circle at 76% 18%,rgba(216,195,158,.19),transparent 24%),
+    radial-gradient(circle at 14% 82%,rgba(142,95,49,.17),transparent 25%),
+    linear-gradient(135deg,#0c1012,#222c31 58%,#101517);
+  display:flex;align-items:center;overflow:hidden;position:relative;
+}
+.hero:after{
+  content:"";position:absolute;width:620px;height:620px;
+  border:1px solid rgba(255,255,255,.08);border-radius:50%;
+  right:-220px;bottom:-230px;
+}
+.hero-grid{
+  position:relative;z-index:2;display:grid;
+  grid-template-columns:1.02fr .98fr;gap:70px;
+  align-items:center;padding:95px 0;
+}
+.kicker{
+  text-transform:uppercase;letter-spacing:.22em;
+  font-size:.77rem;font-weight:800;color:var(--gold-light);
+}
+.hero h1{
+  margin:16px 0 24px;font-size:clamp(3.7rem,7vw,7.25rem);
+  line-height:.91;letter-spacing:-.055em;
+}
+.hero p{
+  max-width:720px;color:#d8dfe2;font-size:1.17rem;margin:0;
+}
+.hero-visual{
+  position:relative;min-height:460px;border-radius:32px;
+  border:1px solid rgba(255,255,255,.14);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+  box-shadow:0 30px 85px rgba(0,0,0,.3);
+  overflow:hidden;
+}
+.hero-visual .plate{
+  position:absolute;left:50%;top:50%;
+  width:290px;height:210px;transform:translate(-50%,-50%);
+  border-radius:28px;background:linear-gradient(145deg,#f5f1ea,#d7cbbc);
+  box-shadow:0 22px 48px rgba(0,0,0,.34);
+}
+.hero-visual .insert{
+  position:absolute;left:50%;top:50%;
+  width:146px;height:82px;transform:translate(-50%,-50%);
+  border-radius:18px;background:#171d21;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.hero-visual .module{
+  position:absolute;left:50%;top:50%;
+  width:64px;height:64px;transform:translate(-50%,-50%);
+  border-radius:50%;background:linear-gradient(145deg,#454f55,#14191c);
+  box-shadow:0 12px 24px rgba(0,0,0,.34);
+}
+.hero-visual .ring{
+  position:absolute;left:50%;top:50%;
+  width:380px;height:300px;transform:translate(-50%,-50%);
+  border:1px dashed rgba(216,195,158,.46);border-radius:44px;
+}
+.hero-visual .tag{
+  position:absolute;padding:8px 12px;border-radius:999px;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);
+  color:#e5eaec;font-size:.8rem;backdrop-filter:blur(10px);
+}
+.tag.one{left:24px;top:28px}
+.tag.two{right:24px;top:102px}
+.tag.three{left:34px;bottom:40px}
+.contents{background:#fff;border-bottom:1px solid var(--line)}
+.contents-inner{
+  padding:24px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.contents-label{
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;
+  font-weight:800;color:var(--copper);margin-right:8px;
+}
+.contents a{
+  text-decoration:none;padding:8px 12px;border:1px solid var(--line);
+  border-radius:999px;font-size:.88rem;background:#fff;
+}
+.contents a:hover{border-color:var(--copper);color:var(--copper)}
+section.content{padding:105px 0}
+.section-grid{
+  display:grid;grid-template-columns:.72fr 1.28fr;
+  gap:70px;align-items:start;
+}
+.section-no{
+  color:var(--gold);font-size:5.5rem;line-height:.9;
+  letter-spacing:-.07em;font-weight:800;
+}
+.label{
+  text-transform:uppercase;letter-spacing:.15em;
+  font-size:.74rem;font-weight:800;color:var(--copper);margin-top:18px;
+}
+h2{
+  margin:0 0 22px;font-size:clamp(2.6rem,5vw,5.2rem);
+  line-height:.98;letter-spacing:-.045em;
+}
+.lead{font-size:1.2rem;color:#434b50}
+.copy p{color:#4e565c}
+.callout{
+  margin-top:30px;padding:28px;border-left:6px solid var(--gold);
+  background:#fff;box-shadow:var(--shadow);font-size:1.08rem;
+}
+.dark{background:var(--ink);color:#fff}
+.dark p{color:#d3dadd}
+.dark .label{color:var(--gold-light)}
+.dark .section-no{color:rgba(216,195,158,.42)}
+.dark .callout{
+  background:rgba(255,255,255,.055);box-shadow:none;
+  border-left-color:var(--gold-light);
+}
+.system{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:14px;margin-top:42px;
+}
+.layer{
+  min-height:260px;border-radius:22px;padding:22px;
+  background:#fff;border:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.layer:before{
+  content:"";position:absolute;inset:auto -20px -20px auto;
+  width:96px;height:96px;border-radius:50%;
+  background:rgba(173,135,82,.09);
+}
+.layer .num{
+  font-size:.78rem;letter-spacing:.14em;font-weight:800;color:var(--gold);
+}
+.layer h3{font-size:1.22rem;line-height:1.15;margin:38px 0 10px}
+.layer p{margin:0;color:#626a70;font-size:.93rem}
+.exploded{
+  margin-top:38px;padding:34px;border-radius:28px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.045);
+}
+.exploded-row{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:20px;align-items:center;
+}
+.part{
+  min-height:170px;border-radius:22px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:18px;
+  border:1px solid rgba(255,255,255,.13);
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  color:#eef2f3;font-weight:750;
+  position:relative;
+}
+.part:not(:last-child):after{
+  content:"→";position:absolute;right:-18px;color:var(--gold-light);
+  font-size:1.25rem;
+}
+.compat{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:18px;margin-top:36px;
+}
+.compat-card{
+  min-height:220px;border-radius:22px;padding:26px;
+  background:#fff;border:1px solid var(--line);
+}
+.compat-icon{
+  width:56px;height:56px;border-radius:18px;background:var(--ink);
+  color:#fff;display:grid;place-items:center;font-weight:800;
+  margin-bottom:38px;box-shadow:0 12px 24px rgba(0,0,0,.14);
+}
+.compat-card h3{margin:0 0 10px;font-size:1.24rem}
+.compat-card p{margin:0;color:#626a70}
+.matrix{
+  margin-top:38px;overflow:auto;border-radius:24px;
+  border:1px solid var(--line);background:#fff;
+}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:18px 20px;border-bottom:1px solid var(--line);text-align:left}
+th{
+  background:#f0ebe3;font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.1em;color:#6a5a48;
+}
+td:first-child{font-weight:750}
+.check{color:var(--copper);font-weight:900}
+.future-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;
+}
+.future{
+  border-radius:24px;padding:30px;min-height:260px;
+  border:1px solid var(--line);background:#fff;
+}
+.future.dark-card{
+  color:#fff;background:linear-gradient(145deg,#242c30,#101416);
+  border-color:rgba(255,255,255,.08);
+}
+.future h3{font-size:1.5rem;margin:0 0 16px}
+.future p{margin:0;color:#61696f}
+.future.dark-card p{color:#d3dadd}
+.return{
+  margin-top:48px;display:inline-flex;align-items:center;
+  text-decoration:none;font-weight:750;color:var(--copper);
+}
+.return:hover{text-decoration:underline}
+.statement{
+  padding:100px 0;
+  background:
+    linear-gradient(125deg,rgba(173,135,82,.13),transparent 42%),
+    var(--paper-2);
+}
+.statement-card{
+  background:#fff;border:1px solid var(--line);border-radius:30px;
+  padding:64px;box-shadow:var(--shadow);
+}
+.statement-card img{height:68px;width:auto;margin-bottom:30px}
+.statement-card blockquote{
+  margin:0;max-width:920px;font-size:clamp(2.2rem,4vw,4.6rem);
+  line-height:1.02;letter-spacing:-.04em;font-weight:750;
+}
+.statement-card p{max-width:760px;color:#596167;margin:24px 0 0}
+.chapter-nav{border-top:1px solid var(--line);background:#fff}
+.chapter-nav-inner{
+  padding:34px 0 48px;display:flex;justify-content:space-between;
+  gap:20px;align-items:center;
+}
+.chapter-nav a{
+  text-decoration:none;padding:13px 18px;border-radius:999px;
+  border:1px solid var(--line);font-weight:750;
+}
+.chapter-nav a:hover{border-color:var(--copper);color:var(--copper)}
+footer{
+  border-top:1px solid var(--line);padding:28px 0 40px;
+  color:#646c72;font-size:.9rem;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.back-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;
+  border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);color:#fff;text-decoration:none;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+@media(max-width:980px){
+  .hero-grid,.section-grid{grid-template-columns:1fr}
+  .system{grid-template-columns:repeat(2,1fr)}
+  .exploded-row{grid-template-columns:1fr}
+  .part:not(:last-child):after{content:"↓";right:auto;bottom:-19px}
+  .compat{grid-template-columns:repeat(2,1fr)}
+  .header-nav a:not(.pill){display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 26px,1180px)}
+  .site-header{position:relative}.logo{height:40px}
+  .hero{min-height:auto}.hero-grid{padding:70px 0}
+  .hero h1{font-size:3.55rem}.hero-visual{min-height:360px}
+  .hero-visual .plate{width:240px;height:176px}
+  .hero-visual .ring{width:305px;height:240px}
+  section.content,.statement{padding:70px 0}
+  .system,.compat,.future-grid{grid-template-columns:1fr}
+  .statement-card{padding:38px 24px}
+  .chapter-nav-inner,.footer-inner{display:block}
+  .chapter-nav a{display:block;text-align:center;margin:10px 0}
+}
+@media print{
+  .site-header,.contents,.back-top,.chapter-nav{display:none}
+  .hero{min-height:100vh;page-break-after:always}
+  section.content{page-break-before:always}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="Electrasthetics_Index.html" aria-label="Electrasthetics proposal home">
+      <img class="logo" src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics logo">
+    </a>
+    <nav class="header-nav" aria-label="Page navigation">
+      <a href="#contents">Contents</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#compatibility">Compatibility</a>
+      <a class="pill" href="Electrasthetics_Index.html#contents">Full proposal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Chapter 04</div>
+      <h1>Universal Modular Housing</h1>
+      <p>
+        One shared platform for switches, sockets, controls and future modules—designed to reduce redesign, simplify installation and create a recognisable Electrasthetics product family.
+      </p>
+    </div>
+    <div class="hero-visual" aria-label="Conceptual modular housing illustration">
+      <div class="ring"></div>
+      <div class="plate"></div>
+      <div class="insert"></div>
+      <div class="module"></div>
+      <div class="tag one">Shared backplate</div>
+      <div class="tag two">Replaceable insert</div>
+      <div class="tag three">Decorative outer housing</div>
+    </div>
+  </div>
+</section>
+
+<nav class="contents" id="contents" aria-label="Chapter contents">
+  <div class="wrap contents-inner">
+    <span class="contents-label">On this page</span>
+    <a href="#platform">The platform</a>
+    <a href="#architecture">System architecture</a>
+    <a href="#fixing">Concealed fixing</a>
+    <a href="#compatibility">Compatibility</a>
+    <a href="#manufacture">Manufacturing logic</a>
+    <a href="#future">Future expansion</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="content" id="platform">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">01</div>
+      <div class="label">The platform</div>
+    </div>
+    <div class="copy">
+      <h2>One housing language. Many electrical functions.</h2>
+      <p class="lead">
+        The universal modular housing is the core architecture behind the wider Electrasthetics range.
+      </p>
+      <p>
+        Instead of designing a completely new enclosure for every switch, socket and controller, the system separates the visible housing from the functional insert. This allows the exterior form, fixing method and finish to remain consistent while the internal adapter changes to suit the selected component.
+      </p>
+      <div class="callout">
+        The commercial value lies in reusing the same platform repeatedly while expanding compatibility through comparatively simple new inserts.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="architecture">
+  <div class="wrap">
+    <div class="label">System architecture</div>
+    <h2>Five parts. One finished product.</h2>
+    <p class="lead" style="max-width:860px;color:#d3dadd">
+      Each layer has a defined job, allowing appearance, installation and module compatibility to be developed independently.
+    </p>
+
+    <div class="system">
+      <div class="layer">
+        <div class="num">01</div>
+        <div>
+          <h3>Mounting backplate</h3>
+          <p>Secures the assembly to the vehicle or furniture surface using screws, adhesive or a combined method.</p>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="num">02</div>
+        <div>
+          <h3>Hook rail</h3>
+          <p>Locates the lower edge of the outer housing and provides a controlled pivot point during fitting.</p>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="num">03</div>
+        <div>
+          <h3>Adapter insert</h3>
+          <p>Matches the chosen switch, socket or controller without changing the surrounding housing.</p>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="num">04</div>
+        <div>
+          <h3>Functional module</h3>
+          <p>The selected electrical component remains replaceable and serviceable within the common architecture.</p>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="num">05</div>
+        <div>
+          <h3>Outer housing</h3>
+          <p>Creates the finished appearance, conceals the fixings and carries the chosen colour or decorative finish.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exploded">
+      <div class="exploded-row">
+        <div class="part">Backplate</div>
+        <div class="part">Hook and catches</div>
+        <div class="part">Adapter insert</div>
+        <div class="part">Electrical module</div>
+        <div class="part">Decorative cover</div>
+      </div>
+    </div>
+
+    <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content" id="fixing">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">02</div>
+      <div class="label">Concealed fixing</div>
+    </div>
+    <div class="copy">
+      <h2>Secure in use. Clean from every viewing angle.</h2>
+      <p class="lead">
+        The preferred arrangement uses a lower hook rail and two concealed upper catches.
+      </p>
+      <p>
+        The installer engages the housing onto the lower rail, rotates it into position and presses until the catches lock. Removal is deliberate rather than accidental, but the finished face remains free of exposed screws.
+      </p>
+
+      <div class="compat">
+        <div class="compat-card">
+          <div class="compat-icon">1</div>
+          <h3>Locate</h3>
+          <p>Engage the lower edge of the housing with the backplate hook rail.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">2</div>
+          <h3>Rotate</h3>
+          <p>Pivot the cover toward the surface while the lower rail controls alignment.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">3</div>
+          <h3>Lock</h3>
+          <p>Twin concealed catches secure the upper edge without visible fasteners.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">4</div>
+          <h3>Service</h3>
+          <p>Release the cover when access is required without damaging the installation.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        Optional 3M VHB 5952 adhesive backing can support no-drill installation on suitable prepared surfaces.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="compatibility">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">03</div>
+      <div class="label">Compatibility</div>
+    </div>
+    <div class="copy">
+      <h2>Designed around the modules already used in real conversions.</h2>
+      <p class="lead">
+        The platform can support a wide range of common low-voltage components through dedicated adapter inserts.
+      </p>
+
+      <div class="compat">
+        <div class="compat-card">
+          <div class="compat-icon">29</div>
+          <h3>Round sockets</h3>
+          <p>Approx. 29 mm 12V sockets, USB outlets and combined charging modules.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">20</div>
+          <h3>Rocker switches</h3>
+          <p>Approx. 20 mm round rockers and common rectangular automotive switch formats.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">22</div>
+          <h3>Push buttons</h3>
+          <p>Approx. 22 mm momentary or latching illuminated metal push buttons.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">12</div>
+          <h3>Toggle switches</h3>
+          <p>Approx. 12 mm toggle switches and specialist small-format controls.</p>
+        </div>
+      </div>
+
+      <div class="matrix">
+        <table>
+          <thead>
+            <tr>
+              <th>Module type</th>
+              <th>Single housing</th>
+              <th>Double housing</th>
+              <th>Triple housing</th>
+              <th>Dedicated adapter</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>29 mm round socket</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+            <tr><td>20 mm rocker switch</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+            <tr><td>22 mm push button</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+            <tr><td>12 mm toggle switch</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+            <tr><td>Rectangular auto rocker</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+            <tr><td>Rotary dimmer</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+            <tr><td>CBE / C-Line format</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="manufacture">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">04</div>
+      <div class="label">Manufacturing logic</div>
+    </div>
+    <div class="copy">
+      <h2>Develop the expensive geometry once. Extend the range through smaller parts.</h2>
+      <p class="lead">
+        The shared platform reduces the need to reinvent the complete enclosure for each new electrical function.
+      </p>
+      <p>
+        Early production can use additive manufacturing for low tooling cost, rapid revision and broad finish choice. The architecture should nevertheless be designed with future moulding or hybrid manufacture in mind, allowing successful products to scale without abandoning the original system.
+      </p>
+
+      <div class="future-grid">
+        <div class="future">
+          <h3>Early-stage production</h3>
+          <p>3D printing enables quick prototyping, short production runs, custom colours and rapid adapter development for new modules.</p>
+        </div>
+        <div class="future dark-card">
+          <h3>Volume-stage production</h3>
+          <p>Common outer housings and backplates can later justify tooling, while lower-volume adapters remain printed or separately manufactured.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        Standardisation improves inventory control: a limited number of housings can support a much larger catalogue of functional combinations.
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="future">
+  <div class="wrap section-grid">
+    <div>
+      <div class="section-no">05</div>
+      <div class="label">Future expansion</div>
+    </div>
+    <div class="copy">
+      <h2>A platform that becomes more valuable as the range grows.</h2>
+      <p class="lead">
+        New inserts, modules and outer forms can be added without invalidating the products already developed.
+      </p>
+      <p>
+        This creates room for later compatibility with smart controls, sensor modules, touch interfaces, branded converter panels and specialist products for marine, horsebox and expedition vehicle markets.
+      </p>
+
+      <div class="compat">
+        <div class="compat-card">
+          <div class="compat-icon">A</div>
+          <h3>New adapters</h3>
+          <p>Add compatibility with emerging electrical modules while retaining the same outer housing.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">B</div>
+          <h3>New formats</h3>
+          <p>Develop single, double, triple and wider control-panel versions from the same core logic.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">C</div>
+          <h3>New finishes</h3>
+          <p>Release coordinated colour collections without changing the underlying engineering.</p>
+        </div>
+        <div class="compat-card">
+          <div class="compat-icon">D</div>
+          <h3>New markets</h3>
+          <p>Apply the architecture to boats, caravans, horseboxes and other compact specialist interiors.</p>
+        </div>
+      </div>
+
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <div class="statement-card">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <blockquote>
+        One platform. Hundreds of possible combinations.
+      </blockquote>
+      <p>
+        The universal modular housing transforms Electrasthetics from a collection of individual enclosures into an expandable product system with shared engineering, recognisable design and stronger commercial leverage.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="wrap chapter-nav-inner">
+    <a href="Electrasthetics_Design_Philosophy.html">← Previous: Design Philosophy</a>
+    <a href="Electrasthetics_Surface_Mounted_Back_Boxes.html">Next: Surface Mounted Back Boxes →</a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Electrasthetics Commercial Product Proposal</div>
+    <div>Chapter 04 — Universal Modular Housing</div>
+  </div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Return to top">↑</a>
+
+</body>
+</html>
