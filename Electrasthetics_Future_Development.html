@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Future Development chapter for the Electrasthetics commercial product proposal.">
+<title>Electrasthetics — Future Development</title>
+<style>
+:root{
+  --ink:#111518;--paper:#f5f1ea;--paper2:#e9e2d7;--white:#fff;
+  --line:rgba(17,21,24,.13);--gold:#ad8752;--gold2:#d8c39e;--copper:#8e5f31;
+  --shadow:0 24px 80px rgba(13,16,18,.15)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(245,241,234,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.header-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{height:48px;width:auto}
+.header-nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.header-nav a{text-decoration:none;color:#525a60}
+.header-nav a:hover{color:var(--copper)}
+.pill{padding:10px 16px;border:1px solid var(--ink);border-radius:999px;font-weight:750}
+.hero{
+  min-height:760px;color:#fff;display:flex;align-items:center;overflow:hidden;position:relative;
+  background:
+    radial-gradient(circle at 76% 20%,rgba(216,195,158,.18),transparent 24%),
+    radial-gradient(circle at 13% 84%,rgba(142,95,49,.18),transparent 27%),
+    linear-gradient(135deg,#0c1012,#222c31 58%,#101517)
+}
+.hero:after{content:"";position:absolute;width:650px;height:650px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-240px;bottom:-250px}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.03fr .97fr;gap:70px;align-items:center;padding:95px 0}
+.kicker{text-transform:uppercase;letter-spacing:.22em;font-size:.77rem;font-weight:800;color:var(--gold2)}
+.hero h1{margin:16px 0 24px;font-size:clamp(3.7rem,7vw,7.2rem);line-height:.91;letter-spacing:-.055em}
+.hero p{max-width:720px;color:#d8dfe2;font-size:1.17rem;margin:0}
+.hero-visual{position:relative;min-height:470px;border-radius:32px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:0 30px 85px rgba(0,0,0,.3);overflow:hidden}
+.orbit{position:absolute;left:50%;top:50%;width:340px;height:340px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.18);border-radius:50%}
+.orbit.two{width:240px;height:240px}
+.orbit.three{width:140px;height:140px}
+.core{position:absolute;left:50%;top:50%;width:72px;height:72px;transform:translate(-50%,-50%);border-radius:22px;background:linear-gradient(145deg,#f7f3ec,#cfc3b1);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.node{position:absolute;width:34px;height:34px;border-radius:12px;background:var(--gold2);box-shadow:0 10px 25px rgba(0,0,0,.25)}
+.node.a{left:50%;top:11%;transform:translateX(-50%)}.node.b{right:12%;top:50%;transform:translateY(-50%)}.node.c{left:22%;bottom:13%}.node.d{left:14%;top:30%}
+.tag{position:absolute;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);color:#e5eaec;font-size:.8rem;backdrop-filter:blur(10px)}
+.tag.one{left:24px;top:30px}.tag.two{right:24px;top:105px}.tag.three{left:34px;bottom:38px}
+.contents{background:#fff;border-bottom:1px solid var(--line)}
+.contents-inner{padding:24px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.contents-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:var(--copper);margin-right:8px}
+.contents a{text-decoration:none;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;background:#fff}
+.contents a:hover{border-color:var(--copper);color:var(--copper)}
+section.content{padding:105px 0}
+.section-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:start}
+.section-no{color:var(--gold);font-size:5.5rem;line-height:.9;letter-spacing:-.07em;font-weight:800}
+.label{text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;font-weight:800;color:var(--copper);margin-top:18px}
+h2{margin:0 0 22px;font-size:clamp(2.6rem,5vw,5.2rem);line-height:.98;letter-spacing:-.045em}
+.lead{font-size:1.2rem;color:#434b50}
+.copy p{color:#4e565c}
+.callout{margin-top:30px;padding:28px;border-left:6px solid var(--gold);background:#fff;box-shadow:var(--shadow);font-size:1.08rem}
+.dark{background:var(--ink);color:#fff}
+.dark p{color:#d3dadd}
+.dark .label{color:var(--gold2)}
+.dark .section-no{color:rgba(216,195,158,.42)}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.card{min-height:250px;border-radius:24px;padding:28px;background:#fff;border:1px solid var(--line)}
+.card.dark-card{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.12);color:#fff}
+.card .eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.card h3{font-size:1.45rem;line-height:1.15;margin:40px 0 12px}
+.card p{margin:0;color:#626a70}
+.card.dark-card p{color:#cbd2d5}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.roadmap .item{min-height:235px;border-radius:22px;padding:24px;background:#fff;border:1px solid var(--line)}
+.roadmap .step{width:54px;height:54px;border-radius:17px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:34px}
+.roadmap h3{margin:0 0 10px;font-size:1.22rem}
+.roadmap p{margin:0;color:#626a70}
+.specs{margin-top:38px;overflow:auto;border-radius:24px;border:1px solid var(--line);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:18px 20px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#f0ebe3;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#6a5a48}
+td:first-child{font-weight:750}
+.return{margin-top:48px;display:inline-flex;align-items:center;text-decoration:none;font-weight:750;color:var(--copper)}
+.statement{padding:100px 0;background:linear-gradient(125deg,rgba(173,135,82,.13),transparent 42%),var(--paper2)}
+.statement-card{background:#fff;border:1px solid var(--line);border-radius:30px;padding:64px;box-shadow:var(--shadow)}
+.statement-card img{height:68px;width:auto;margin-bottom:30px}
+.statement-card blockquote{margin:0;max-width:920px;font-size:clamp(2.2rem,4vw,4.6rem);line-height:1.02;letter-spacing:-.04em;font-weight:750}
+.statement-card p{max-width:760px;color:#596167;margin:24px 0 0}
+.chapter-nav{border-top:1px solid var(--line);background:#fff}
+.chapter-nav-inner{padding:34px 0 48px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.chapter-nav a{text-decoration:none;padding:13px 18px;border-radius:999px;border:1px solid var(--line);font-weight:750}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#646c72;font-size:.9rem}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.back-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;text-decoration:none;box-shadow:0 12px 28px rgba(0,0,0,.22)}
+@media(max-width:980px){.hero-grid,.section-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(2,1fr)}.roadmap{grid-template-columns:repeat(2,1fr)}.header-nav a:not(.pill){display:none}}
+@media(max-width:620px){.wrap{width:min(100% - 26px,1180px)}.site-header{position:relative}.logo{height:40px}.hero{min-height:auto}.hero-grid{padding:70px 0}.hero h1{font-size:3.45rem}.hero-visual{min-height:360px}.orbit{width:280px;height:280px}.orbit.two{width:200px;height:200px}.orbit.three{width:120px;height:120px}section.content,.statement{padding:70px 0}.card-grid,.roadmap{grid-template-columns:1fr}.statement-card{padding:38px 24px}.chapter-nav-inner,.footer-inner{display:block}.chapter-nav a{display:block;text-align:center;margin:10px 0}}
+@media print{.site-header,.contents,.back-top,.chapter-nav{display:none}.hero{min-height:100vh;page-break-after:always}section.content{page-break-before:always}}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="Electrasthetics_Index.html" aria-label="Electrasthetics proposal home">
+      <img class="logo" src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics logo">
+    </a>
+    <nav class="header-nav" aria-label="Page navigation">
+      <a href="#contents">Contents</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#roadmap">Roadmap</a>
+      <a class="pill" href="Electrasthetics_Index.html#contents">Full proposal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Chapter 13</div>
+      <h1>Future Development</h1>
+      <p>
+        A structured expansion pathway that takes Electrasthetics from a focused product range into a broader, recognisable ecosystem for premium campervan, motorhome and specialist vehicle interiors.
+      </p>
+    </div>
+    <div class="hero-visual" aria-label="Conceptual future-development network">
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
+      <div class="orbit three"></div>
+      <div class="core"></div>
+      <div class="node a"></div><div class="node b"></div><div class="node c"></div><div class="node d"></div>
+      <div class="tag one">New product families</div>
+      <div class="tag two">Shared mounting architecture</div>
+      <div class="tag three">Connected vehicle ecosystem</div>
+    </div>
+  </div>
+</section>
+
+<nav class="contents" id="contents" aria-label="Chapter contents">
+  <div class="wrap contents-inner">
+    <span class="contents-label">On this page</span>
+    <a href="#strategy">Development strategy</a>
+    <a href="#pipeline">Product pipeline</a>
+    <a href="#platform">Platform expansion</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#priorities">Commercial priorities</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="content" id="strategy">
+  <div class="wrap section-grid">
+    <div><div class="section-no">01</div><div class="label">Development strategy</div></div>
+    <div class="copy">
+      <h2>Expand from a disciplined core rather than chasing unrelated products.</h2>
+      <p class="lead">The strongest route forward is to build outward from the shared Electrasthetics design language, modular mounting system and vehicle-specific installation knowledge already established.</p>
+      <p>New products should either fit the existing visual family, solve an adjacent installation problem or increase the value of products already in the range. That keeps development focused and makes every new release strengthen the brand as a whole.</p>
+      <div class="callout">The objective is not to manufacture everything used in a vehicle. It is to own the visible interface between technical hardware and the finished interior.</div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="pipeline">
+  <div class="wrap section-grid">
+    <div><div class="section-no">02</div><div class="label">Product pipeline</div></div>
+    <div class="copy">
+      <h2>Natural extensions already exist around the proposed range.</h2>
+      <div class="card-grid">
+        <div class="card dark-card"><div class="eyebrow">Climate</div><h3>Fan, vent and skylight adaptors</h3><p>Adaptor plates for different roof ribs, trims and aperture sizes across popular roof-mounted equipment.</p></div>
+        <div class="card dark-card"><div class="eyebrow">Security</div><h3>External camera mounts</h3><p>Vehicle-specific camera pods, roof mounts, magnetic bases and protective housings for compact security cameras.</p></div>
+        <div class="card dark-card"><div class="eyebrow">Connectivity</div><h3>Aerial and data modules</h3><p>Roof-entry housings, antenna combiners, Ethernet outlets and complete router installation packages.</p></div>
+        <div class="card dark-card"><div class="eyebrow">Control</div><h3>Smart switching accessories</h3><p>Relay housings, timer controls, sensor modules and app-connected control products using the same mounting system.</p></div>
+        <div class="card dark-card"><div class="eyebrow">Lighting</div><h3>Expanded luminaire family</h3><p>Reading lights, task lights, strip-light terminations and surface luminaires coordinated with the smart downlight range.</p></div>
+        <div class="card dark-card"><div class="eyebrow">Services</div><h3>Utility monitoring housings</h3><p>Displays and sensor housings for water, waste, battery, temperature, gas and other vehicle systems.</p></div>
+      </div>
+      <a class="return" href="#contents" style="color:var(--gold2)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="platform">
+  <div class="wrap">
+    <div class="label">Platform expansion</div>
+    <h2>The same architecture can create value beyond individual products.</h2>
+    <div class="card-grid">
+      <div class="card"><div class="eyebrow">Compatibility</div><h3>Model-Specific Insert Library</h3><p>A growing database of cradles, bezels and adaptor plates for popular third-party switches, gauges, routers and controllers.</p></div>
+      <div class="card"><div class="eyebrow">Trade</div><h3>Converter Specification System</h3><p>A structured catalogue allowing professional converters to specify finishes, module layouts and compatible accessories across an entire build.</p></div>
+      <div class="card"><div class="eyebrow">Digital</div><h3>Online Configuration Tool</h3><p>A future customer-facing interface for selecting housings, finishes, modules and combinations before ordering.</p></div>
+      <div class="card"><div class="eyebrow">Manufacturing</div><h3>Distributed Production</h3><p>Approved digital manufacturing files and quality controls could support regional production without large central stockholding.</p></div>
+      <div class="card"><div class="eyebrow">OEM</div><h3>White-Label Partnerships</h3><p>Selected products could be adapted for vehicle builders, equipment manufacturers and specialist distributors.</p></div>
+      <div class="card"><div class="eyebrow">Aftermarket</div><h3>Upgrade and Replacement Range</h3><p>New fascias, inserts and covers allow owners to refresh appearance or change equipment without rebuilding the installation.</p></div>
+    </div>
+    <div class="callout">The long-term commercial asset is the compatibility system and design platform, not only the individual printed component.</div>
+    <a class="return" href="#contents">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content dark" id="roadmap">
+  <div class="wrap section-grid">
+    <div><div class="section-no">03</div><div class="label">Development roadmap</div></div>
+    <div class="copy">
+      <h2>A staged route reduces risk and keeps development commercially grounded.</h2>
+      <div class="roadmap">
+        <div class="item"><div class="step">1</div><h3>Validate the core range</h3><p>Prototype the highest-value housings, test fit, confirm materials and gather installer feedback.</p></div>
+        <div class="item"><div class="step">2</div><h3>Launch compatible families</h3><p>Release coordinated back boxes, control panels, housings and cable-management products.</p></div>
+        <div class="item"><div class="step">3</div><h3>Build the compatibility library</h3><p>Add inserts and adaptors for more third-party products while preserving common outer formats.</p></div>
+        <div class="item"><div class="step">4</div><h3>Scale production and partnerships</h3><p>Move suitable volumes to more efficient processes and secure trade, distributor or OEM relationships.</p></div>
+      </div>
+      <a class="return" href="#contents" style="color:var(--gold2)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="priorities">
+  <div class="wrap section-grid">
+    <div><div class="section-no">04</div><div class="label">Commercial priorities</div></div>
+    <div class="copy">
+      <h2>Future work should be filtered through clear commercial tests.</h2>
+      <div class="specs">
+        <table>
+          <thead><tr><th>Test</th><th>Question</th><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td>Market gap</td><td>Does the product solve a problem not already served well?</td><td>Avoid competing only on price</td></tr>
+            <tr><td>Range fit</td><td>Does it strengthen the Electrasthetics visual or mounting system?</td><td>Build brand recognition and cross-sales</td></tr>
+            <tr><td>Production fit</td><td>Can it be prototyped and produced economically at expected volume?</td><td>Protect margin and cash flow</td></tr>
+            <tr><td>Installation value</td><td>Does it save time, improve finish or simplify servicing?</td><td>Create clear trade and retail benefits</td></tr>
+            <tr><td>Compatibility depth</td><td>Can one outer product support several devices or variants?</td><td>Increase return on development effort</td></tr>
+            <tr><td>Defensibility</td><td>Is the value in the complete system, fit data and presentation rather than a simple shape?</td><td>Reduce easy imitation</td></tr>
+            <tr><td>Expansion potential</td><td>Can the product lead naturally to related accessories?</td><td>Increase lifetime customer value</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">Each future product should earn its place by making the wider platform more useful, more recognisable or more commercially valuable.</div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <div class="statement-card">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <blockquote>Start with products. Build a system. Grow into a category.</blockquote>
+      <p>Electrasthetics has the potential to become the recognised interface between technical vehicle equipment and premium interior design.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="wrap chapter-nav-inner">
+    <a href="Electrasthetics_Cable_Management.html">← Previous: Cable Management</a>
+    <a href="Electrasthetics_Commercial_Development.html">Next: Commercial Development →</a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Electrasthetics Commercial Product Proposal</div>
+    <div>Chapter 13 — Future Development</div>
+  </div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Return to top">↑</a>
+</body>
+</html>
