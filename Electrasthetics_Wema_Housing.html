@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Wema Housing chapter for the Electrasthetics commercial product proposal.">
+<title>Electrasthetics — Wema Housing</title>
+<style>
+:root{
+  --ink:#111518;
+  --paper:#f5f1ea;
+  --paper-2:#e9e2d7;
+  --white:#fff;
+  --line:rgba(17,21,24,.13);
+  --gold:#ad8752;
+  --gold-light:#d8c39e;
+  --copper:#8e5f31;
+  --shadow:0 24px 80px rgba(13,16,18,.15);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(245,241,234,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.header-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{height:48px;width:auto;object-fit:contain}
+.header-nav{display:flex;gap:18px;align-items:center;font-size:.92rem}
+.header-nav a{text-decoration:none;color:#525a60}
+.header-nav a:hover{color:var(--copper)}
+.pill{padding:10px 16px;border:1px solid var(--ink);border-radius:999px;font-weight:750}
+.hero{
+  min-height:760px;color:#fff;display:flex;align-items:center;overflow:hidden;position:relative;
+  background:
+    radial-gradient(circle at 76% 18%,rgba(216,195,158,.18),transparent 24%),
+    radial-gradient(circle at 12% 84%,rgba(142,95,49,.18),transparent 27%),
+    linear-gradient(135deg,#0c1012,#222c31 58%,#101517);
+}
+.hero:after{content:"";position:absolute;width:650px;height:650px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-240px;bottom:-250px}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.03fr .97fr;gap:70px;align-items:center;padding:95px 0}
+.kicker{text-transform:uppercase;letter-spacing:.22em;font-size:.77rem;font-weight:800;color:var(--gold-light)}
+.hero h1{margin:16px 0 24px;font-size:clamp(3.7rem,7vw,7.2rem);line-height:.91;letter-spacing:-.055em}
+.hero p{max-width:720px;color:#d8dfe2;font-size:1.17rem;margin:0}
+.hero-visual{position:relative;min-height:470px;border-radius:32px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:0 30px 85px rgba(0,0,0,.3);overflow:hidden}
+.gauge-shell{position:absolute;left:50%;top:50%;width:340px;height:250px;transform:translate(-50%,-50%);border-radius:30px;background:linear-gradient(145deg,#f7f3ec,#d4c8b6);box-shadow:0 28px 60px rgba(0,0,0,.35);padding:24px}
+.gauge-face{height:100%;border-radius:22px;background:linear-gradient(160deg,#212a2f,#0d1113);position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.dial{position:absolute;left:50%;top:50%;width:150px;height:150px;transform:translate(-50%,-50%);border:8px solid rgba(216,195,158,.85);border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.dial:before{content:"";position:absolute;left:50%;bottom:50%;width:5px;height:54px;background:var(--gold-light);transform:translateX(-50%) rotate(35deg);transform-origin:bottom;border-radius:5px}
+.dial:after{content:"";position:absolute;left:50%;top:50%;width:18px;height:18px;background:#fff;border-radius:50%;transform:translate(-50%,-50%)}
+.level{position:absolute;left:28px;bottom:26px;color:#dfe7ea;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.status{position:absolute;right:28px;top:28px;width:11px;height:11px;border-radius:50%;background:#b8d7ae;box-shadow:0 0 18px rgba(184,215,174,.85)}
+.tag{position:absolute;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);color:#e5eaec;font-size:.8rem;backdrop-filter:blur(10px)}
+.tag.one{left:24px;top:30px}.tag.two{right:24px;top:106px}.tag.three{left:34px;bottom:38px}
+.contents{background:#fff;border-bottom:1px solid var(--line)}
+.contents-inner{padding:24px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.contents-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:var(--copper);margin-right:8px}
+.contents a{text-decoration:none;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;background:#fff}
+.contents a:hover{border-color:var(--copper);color:var(--copper)}
+section.content{padding:105px 0}
+.section-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:start}
+.section-no{color:var(--gold);font-size:5.5rem;line-height:.9;letter-spacing:-.07em;font-weight:800}
+.label{text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;font-weight:800;color:var(--copper);margin-top:18px}
+h2{margin:0 0 22px;font-size:clamp(2.6rem,5vw,5.2rem);line-height:.98;letter-spacing:-.045em}
+.lead{font-size:1.2rem;color:#434b50}
+.copy p{color:#4e565c}
+.callout{margin-top:30px;padding:28px;border-left:6px solid var(--gold);background:#fff;box-shadow:var(--shadow);font-size:1.08rem}
+.dark{background:var(--ink);color:#fff}
+.dark p{color:#d3dadd}
+.dark .label{color:var(--gold-light)}
+.dark .section-no{color:rgba(216,195,158,.42)}
+.dark .callout{background:rgba(255,255,255,.055);box-shadow:none;border-left-color:var(--gold-light)}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.card{min-height:250px;border-radius:24px;padding:28px;background:#fff;border:1px solid var(--line)}
+.card.dark-card{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.12);color:#fff}
+.card .eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800}
+.card h3{font-size:1.45rem;line-height:1.15;margin:40px 0 12px}
+.card p{margin:0;color:#626a70}
+.card.dark-card p{color:#cbd2d5}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.flow .item{min-height:225px;border-radius:22px;padding:24px;background:#fff;border:1px solid var(--line)}
+.flow .step{width:54px;height:54px;border-radius:17px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:34px}
+.flow h3{margin:0 0 10px;font-size:1.22rem}
+.flow p{margin:0;color:#626a70}
+.specs{margin-top:38px;overflow:auto;border-radius:24px;border:1px solid var(--line);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:18px 20px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#f0ebe3;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#6a5a48}
+td:first-child{font-weight:750}
+.return{margin-top:48px;display:inline-flex;align-items:center;text-decoration:none;font-weight:750;color:var(--copper)}
+.return:hover{text-decoration:underline}
+.statement{padding:100px 0;background:linear-gradient(125deg,rgba(173,135,82,.13),transparent 42%),var(--paper-2)}
+.statement-card{background:#fff;border:1px solid var(--line);border-radius:30px;padding:64px;box-shadow:var(--shadow)}
+.statement-card img{height:68px;width:auto;margin-bottom:30px}
+.statement-card blockquote{margin:0;max-width:920px;font-size:clamp(2.2rem,4vw,4.6rem);line-height:1.02;letter-spacing:-.04em;font-weight:750}
+.statement-card p{max-width:760px;color:#596167;margin:24px 0 0}
+.chapter-nav{border-top:1px solid var(--line);background:#fff}
+.chapter-nav-inner{padding:34px 0 48px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.chapter-nav a{text-decoration:none;padding:13px 18px;border-radius:999px;border:1px solid var(--line);font-weight:750}
+.chapter-nav a:hover{border-color:var(--copper);color:var(--copper)}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#646c72;font-size:.9rem}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.back-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;text-decoration:none;box-shadow:0 12px 28px rgba(0,0,0,.22)}
+@media(max-width:980px){
+  .hero-grid,.section-grid{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .header-nav a:not(.pill){display:none}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 26px,1180px)}
+  .site-header{position:relative}
+  .logo{height:40px}
+  .hero{min-height:auto}
+  .hero-grid{padding:70px 0}
+  .hero h1{font-size:3.45rem}
+  .hero-visual{min-height:360px}
+  .gauge-shell{width:270px;height:210px}
+  .dial{width:125px;height:125px}
+  section.content,.statement{padding:70px 0}
+  .card-grid,.flow{grid-template-columns:1fr}
+  .statement-card{padding:38px 24px}
+  .chapter-nav-inner,.footer-inner{display:block}
+  .chapter-nav a{display:block;text-align:center;margin:10px 0}
+}
+@media print{
+  .site-header,.contents,.back-top,.chapter-nav{display:none}
+  .hero{min-height:100vh;page-break-after:always}
+  section.content{page-break-before:always}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="Electrasthetics_Index.html" aria-label="Electrasthetics proposal home">
+      <img class="logo" src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics logo">
+    </a>
+    <nav class="header-nav" aria-label="Page navigation">
+      <a href="#contents">Contents</a>
+      <a href="#range">Range</a>
+      <a href="#specification">Specification</a>
+      <a class="pill" href="Electrasthetics_Index.html#contents">Full proposal</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Chapter 10</div>
+      <h1>Wema Housing</h1>
+      <p>
+        A refined mounting and presentation system for Wema-style tank level gauges and related round instrumentation, bringing essential monitoring hardware into the Electrasthetics visual language.
+      </p>
+    </div>
+    <div class="hero-visual" aria-label="Conceptual Wema gauge housing">
+      <div class="gauge-shell">
+        <div class="gauge-face">
+          <div class="status"></div>
+          <div class="dial"></div>
+          <div class="level">Tank level</div>
+        </div>
+      </div>
+      <div class="tag one">Round gauge compatibility</div>
+      <div class="tag two">Surface or recessed mounting</div>
+      <div class="tag three">Matched finish system</div>
+    </div>
+  </div>
+</section>
+
+<nav class="contents" id="contents" aria-label="Chapter contents">
+  <div class="wrap contents-inner">
+    <span class="contents-label">On this page</span>
+    <a href="#problem">The problem</a>
+    <a href="#solution">The solution</a>
+    <a href="#range">Product range</a>
+    <a href="#installation">Installation</a>
+    <a href="#specification">Specification</a>
+    <a href="#commercial">Commercial value</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="content" id="problem">
+  <div class="wrap section-grid">
+    <div><div class="section-no">01</div><div class="label">The problem</div></div>
+    <div class="copy">
+      <h2>Useful instruments are often let down by poor presentation.</h2>
+      <p class="lead">Wema-style gauges are widely used because they are compact, familiar and reliable, but they are normally mounted as isolated components with exposed fixings and little relationship to the surrounding interior.</p>
+      <p>Where several gauges are fitted together, alignment and spacing are often inconsistent. Surface installations can look particularly improvised when no suitable recessed cavity exists behind the wall or cabinet face.</p>
+      <div class="callout">The opportunity is not to redesign the gauge. It is to create a premium, repeatable way to mount and group it.</div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="solution">
+  <div class="wrap section-grid">
+    <div><div class="section-no">02</div><div class="label">The solution</div></div>
+    <div class="copy">
+      <h2>A coordinated outer housing for proven round instrumentation.</h2>
+      <p class="lead">The Wema Housing uses a common outer form with replaceable gauge inserts, allowing the same visual product to support different round instrument sizes and layouts.</p>
+      <div class="card-grid">
+        <div class="card dark-card"><div class="eyebrow">01</div><h3>Single-gauge housing</h3><p>Creates a clean standalone installation with concealed fixings and controlled cable entry.</p></div>
+        <div class="card dark-card"><div class="eyebrow">02</div><h3>Multi-gauge array</h3><p>Aligns two, three or more instruments within one coherent fascia rather than separate cut-outs.</p></div>
+        <div class="card dark-card"><div class="eyebrow">03</div><h3>Universal insert platform</h3><p>Supports different gauge diameters without changing the visible outer housing family.</p></div>
+      </div>
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="range">
+  <div class="wrap">
+    <div class="label">Product range</div>
+    <h2>From one instrument to a complete monitoring cluster.</h2>
+    <div class="card-grid">
+      <div class="card"><div class="eyebrow">EA-WH1</div><h3>Single Gauge Pod</h3><p>A compact enclosure for one Wema-style gauge, suitable for tank level, voltage, temperature or other round instruments.</p></div>
+      <div class="card"><div class="eyebrow">EA-WH2</div><h3>Dual Gauge Housing</h3><p>A balanced two-instrument fascia for water and waste levels, twin tanks or combined level and electrical monitoring.</p></div>
+      <div class="card"><div class="eyebrow">EA-WH3</div><h3>Multi-Gauge Cluster</h3><p>A wider modular housing for three or more instruments, with consistent spacing and a unified installation footprint.</p></div>
+    </div>
+    <div class="callout">The same visual system can extend beyond Wema products to other standard round marine and vehicle gauges where dimensions permit.</div>
+    <a class="return" href="#contents">↑ Return to chapter contents</a>
+  </div>
+</section>
+
+<section class="content dark" id="installation">
+  <div class="wrap section-grid">
+    <div><div class="section-no">03</div><div class="label">Installation</div></div>
+    <div class="copy">
+      <h2>Designed for both new conversions and retrofit upgrades.</h2>
+      <div class="flow">
+        <div class="item"><div class="step">1</div><h3>Select the format</h3><p>Choose a single, dual or multi-gauge housing to suit the monitoring package.</p></div>
+        <div class="item"><div class="step">2</div><h3>Fit the backplate</h3><p>Mount to cabinetry or wall lining using concealed screws or a compatible adhesive system.</p></div>
+        <div class="item"><div class="step">3</div><h3>Install the gauges</h3><p>Secure each instrument within its dedicated insert and connect the existing sender wiring.</p></div>
+        <div class="item"><div class="step">4</div><h3>Apply the fascia</h3><p>Complete the installation with the chosen finish and removable service cover.</p></div>
+      </div>
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="specification">
+  <div class="wrap section-grid">
+    <div><div class="section-no">04</div><div class="label">Indicative specification</div></div>
+    <div class="copy">
+      <h2>A flexible platform built around standard instrument geometry.</h2>
+      <div class="specs">
+        <table>
+          <thead><tr><th>Element</th><th>Initial requirement</th><th>Design purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Housing formats</td><td>Single, dual and multi-gauge</td><td>Cover common monitoring layouts</td></tr>
+            <tr><td>Gauge support</td><td>Replaceable diameter-specific inserts</td><td>Support several standard round instruments</td></tr>
+            <tr><td>Mounting modes</td><td>Surface, semi-recessed and panel-integrated</td><td>Suit varied vehicle construction methods</td></tr>
+            <tr><td>Fixing method</td><td>Concealed screws, clips or adhesive-backed plate</td><td>Maintain a clean external appearance</td></tr>
+            <tr><td>Cable entry</td><td>Rear and lower options</td><td>Support hidden or surface wiring</td></tr>
+            <tr><td>Service access</td><td>Removable fascia or cover</td><td>Allow gauge replacement and wiring checks</td></tr>
+            <tr><td>Material</td><td>Engineering-grade printed polymer initially</td><td>Enable rapid development and low-volume production</td></tr>
+            <tr><td>Finish</td><td>Matched to the wider Electrasthetics range</td><td>Create visual consistency across the interior</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <a class="return" href="#contents">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="content dark" id="commercial">
+  <div class="wrap section-grid">
+    <div><div class="section-no">05</div><div class="label">Commercial value</div></div>
+    <div class="copy">
+      <h2>A low-risk accessory with broad compatibility.</h2>
+      <p class="lead">Round gauges are already established across marine, automotive, campervan and motorhome markets, creating a sizeable installed base for retrofit and new-build applications.</p>
+      <div class="card-grid">
+        <div class="card dark-card"><div class="eyebrow">Retail</div><h3>Simple visual upgrade</h3><p>Owners can improve an existing gauge installation without replacing the sender or instrument.</p></div>
+        <div class="card dark-card"><div class="eyebrow">Trade</div><h3>Repeatable dashboard treatment</h3><p>Converters can standardise the presentation of tank and electrical monitoring across multiple builds.</p></div>
+        <div class="card dark-card"><div class="eyebrow">Platform</div><h3>Expandable compatibility</h3><p>Additional inserts can extend the range to new gauge sizes and related round instruments.</p></div>
+      </div>
+      <div class="callout">The Wema Housing turns a generic component into a coordinated part of the Electrasthetics product ecosystem.</div>
+      <a class="return" href="#contents" style="color:var(--gold-light)">↑ Return to chapter contents</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <div class="statement-card">
+      <img src="https://britishlionsroar.github.io/EAlogo.jpg" alt="Electrasthetics">
+      <blockquote>Essential information, presented with the same care as the rest of the interior.</blockquote>
+      <p>The Electrasthetics Wema Housing provides a clean, adaptable and commercially practical way to integrate round gauges into premium vehicle conversions.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="wrap chapter-nav-inner">
+    <a href="Electrasthetics_Router_Housing.html">← Previous: Router Housing</a>
+    <a href="Electrasthetics_Door_Viewer_Kit.html">Next: Door Viewer Kit →</a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Electrasthetics Commercial Product Proposal</div>
+    <div>Chapter 10 — Wema Housing</div>
+  </div>
+</footer>
+
+<a class="back-top" href="#top" aria-label="Return to top">↑</a>
+</body>
+</html>
