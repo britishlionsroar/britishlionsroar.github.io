@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrasthetics — Future Development</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Montserrat:wght@700;800;900&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:   #0D3B66;
+    --blue:   #1D5FA8;
+    --sky:    #4A9FD4;
+    --yellow: #FFC928;
+    --white:  #FFFFFF;
+    --off:    #F6F8FA;
+    --light:  #E8F0F7;
+    --grey:   #6B7C93;
+    --text:   #404040;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); font-size: 16px; line-height: 1.6; }
+
+  .brand-bar { background: var(--yellow); text-align: center; padding: 10px 24px; }
+  .brand-bar p { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); }
+
+  nav { background: var(--navy); padding: 72px 48px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+  .nav-logo { width: min(680px, 85%); height: auto; margin-bottom: 8px; }
+  .brand-top { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); }
+  .logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.7rem; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; }
+  .logo sup { font-size: 0.5em; color: var(--yellow); vertical-align: super; }
+  .uk-badge { background: rgba(255,255,255,0.1); padding: 5px 12px; font-size: 0.72rem; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; margin-top: 6px; }
+  .nav-tag { font-size: 0.68rem; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .chapter-nav { background: var(--off); padding: 14px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid var(--light); }
+  .chapter-nav a { color: var(--blue); text-decoration: none; font-size: 0.82rem; font-weight: 600; }
+  .chapter-nav a:hover { text-decoration: underline; }
+  .chapter-tag { font-size: 0.72rem; color: var(--grey); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .hero { background: linear-gradient(150deg, #071E33 0%, #0D3B66 50%, #1D5FA8 100%); padding: 72px 48px; text-align: center; }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero-eyebrow { display: inline-block; background: var(--yellow); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 22px; margin-bottom: 28px; }
+  .hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4.5vw, 3.4rem); color: var(--white); line-height: 1.1; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 .hl { color: var(--yellow); }
+  .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.78); font-weight: 300; line-height: 1.8; max-width: 720px; margin: 0 auto 12px; }
+
+  .section { padding: 80px 48px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; display: block; }
+  .section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--navy); text-transform: uppercase; margin-bottom: 20px; line-height: 1.15; }
+  .section-title span { color: var(--blue); }
+  .section-lead { font-size: 1rem; color: var(--grey); font-weight: 300; line-height: 1.8; max-width: 760px; margin-bottom: 20px; }
+  .bg-off { background: var(--off); }
+
+  .tagline-strip { background: var(--navy); padding: 44px 48px; text-align: center; }
+  .tagline-strip h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.3rem, 2.6vw, 1.9rem); color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.3; max-width: 820px; margin: 0 auto; }
+  .tagline-strip h2 span { color: var(--yellow); }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 40px; }
+  .feature-box { background: var(--white); padding: 30px 24px; border-top: 5px solid var(--blue); border-radius: 0 0 6px 6px; }
+  .feature-box .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.75rem; color: var(--sky); letter-spacing: 0.1em; margin-bottom: 10px; display: block; }
+  .feature-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+  .feature-box p { font-size: 0.86rem; color: var(--grey); line-height: 1.7; font-weight: 300; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+
+  .rationale-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .rationale-card { border: 1px solid var(--light); border-radius: 10px; padding: 28px 24px; }
+  .rationale-card .letter { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.6rem; color: var(--yellow); -webkit-text-stroke: 1.5px var(--navy); margin-bottom: 12px; display: block; }
+  .rationale-card h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.88rem; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; }
+  .rationale-card p { font-size: 0.85rem; color: var(--grey); line-height: 1.65; font-weight: 300; }
+
+  .closing { background: var(--navy); padding: 88px 48px; text-align: center; }
+  .closing h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.6rem, 3.4vw, 2.6rem); color: var(--white); text-transform: uppercase; line-height: 1.2; margin-bottom: 20px; max-width: 780px; margin-left: auto; margin-right: auto; }
+  .closing h2 span { color: var(--yellow); }
+  .closing > p { color: rgba(255,255,255,0.82); max-width: 680px; margin: 0 auto 32px; font-weight: 300; line-height: 1.8; font-size: 1rem; }
+  .btn-primary { background: var(--yellow); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; display: inline-block; border-radius: 4px; margin-top: 12px; }
+
+  footer { background: #071E33; border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer .logo { font-size: 1rem; }
+  footer p { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
+
+  @media (max-width: 900px) {
+    .feature-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 36px; }
+    .rationale-grid { grid-template-columns: 1fr; }
+    nav, .tagline-strip, .section, .closing, footer, .chapter-nav { padding-left: 24px; padding-right: 24px; }
+    .hero { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  <p>🇬🇧 VanLifer Products presents Electrasthetics™ — A Complete Interior Electrical Aesthetics System</p>
+</div>
+
+<nav>
+  <img class="nav-logo" src="https://britishlionsroar.github.io/EAlogo_transparent.png" alt="Electrasthetics logo">
+  <span class="brand-top">Commercial Product Proposal for Anvil</span>
+  <div class="logo">Electrasthetics<sup>™</sup></div>
+  <div class="uk-badge">Concept Presentation — Confidential</div>
+  <div class="nav-tag">Chapter 13 of 14</div>
+</nav>
+
+<div class="chapter-nav">
+  <a href="Electrasthetics_Cable_Management.html">← Previous: Cable Management</a>
+  <span class="chapter-tag">Future Development</span>
+  <a href="Electrasthetics_Commercial_Development.html">Next: Commercial Development →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">★ Where the System Can Go Next ★</div>
+    <h1>Fourteen Chapters Is<br><span class="hl">the Start, Not the Ceiling.</span></h1>
+    <p class="hero-sub">The architecture behind this range — shared closures, shared finishes, shared insert logic — was built to expand. This chapter sets out where that expansion could go once the first phase is established.</p>
+  </div>
+</section>
+
+<!-- TAGLINE -->
+<div class="tagline-strip">
+  <h2>The hard part was building the system. <span>Adding to it should be the easy part.</span></h2>
+</div>
+
+<!-- EXPANSION CATEGORIES -->
+<section class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow">Expansion Categories</span>
+    <div class="section-title">Further products, <span>the same shared architecture.</span></div>
+    <p class="section-lead">Every product proposed here shares the same closure system, insert logic and finish range. That makes further expansion a matter of designing a new housing shape, not rebuilding the whole system from scratch each time.</p>
+    <div class="feature-grid">
+      <div class="feature-box"><span class="num">01</span><h3>Camera Mounting Pods</h3><p>Bonded or magnetic mounts for compact battery security cameras, extending the range to exterior surveillance.</p></div>
+      <div class="feature-box"><span class="num">02</span><h3>Roof-Channel Adaptor Plates</h3><p>Coordinated adaptors for roof fans, skylights, solar feet and cable glands where they pass through the roof.</p></div>
+      <div class="feature-box"><span class="num">03</span><h3>Smart Control &amp; Timer Relay Housings</h3><p>Housings for Tuya-style smart modules, DC timers and relays, extending automation into the coordinated finish.</p></div>
+      <div class="feature-box"><span class="num">04</span><h3>Pre-Fitted Control Boxes</h3><p>Populated, pre-wired versions of the modular housing range for converters who want a ready-to-fit unit.</p></div>
+      <div class="feature-box"><span class="num">05</span><h3>Installation Brackets &amp; Trim</h3><p>Supporting clips, brackets and finishing parts that round out a complete installation.</p></div>
+      <div class="feature-box"><span class="num">06</span><h3>Further Insert Types</h3><p>New functional inserts added to the existing Universal Modular Housing without a new housing design.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURATOR -->
+<section class="section bg-off">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">A Longer-Term Idea</span>
+        <div class="section-title">An online configurator, <span>once the range is established.</span></div>
+        <p class="section-lead">A "build your wiring kit" tool — where a customer enters their van, roof fan and floorplan details, and the tool calculates and baskets the trunking, corners, switches and modules needed automatically. This is a later-stage feature, not something to build now, but the shared architecture across the range is what would make it possible.</p>
+      </div>
+      <div>
+        <span class="section-eyebrow">Why Start Narrow</span>
+        <div class="section-title">Prove the system first. <span>Scale it second.</span></div>
+        <p class="section-lead">The right approach is to validate a focused first range properly, rather than launching wide and thin. Every category above builds on the same architecture already proposed here — none of it requires starting again.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow">Why It Matters</span>
+    <div class="section-title">The value compounds <span>with every product added.</span></div>
+    <div class="rationale-grid">
+      <div class="rationale-card"><span class="letter">A</span><h4>Low Marginal Cost</h4><p>New products reuse the same closure, finish and insert systems rather than starting from zero.</p></div>
+      <div class="rationale-card"><span class="letter">B</span><h4>Stronger With Scale</h4><p>Every product added increases the reason for a customer to standardise on the whole range.</p></div>
+      <div class="rationale-card"><span class="letter">C</span><h4>Clear Long-Term Direction</h4><p>Gives Anvil a roadmap to grow into, without needing every decision made today.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <h2>The system was built to grow. <span>This is what growing it could look like.</span></h2>
+  <p>The final chapter sets out the commercial development path — how this proposal moves from concept to a working partnership with Anvil.</p>
+  <a href="Electrasthetics_Commercial_Development.html" class="btn-primary">Next Chapter: Commercial Development →</a>
+</section>
+
+<footer>
+  <div class="logo">Electrasthetics<sup>™</sup></div>
+  <p>Electrasthetics Commercial Product Proposal — Chapter 13 — Future Development — Confidential</p>
+</footer>
+
+</body>
+</html>
