@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>A Fool’s Guide to Cryptocurrency</title>
+  <meta name="description" content="A plain-English guide to cryptocurrency, regulation and Reform UK’s proposed digital-finance policy." />
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+<style>
+:root{--navy:#071b33;--blue:#0d5e9c;--gold:#d9a929;--ink:#1b2634;--paper:#fffdf8;--muted:#5c6875}*{box-sizing:border-box}body{margin:0;background:#edf1f5;color:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:18px;line-height:1.68}body:before{content:"";display:block;height:10px;background:linear-gradient(90deg,var(--navy) 0 48%,var(--gold) 48% 52%,var(--blue) 52% 100%)}#title-block-header{display:none}body>h1,body>h2,body>h3,body>p,body>ul,body>hr{max-width:900px;margin-left:auto;margin-right:auto}body>h1{margin-top:3.2rem;margin-bottom:0;padding:0 2rem;color:var(--navy);font:800 clamp(2.25rem,6vw,4.8rem)/.98 Arial,sans-serif;letter-spacing:-.055em;text-transform:uppercase}body>h1 + h2{margin-top:1rem;margin-bottom:2.8rem;padding:0 2rem;color:var(--blue);font:600 clamp(1.1rem,2.2vw,1.45rem)/1.3 Arial,sans-serif}body>h1:not(:first-of-type){margin-top:3.1rem;margin-bottom:1rem;padding:0 2rem;color:var(--navy);font:700 clamp(1.5rem,3vw,2.2rem)/1.15 Arial,sans-serif;letter-spacing:0;text-transform:none}h2,h3{padding:0 2rem;color:var(--navy);font-family:Arial,sans-serif}h2{margin-top:3.1rem;margin-bottom:1rem;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.15}h3{margin-top:2rem;margin-bottom:.5rem;font-size:1.2rem;line-height:1.3}p{display:inline}p+p:before{content:" ";}h1+p,h2+p,h3+p,hr+p{padding-left:2rem}p:last-of-type{padding-right:2rem}strong em{color:var(--navy);font-weight:700}hr{border:0;border-top:3px solid var(--gold);margin-top:2.6rem;margin-bottom:.5rem;width:calc(100% - 4rem)}ul{padding:0 3rem 0 4rem}li{margin:.35rem 0}body:after{content:"This is a plain-English explainer, not financial advice. Cryptocurrency can be highly volatile and you can lose money.";display:block;max-width:900px;margin:4rem auto 0;padding:1.5rem 2rem;background:var(--navy);color:white;font:500 .9rem/1.5 Arial,sans-serif}@media(max-width:600px){body{font-size:17px}body>h1,body>h2,body>h3,body>p{padding-left:1.25rem;padding-right:1.25rem}body>h1{margin-top:2rem}body>h1 + h2{margin-bottom:2rem}ul{padding-left:3rem}hr{width:calc(100% - 2.5rem)}}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">A Fool’s Guide to Cryptocurrency</h1>
+</header>
+<h1 id="a-fools-guide-to-cryptocurrency">A FOOL’S GUIDE TO
+CRYPTOCURRENCY</h1>
+<h2
+id="what-it-is-why-people-use-it-why-governments-regulate-it-and-what-reform-uk-is-actually-proposing">What
+it is, why people use it, why governments regulate it — and what Reform
+UK is actually proposing</h2>
+<p>Cryptocurrency can sound horribly complicated.</p>
+<p>Crypto. Blockchain. Digital wallets. Mining. Exchanges.
+Decentralisation.</p>
+<p>For most people, the terminology is enough to make them switch off
+before anybody has explained what the thing actually is.</p>
+<p>So forget the jargon.</p>
+<p>Let’s start with something everybody understands.</p>
+<h2 id="so-what-actually-is-cryptocurrency">So what actually is
+cryptocurrency?</h2>
+<p>You know the money in your bank account?</p>
+<p>Most of it is already digital. It isn’t sitting in your local bank as
+a pile of notes with your name on it. It’s mainly a record on computers
+saying how much money you have.</p>
+<p>You get paid, the number goes up. You buy something, the number goes
+down. You send £20 to your mate, the banking system changes its records
+to show that £20 has moved from you to them.</p>
+<p>So <strong><em>digital money isn’t new. We already use it every
+day.</em></strong></p>
+<p>Cryptocurrency is another way of owning and transferring something of
+value digitally.</p>
+<p>The big difference is that <strong><em>you don’t need an ordinary
+bank sitting in the middle.</em></strong></p>
+<p>With the money in your bank account, the banking system keeps the
+records and controls the movement of the money.</p>
+<p>With cryptocurrency, a network of independent computers connected
+through the internet keeps the records and checks transactions
+instead.</p>
+<p>That means people can own and transfer cryptocurrency directly,
+without needing a bank to keep the master record or process every
+payment.</p>
+<p>That’s the basic idea.</p>
+<p><strong><em>Cryptocurrency is digital value that can be owned and
+transferred without needing an ordinary bank in the
+middle.</em></strong></p>
+<hr />
+<h2 id="if-theres-no-bank-who-keeps-the-records">If there’s no bank, who
+keeps the records?</h2>
+<p>Cryptocurrency still needs a record.</p>
+<p>Otherwise you could spend the same £50-worth of cryptocurrency ten
+times and nobody would know.</p>
+<p>The difference is that <strong><em>there isn’t one bank keeping that
+record.</em></strong></p>
+<p>Instead, lots of independent computers connected through the internet
+keep copies of it.</p>
+<p>When cryptocurrency is sent from one person to another, the network
+checks the records to make sure the sender actually has it. Once the
+transaction has been checked, the record is updated.</p>
+<p>Because lots of computers have copies of the same record, one person
+can’t simply change their copy and announce:</p>
+<p><strong><em>“Actually, I’ve got £1 million.”</em></strong></p>
+<p>The other copies wouldn’t agree.</p>
+<h3 id="and-this-is-where-that-annoying-word-blockchain-comes-in">And
+this is where that annoying word “blockchain” comes in</h3>
+<p>You’ve probably heard people talking about “the blockchain” as though
+you need a degree in computer science to understand it.</p>
+<p>You don’t.</p>
+<p><strong><em>It’s basically the shared record we’ve just been talking
+about.</em></strong></p>
+<p>It records transactions in order and keeps building as new
+transactions are added.</p>
+<p>There’s considerably more technology behind it, obviously.</p>
+<p>But you don’t need to understand how an engine works to understand
+what a car does.</p>
+<p>For our purposes:</p>
+<p><strong><em>Banking:</em></strong> banks keep the financial
+records.</p>
+<p><strong><em>Cryptocurrency:</em></strong> computers on a network keep
+a shared record.</p>
+<p>That shared record is what people mean when they talk about a
+<strong><em>blockchain</em></strong>.</p>
+<hr />
+<h2
+id="but-if-cryptocurrency-is-just-numbers-on-computers-why-is-it-worth-actual-money">But
+if cryptocurrency is just numbers on computers, why is it worth actual
+money?</h2>
+<p>Turn the question around.</p>
+<p><strong><em>Why is a £20 note worth £20?</em></strong></p>
+<p>The paper certainly isn’t worth £20.</p>
+<p>It has value because people accept it as having value. Shops accept
+it. Employers pay us in pounds. Other people accept pounds from us.</p>
+<p>Cryptocurrency gets its value differently, but the idea of people
+agreeing that something has value isn’t new.</p>
+<p>People buy cryptocurrencies because they believe they are useful,
+scarce, desirable or that somebody else will want them in future.</p>
+<p>Different cryptocurrencies work differently.</p>
+<p>Some have become widely used.</p>
+<p>Some have hardly any use at all.</p>
+<p>And some are complete rubbish.</p>
+<p>Anyone can create a cryptocurrency. That doesn’t magically make it
+valuable any more than writing “£1 MILLION” on a piece of paper makes
+you a millionaire.</p>
+<p>Ultimately, a cryptocurrency has a market value because
+<strong><em>people are willing to exchange ordinary money, goods or
+services for it.</em></strong></p>
+<p>And the old rule still applies:</p>
+<p><strong><em>How many people want it, and how much is
+available?</em></strong></p>
+<p>If demand rises, the price can rise.</p>
+<p>If demand disappears, the price can collapse.</p>
+<p>Which brings us to something important.</p>
+<p><strong><em>Cryptocurrency is not risk-free.</em></strong></p>
+<p>Its price can rise dramatically.</p>
+<p>It can also fall dramatically.</p>
+<hr />
+<h2 id="so-how-do-you-actually-buy-cryptocurrency">So how do you
+actually buy cryptocurrency?</h2>
+<p>This is considerably less exciting than it sounds.</p>
+<p>Most people use a company that buys and sells cryptocurrency.</p>
+<p>You create an account, put ordinary money into it — pounds, for
+example — and use those pounds to buy cryptocurrency.</p>
+<p>You don’t normally have to buy one whole unit. You can buy a tiny
+fraction.</p>
+<p>You can then leave your cryptocurrency with the company you bought it
+through or move it somewhere you control yourself.</p>
+<p>That brings us to another bit of jargon.</p>
+<h3 id="whats-a-crypto-wallet">What’s a “crypto wallet”?</h3>
+<p>Despite the name, it isn’t really a digital purse containing little
+electronic coins.</p>
+<p>Think of it as <strong><em>the thing that gives you access to and
+control over your cryptocurrency.</em></strong></p>
+<p>If you control it yourself, you don’t need a bank to give you access
+to your money.</p>
+<p>That provides freedom.</p>
+<p>But it also gives you responsibility.</p>
+<p>If something goes wrong with your bank account, there’s a bank to
+contact.</p>
+<p>If you take complete control of cryptocurrency yourself and lose the
+information needed to access it, there may be nobody to telephone and no
+password-reset button capable of getting it back.</p>
+<p>So “no bank in the middle” has an upside and a downside.</p>
+<p><strong><em>You don’t need the bank.</em></strong></p>
+<p><strong><em>But you don’t necessarily have the bank there to rescue
+you either.</em></strong></p>
+<hr />
+<h1 id="so-why-would-anybody-want-cryptocurrency">So why would anybody
+want cryptocurrency?</h1>
+<p>There isn’t one answer.</p>
+<p>Different people use it for different reasons.</p>
+<h3 id="sending-value-without-needing-a-bank">1. Sending value without
+needing a bank</h3>
+<p>Cryptocurrency can allow two people to transfer value directly.</p>
+<p>You don’t necessarily need both people to have accounts with banks
+that cooperate with one another.</p>
+<p>That can be particularly useful when money is moving
+internationally.</p>
+<h3 id="more-control-over-your-own-assets">2. More control over your own
+assets</h3>
+<p>With some cryptocurrencies, you can hold them yourself rather than
+having a bank or another company hold them for you.</p>
+<p>For supporters, that is one of cryptocurrency’s biggest
+attractions.</p>
+<h3 id="it-works-internationally">3. It works internationally</h3>
+<p>Cryptocurrency isn’t confined to the banking system of one
+country.</p>
+<p>Someone in Britain can transfer cryptocurrency to somebody on the
+other side of the world using the same network.</p>
+<p>That doesn’t mean there are never costs, delays or legal
+requirements.</p>
+<p>It means the underlying system itself isn’t dependent upon an
+international chain of ordinary banks.</p>
+<h3 id="investment">4. Investment</h3>
+<p>Some people simply buy cryptocurrency because they think its value
+will increase.</p>
+<p>Sometimes they make money.</p>
+<p>Sometimes they lose money.</p>
+<p>Calling something innovative doesn’t make it a guaranteed good
+investment.</p>
+<h3 id="new-businesses-and-technology">5. New businesses and
+technology</h3>
+<p>There is now an enormous international industry building services
+around digital assets.</p>
+<p>That means companies, software developers, financial businesses,
+jobs, investment and tax revenue.</p>
+<p>And this is where the political argument really begins.</p>
+<hr />
+<h1 id="why-do-governments-regulate-cryptocurrency">Why do governments
+regulate cryptocurrency?</h1>
+<p>For much the same reason they regulate ordinary financial
+businesses.</p>
+<p>People can be defrauded.</p>
+<p>Companies can collapse.</p>
+<p>Money can be stolen.</p>
+<p>Criminals can move money.</p>
+<p>Businesses can mislead customers.</p>
+<p>And people can lose enormous amounts of money.</p>
+<p>So the serious argument isn’t really:</p>
+<p><strong><em>REGULATION or NO REGULATION.</em></strong></p>
+<p>It’s:</p>
+<p><strong><em>WHAT regulation do we actually need?</em></strong></p>
+<p>A rule that helps prevent criminals laundering millions of pounds is
+one thing.</p>
+<p>A rule that creates six months of paperwork and enormous legal bills
+for a legitimate British technology company without providing much
+additional protection is something else.</p>
+<p>The argument about “deregulation” is really an argument about
+<strong><em>which rules are necessary and which rules simply make doing
+business more difficult.</em></strong></p>
+<hr />
+<h1 id="what-about-money-laundering">What about money laundering?</h1>
+<p>This is probably the criticism you’ll hear most often.</p>
+<p><strong><em>“If you deregulate cryptocurrency, criminals will use it
+to launder money.”</em></strong></p>
+<p>There is a genuine issue underneath that argument.</p>
+<p>Criminals <strong><em>do</em></strong> use cryptocurrency.</p>
+<p>But criminals also use:</p>
+<ul>
+<li>cash; - bank accounts; - companies; - property; - valuable goods;
+and - international money transfers.</li>
+</ul>
+<p>The existence of criminal use doesn’t tell us whether the legitimate
+use should be banned or smothered in unnecessary regulation.</p>
+<p>The important question is:</p>
+<p><strong><em>Can we target criminal activity while allowing legitimate
+people and businesses to use the technology?</em></strong></p>
+<p>And this is where an important fact about Reform UK’s proposal gets
+lost.</p>
+<h2
+id="reform-did-not-propose-abolishing-anti-money-laundering-safeguards">Reform
+did NOT propose abolishing anti-money-laundering safeguards</h2>
+<p>Reform UK’s published Cryptoassets and Digital Finance Bill proposed
+a two-year trial in which selected financial businesses could operate
+with temporary relief from <strong><em>some</em></strong>
+regulations.</p>
+<p>But the proposal specifically said that the trial would continue to
+maintain the main safeguards against <strong><em>money laundering and
+terrorist financing</em></strong>.</p>
+<p>So “lighter regulation” and “no money-laundering rules” are not the
+same thing.</p>
+<p>That distinction matters.</p>
+<p>The existing UK system already requires crypto businesses carrying
+out certain services in Britain to register with the Financial Conduct
+Authority and comply with the UK’s Money Laundering Regulations.</p>
+<p>Those requirements exist today.</p>
+<p>And Britain is actually moving towards <strong><em>more
+extensive</em></strong> regulation of cryptocurrency businesses.</p>
+<p>A much broader system of FCA regulation is due to start on
+<strong><em>25 October 2027</em></strong>.</p>
+<p>So the real political disagreement is not whether cryptocurrency
+should exist in a completely lawless financial Wild West.</p>
+<p>It is about <strong><em>how heavily it should be regulated and which
+rules actually provide useful protection.</em></strong></p>
+<hr />
+<h1 id="but-isnt-cryptocurrency-anonymous">But isn’t cryptocurrency
+anonymous?</h1>
+<p>Not necessarily.</p>
+<p>This is another common misunderstanding.</p>
+<p>Remember that shared record we talked about earlier?</p>
+<p>For many cryptocurrencies, transactions are recorded on a record that
+can be publicly examined.</p>
+<p>What can be difficult is establishing <strong><em>which human being
+owns a particular crypto address</em></strong>.</p>
+<p>Think of seeing account number <strong><em>123456</em></strong>
+making a payment to account <strong><em>987654</em></strong> without
+immediately knowing the names of the people behind those numbers.</p>
+<p>Once investigators can connect an address to a particular person,
+previous transactions recorded against that address may provide useful
+information.</p>
+<p>Different cryptocurrencies provide different levels of privacy, so
+there is no sensible blanket statement that “crypto is anonymous.”</p>
+<p>It can make identifying somebody difficult.</p>
+<p>That is not the same thing as saying every transaction is
+invisible.</p>
+<hr />
+<h1 id="so-what-does-reform-uk-actually-want-to-do">So what does Reform
+UK actually want to do?</h1>
+<p>Reform UK published a <strong><em>Cryptoassets and Digital Finance
+Bill</em></strong> in 2025.</p>
+<p>It proposed several major changes.</p>
+<h2 id="reduce-capital-gains-tax-on-cryptocurrency-to-10">1. Reduce
+Capital Gains Tax on cryptocurrency to 10%</h2>
+<p>Capital Gains Tax is basically tax on the profit you make when
+something you own increases in value and you sell or otherwise dispose
+of it.</p>
+<p>Reform proposed a single <strong><em>10% rate</em></strong> for
+qualifying cryptocurrency gains.</p>
+<h3 id="why">Why?</h3>
+<p>Reform’s argument was straightforward:</p>
+<p>Make Britain financially attractive to people and businesses involved
+in cryptocurrency and more of them will base their activities here.</p>
+<p>That could mean more businesses, investment and taxable activity
+taking place in Britain rather than elsewhere.</p>
+<h3 id="whats-the-criticism">What’s the criticism?</h3>
+<p>Critics argue that cryptocurrency investors would receive
+preferential tax treatment compared with people investing in other
+assets.</p>
+<p>There is also no guarantee that reducing the tax rate would generate
+enough additional activity to compensate for the lower rate.</p>
+<p>That is an economic argument.</p>
+<p>It is <strong><em>not</em></strong> a money-laundering argument.</p>
+<hr />
+<h2 id="give-businesses-room-to-experiment-with-fewer-rules">2. Give
+businesses room to experiment with fewer rules</h2>
+<p>This is the part normally described as
+<strong><em>deregulation</em></strong>.</p>
+<p>Reform proposed a two-year trial supervised by the FCA and
+Treasury.</p>
+<p>Approved businesses would temporarily be freed from selected
+regulations while they tested new financial services.</p>
+<h3 id="why-1">Why?</h3>
+<p>Imagine somebody develops a genuinely useful new financial
+service.</p>
+<p>Before finding out whether customers even want it, they may have to
+spend enormous amounts of money on lawyers, compliance staff and
+regulatory approval.</p>
+<p>Large international companies can afford that.</p>
+<p>A small British startup may not be able to.</p>
+<p>The idea is therefore:</p>
+<p><strong><em>Give legitimate businesses controlled room to experiment
+before burying them in the full rulebook.</em></strong></p>
+<p>And importantly, Reform’s proposal explicitly said that the main
+safeguards against money laundering and terrorist financing would
+remain.</p>
+<p>That is very different from:</p>
+<p><strong><em>“Reform wants an unregulated cryptocurrency
+free-for-all.”</em></strong></p>
+<hr />
+<h2
+id="stop-banks-discriminating-against-lawful-cryptocurrency-users">3.
+Stop banks discriminating against lawful cryptocurrency users</h2>
+<p>Reform proposed protections against banks closing accounts or
+refusing services <strong><em>simply because somebody lawfully uses
+cryptocurrency.</em></strong></p>
+<p>Again, this wouldn’t mean a bank couldn’t act where it suspected
+fraud, money laundering or another crime.</p>
+<p>The principle is:</p>
+<p><strong><em>Using a legal financial technology shouldn’t by itself be
+enough to deny somebody ordinary banking services.</em></strong></p>
+<hr />
+<h2 id="allow-taxes-to-be-paid-using-cryptocurrency">4. Allow taxes to
+be paid using cryptocurrency</h2>
+<p>Reform proposed allowing people to pay certain taxes using approved
+cryptocurrencies.</p>
+<p>That doesn’t mean government employees would suddenly be paid their
+salaries in random internet coins.</p>
+<p>It means that if somebody owes the Government money, an approved
+cryptocurrency could potentially become another way of paying it.</p>
+<p>The Government could convert it into pounds.</p>
+<p>Supporters see that as encouraging Britain’s digital-finance
+industry.</p>
+<p>Critics can reasonably question whether the additional system is
+necessary and how government should manage price movements and
+administrative costs.</p>
+<hr />
+<h2 id="create-a-national-cryptocurrency-reserve">5. Create a national
+cryptocurrency reserve</h2>
+<p>This is one of the more controversial proposals.</p>
+<p>Reform proposed creating a government <strong><em>Bitcoin
+reserve</em></strong>.</p>
+<p>This is where Bitcoin specifically enters the story.</p>
+<p>Governments already hold different types of financial reserves.</p>
+<p>The idea would be to hold some Bitcoin as another national asset.</p>
+<p>Supporters argue that if Bitcoin becomes increasingly important and
+valuable internationally, Britain would already own some.</p>
+<p>Critics point to its considerable price volatility and question why
+taxpayers should be exposed to that risk.</p>
+<p>Again, that’s a legitimate argument to have.</p>
+<hr />
+<h1 id="so-why-does-reform-want-britain-to-be-crypto-friendly">So why
+does Reform want Britain to be “crypto-friendly”?</h1>
+<p>Because cryptocurrency and digital finance are already a large
+international industry.</p>
+<p>The question for governments is partly <strong><em>where those
+businesses, investors and jobs will go.</em></strong></p>
+<p>Countries compete for financial businesses in much the same way they
+compete for car manufacturers, technology companies and other
+industries.</p>
+<p>Taxes matter.</p>
+<p>Regulation matters.</p>
+<p>The cost of doing business matters.</p>
+<p>Legal certainty matters.</p>
+<p>If Britain’s rules are extremely expensive or difficult, companies
+can potentially establish themselves somewhere else.</p>
+<p>But there is another side.</p>
+<p>If Britain’s rules are <strong><em>too weak</em></strong>, consumers
+can be exposed to scams, badly managed companies and financial
+crime.</p>
+<p>So there is a balance.</p>
+<p><strong><em>Too much regulation can drive legitimate business
+away.</em></strong></p>
+<p><strong><em>Too little regulation can allow bad businesses and
+criminals in.</em></strong></p>
+<p>Finding that balance is the actual debate.</p>
+<hr />
+<h1 id="does-deregulation-mean-removing-all-the-rules">Does
+“deregulation” mean removing all the rules?</h1>
+<p><strong><em>No.</em></strong></p>
+<p>And this is probably the single most useful thing to remember when
+this argument comes up.</p>
+<p>Deregulation can mean removing, simplifying or changing particular
+regulations.</p>
+<p>It does <strong><em>not automatically mean abolishing every law
+governing an industry.</em></strong></p>
+<p>You could remove ten unnecessary regulations while keeping twenty
+important ones.</p>
+<p>You could simplify the process legitimate businesses follow while
+increasing penalties for criminals.</p>
+<p>You could make it easier to open a legitimate cryptocurrency business
+while continuing to require checks designed to prevent money
+laundering.</p>
+<p>Whether a particular piece of deregulation is sensible depends upon
+<strong><em>which regulation is being changed</em></strong>.</p>
+<p>Simply shouting “DEREGULATION!” doesn’t answer that question.</p>
+<hr />
+<h1 id="so-whats-the-sensible-answer-when-somebody-says">So what’s the
+sensible answer when somebody says:</h1>
+<h2
+id="reform-wants-to-deregulate-crypto-and-that-will-help-money-launderers">“Reform
+wants to deregulate crypto and that will help money launderers”?</h2>
+<p>Try this:</p>
+<p><strong><em>“Which regulation do you mean?”</em></strong></p>
+<p>Because that’s the important question.</p>
+<p>Reform’s published proposal did advocate lighter regulation and
+temporary exemptions from selected rules.</p>
+<p>But it also explicitly said the core safeguards against money
+laundering and terrorist financing would remain during its proposed
+regulatory trial.</p>
+<p>And cryptocurrency businesses operating in Britain are already
+subject to UK anti-money-laundering requirements.</p>
+<p>So somebody can reasonably disagree with Reform’s proposed level of
+regulation.</p>
+<p>They can argue the tax rate is too low.</p>
+<p>They can oppose a national Bitcoin reserve.</p>
+<p>They can argue that the proposed regulatory experiment removes
+particular protections they believe should remain.</p>
+<p>Those are perfectly legitimate political arguments.</p>
+<p>But:</p>
+<p><strong><em>“Deregulation means criminals can launder
+money”</em></strong></p>
+<p>doesn’t explain which regulation is supposedly being removed or
+whether that regulation has anything to do with money laundering in the
+first place.</p>
+<hr />
+<h1 id="the-really-short-version">THE REALLY SHORT VERSION</h1>
+<p>If you’ve got this far and your brain hurts, remember five
+things.</p>
+<p><strong><em>1. Your money is already mostly
+digital.</em></strong></p>
+<p>The number you see in your banking app is a computer record.</p>
+<p><strong><em>2. Cryptocurrency is another way of owning and
+transferring value digitally.</em></strong></p>
+<p>The major difference is that it can work without an ordinary bank
+keeping the central record.</p>
+<p><strong><em>3. Cryptocurrency can be used by
+criminals.</em></strong></p>
+<p>So can cash, banks, companies and property. That’s why sensible
+anti-crime rules matter.</p>
+<p><strong><em>4. “Deregulation” does not mean “no
+laws.”</em></strong></p>
+<p>It means changing or removing particular regulations. You need to
+know <strong><em>which regulation</em></strong> before deciding whether
+removing it is sensible.</p>
+<p><strong><em>5. Reform’s published proposal did not say “abolish the
+money-laundering rules.”</em></strong></p>
+<p>Its proposed two-year regulatory trial specifically retained the main
+anti-money-laundering and counter-terrorist-financing safeguards.</p>
+<p>So when somebody says:</p>
+<p><strong><em>“Reform wants to deregulate
+cryptocurrency!”</em></strong></p>
+<p>The useful question isn’t:</p>
+<p><strong><em>“Is deregulation good or bad?”</em></strong></p>
+<p>It’s:</p>
+<h2
+id="which-rule-does-reform-want-to-remove-what-does-that-rule-currently-do-and-what-protection-would-actually-be-lost-by-changing-it"><strong><em>“Which
+rule does Reform want to remove, what does that rule currently do, and
+what protection would actually be lost by changing
+it?”</em></strong></h2>
+<p>Once you ask that question, you’re having the real argument instead
+of arguing about a scary word.</p>
+</body>
+</html>
