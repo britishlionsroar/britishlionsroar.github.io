@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Lowe Can You Go? | The British Lions Roar</title>
+<meta name="description" content="Restore Britain's only MP, his Commons record on the issues his own party puts first, and what Restore has achieved at the ballot box.">
+<meta name="author" content="Steve English">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The British Lions Roar">
+<meta property="og:title" content="How Lowe Can You Go?">
+<meta property="og:description" content="Restore Britain's only MP, his Commons record on the issues his own party puts first, and what Restore has achieved at the ballot box.">
+<meta property="og:image" content="https://britishlionsroar.github.io/how-lowe-can-you-go-report-graphic-FIXED.png">
+<meta property="og:url" content="https://britishlionsroar.github.io/how-lowe-can-you-go.html">
+<meta property="article:author" content="Steve English">
+<meta property="article:published_time" content="2026-10-02">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Lowe Can You Go?">
+<meta name="twitter:description" content="Restore Britain's only MP, his Commons record on the issues his own party puts first, and what Restore has achieved at the ballot box.">
+<meta name="twitter:image" content="https://britishlionsroar.github.io/how-lowe-can-you-go-report-graphic-FIXED.png">
+<style>
+  :root {
+    --bg: #0d0c0a;
+    --panel: #14130f;
+    --rule: #3a3220;
+    --gold: #d4af37;
+    --gold-soft: #b8a46a;
+    --ink: #ece6d6;
+    --ink-2: #c4bca8;
+    --muted: #8f8875;
+    --series-reform: #5b8fd9;
+    --series-restore: #a8831a;
+    --novote: #e06a5a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+  .masthead { text-align: center; padding: 8px 0 20px; border-bottom: 1px solid var(--rule); }
+  .masthead img { max-width: 100%; height: auto; display: inline-block; }
+  h1 {
+    font-size: clamp(2.2rem, 7vw, 3.6rem);
+    line-height: 1.05;
+    color: var(--gold);
+    text-align: center;
+    margin: 36px 0 12px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--ink-2);
+    text-align: center;
+    font-style: italic;
+    margin: 0 auto 10px;
+    max-width: 620px;
+  }
+  .byline { text-align: center; color: var(--muted); font-size: 0.95rem; margin-bottom: 28px; }
+  .byline strong { color: var(--gold-soft); font-weight: normal; }
+
+  .report-hero { margin: 0 auto 30px; max-width: 100%; }
+  .report-hero img { width: 100%; height: auto; display: block; border: 2px solid var(--gold); }
+  .report-hero figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 7px; text-align: center; }
+
+  figure.portrait { margin: 0 auto 28px; max-width: 420px; text-align: center; }
+  figure.portrait img { width: 100%; height: auto; border: 2px solid var(--gold); display: block; }
+  figure.portrait figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+  figure.portrait figcaption a { color: var(--muted); }
+  ul.keypoints {
+    list-style: none; padding: 18px 20px; margin: 0 0 28px;
+    background: var(--panel); border-left: 4px solid var(--gold);
+  }
+  ul.keypoints li { padding-left: 1.2em; position: relative; margin: 8px 0; }
+  ul.keypoints li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 0.7em; top: 0.35em; }
+  .purpose {
+    border: 1px solid var(--gold); padding: 16px 20px; margin: 0 0 36px;
+    font-size: 1rem; color: var(--ink-2);
+  }
+  .purpose strong { color: var(--gold); letter-spacing: 0.08em; }
+  h2 {
+    color: var(--gold); font-size: 1.55rem; line-height: 1.2;
+    margin: 48px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--rule);
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  h3 { color: var(--gold-soft); font-size: 1.15rem; margin: 28px 0 8px; }
+  p { margin: 0 0 16px; }
+  a { color: var(--gold); }
+  .verdict {
+    display: inline-block; font-weight: bold; letter-spacing: 0.04em;
+    padding: 2px 8px; border: 1px solid currentColor; font-size: 0.9rem;
+  }
+  .verdict.no { color: var(--novote); }
+  .verdict.yes { color: #7fb77e; }
+  .timeline { list-style: none; padding: 0; margin: 12px 0 20px; border-left: 2px solid var(--rule); }
+  .timeline li { padding: 6px 0 6px 18px; position: relative; }
+  .timeline li::before {
+    content: ""; position: absolute; left: -7px; top: 14px; width: 12px; height: 12px;
+    border-radius: 50%; background: var(--bg); border: 2px solid var(--muted);
+  }
+  .timeline li.voted::before { border-color: #7fb77e; background: #7fb77e; }
+  .timeline li.missed::before { border-color: var(--novote); }
+  .timeline .time { color: var(--gold-soft); font-variant-numeric: tabular-nums; margin-right: 6px; }
+  .timeline .div { color: var(--muted); font-size: 0.85rem; }
+  .note { color: var(--muted); font-size: 0.95rem; font-style: italic; }
+  .tablewrap { overflow-x: auto; margin: 12px 0 24px; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+  th { color: var(--gold-soft); font-weight: normal; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.06em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.flag td { background: rgba(212, 175, 55, 0.08); }
+  .seat {
+    background: var(--panel); border: 1px solid var(--rule); padding: 16px 20px; margin: 16px 0;
+  }
+  .seat h3 { margin-top: 0; }
+  .seat .result { font-variant-numeric: tabular-nums; margin: 0 0 10px; color: var(--ink-2); }
+  .seat .line { margin: 4px 0; }
+  .seat .line b { color: var(--gold); }
+  .banner {
+    text-align: center; font-size: clamp(1.15rem, 3.6vw, 1.5rem); font-weight: bold;
+    color: var(--gold); border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
+    padding: 18px 8px; margin: 32px 0; letter-spacing: 0.03em; line-height: 1.35;
+  }
+  .chart { margin: 24px 0 8px; background: var(--panel); border: 1px solid var(--rule); padding: 16px 12px 8px; }
+  .chart-title { color: var(--gold-soft); font-size: 1rem; margin: 0 0 4px; padding-left: 4px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.85rem; color: var(--ink-2); padding: 4px 4px 8px; }
+  .legend span::before {
+    content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 2px;
+    margin-right: 6px; vertical-align: -1px;
+  }
+  .legend .k-reform::before { background: var(--series-reform); }
+  .legend .k-restore::before { background: var(--series-restore); }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .chart svg rect.bar:hover { opacity: 0.85; }
+  .sources h2 { text-transform: none; }
+  .sources ol { padding-left: 1.3em; font-size: 0.9rem; color: var(--ink-2); }
+  .sources li { margin: 10px 0; }
+  .sources a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .orwell { margin-top: 40px; font-size: 0.92rem; color: var(--ink-2); border-left: 3px solid var(--rule); padding-left: 14px; }
+  .qr { text-align: center; margin: 36px 0 12px; }
+  .qr .qrbox { display: inline-block; background: #fff; padding: 8px; line-height: 0; }
+  .qr .qrbox svg, .qr .qrbox img { width: 190px; height: 190px; display:block; }
+  .qr p { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+  footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--rule); text-align: center; }
+  footer .foot { color: var(--gold); font-size: 0.95rem; letter-spacing: 0.04em; }
+  .disclaimer { font-size: 0.78rem; color: var(--muted); margin-top: 14px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <img src="https://britishlionsroar.github.io/Screenshot%202026-02-05%20132001.png" alt="The British Lions Roar">
+</header>
+
+<article>
+<p style="text-align:center;color:var(--gold-soft);letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;margin:32px 0 8px;">The British Lions Roar · Evidence Report</p>
+<h1>How Lowe Can You Go?</h1>
+<p class="subtitle">Restore Britain's only MP, his Commons record on the issues his own party puts first, and what Restore has achieved at the ballot box.</p>
+<p class="byline">By <strong>Steve English</strong> — 2 October 2026</p>
+
+<figure class="report-hero">
+  <img src="how-lowe-can-you-go-report-graphic-FIXED.png" alt="How Lowe Can You Go? — Rupert Lowe and Restore Britain report graphic" width="1536" height="1024">
+  <figcaption>Report graphic — Steve English, The British Lions Roar, 2 October 2026.</figcaption>
+</figure>
+
+<ul class="keypoints">
+  <li>Restore Britain was registered as a political party on 20 March 2026. Its leader and only MP, Rupert Lowe, then recorded no Commons vote until 22 April, while 47 divisions went by.</li>
+  <li>Lowe has voted in 33.1% of the Commons divisions he was eligible for. The Commons average is 72.6%. He ranks 638th of 649 MPs.</li>
+  <li>On 13 July, at the Second Reading of the Immigration and Asylum Bill, no vote from Lowe was recorded. He voted in the Commons the next day.</li>
+  <li>On 2 September, Parliament held four votes on the Representation of the People Bill. Restore lists "Safeguard Election Integrity" among its ten objectives. Lowe recorded no vote in any of them.</li>
+  <li>Restore has stood in 10 elections since registering and won none. In three, its vote was bigger than the margin by which Reform UK lost.</li>
+</ul>
+
+<div class="purpose">
+  <strong>PURPOSE:</strong> To set out, from the official Commons record and official election declarations, what Restore Britain's only MP has done when Parliament voted on the issues his party says matter most, and what Restore's vote has done at the ballot box. Every figure below links to its source.
+</div>
+
+<h2>The Bigger Picture</h2>
+<p>Restore Britain was officially registered as a political party on <strong>20 March 2026</strong>, with Rupert Lowe as its leader and only MP.</p>
+<p>From that date until <strong>22 April</strong>, Lowe recorded no Commons votes at all. In that time the Commons held 47 divisions. His last recorded vote before registration was on 18 March; his next was on 22 April.</p>
+<p>His voting participation stands at <strong>33.1%</strong> of the Commons divisions for which he was eligible: 195 of 590. The Commons average is <strong>72.6%</strong>. That ranks him <strong>638th out of 649 MPs</strong>.</p>
+<p>Restore Britain has published ten headline objectives. They include <em>Reverse Mass Immigration</em>, <em>Put British Interests First</em>, <em>Rebuild Britain's Industry, Infrastructure, and Energy Security</em>, <em>Make Britain Safe Again</em>, <em>Restore the National Health Service</em> and <em>Safeguard Election Integrity</em>.</p>
+<p>So this report asks one straightforward question: <strong>when those issues came before Parliament for a vote, what did Restore Britain's only MP do?</strong></p>
+<p>Throughout, <span class="verdict no">NO VOTE RECORDED</span> means exactly that: Lowe's name does not appear as voting either for or against. It does not tell us why.</p>
+
+<h2>28 April — Asylum</h2>
+<p>Lowe was in the voting lobbies that evening. Then Parliament moved on to asylum.</p>
+<ul class="timeline">
+  <li class="voted"><span class="time">6:13pm</span> Privilege motion — Lowe votes <span class="div">Division 512</span></li>
+  <li class="voted"><span class="time">6:47pm</span> Pension Schemes Bill — Lowe votes <span class="div">Division 513</span></li>
+  <li class="missed"><span class="time">7:28pm</span> Draft Asylum Seekers (Reception Conditions) (Amendment) Regulations 2026 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 514</span></li>
+  <li class="missed"><span class="time">7:41pm</span> Draft Immigration and Asylum (Provision of Accommodation to Failed Asylum-Seekers) Regulations 2026 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 515</span></li>
+</ul>
+<p><em>Reverse Mass Immigration</em> is the first of Restore's ten objectives.</p>
+
+<h2>2 June — The Armed Forces</h2>
+<p>Lowe voted three times in a row on the Armed Forces Bill. Thirteen minutes after the third, MPs voted again on the same Bill.</p>
+<ul class="timeline">
+  <li class="voted"><span class="time">6:44pm</span> Armed Forces Bill, New Clause 2 — Lowe votes <span class="div">Division 7</span></li>
+  <li class="voted"><span class="time">6:58pm</span> Armed Forces Bill, New Clause 5 — Lowe votes <span class="div">Division 8</span></li>
+  <li class="voted"><span class="time">7:11pm</span> Armed Forces Bill, New Clause 6 — Lowe votes <span class="div">Division 9</span></li>
+  <li class="missed"><span class="time">7:24pm</span> Armed Forces Bill, New Clause 13: extending defence housing standards to single living accommodation — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 10</span></li>
+</ul>
+
+<h2>23 June — Puberty Blockers</h2>
+<p>Lowe voted twice on defence that afternoon. Later, Parliament voted on puberty blockers.</p>
+<ul class="timeline">
+  <li class="voted"><span class="time">4:12pm</span> Opposition Day: Defence spending and readiness — Lowe votes <span class="div">Division 37</span></li>
+  <li class="voted"><span class="time">4:26pm</span> Defence spending and readiness, Government amendment — Lowe votes <span class="div">Division 38</span></li>
+  <li class="missed"><span class="time">6:59pm</span> Opposition Day: Puberty blockers — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 39</span></li>
+</ul>
+
+<h2>24 June — Carbon Targets</h2>
+<p>Lowe's record does not show him voting earlier that day, so these votes are listed on their own. Parliament held three consecutive votes under the Climate Change Act 2008.</p>
+<ul class="timeline">
+  <li class="missed"><span class="time">7:33pm</span> Draft Carbon Budget Order 2026 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 41</span></li>
+  <li class="missed"><span class="time">7:47pm</span> Draft Climate Change Act 2008 (International Aviation and International Shipping) Regulations 2026 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 42</span></li>
+  <li class="missed"><span class="time">7:59pm</span> Draft Climate Change Act 2008 (Credit Limit) Order 2026 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 43</span></li>
+</ul>
+
+<h2>13 July — The Immigration and Asylum Bill</h2>
+<p>Parliament held two votes on the Government's Immigration and Asylum Bill, the second of them the Bill's Second Reading.</p>
+<ul class="timeline">
+  <li class="missed"><span class="time">9:59pm</span> Immigration and Asylum Bill: Reasoned Amendment to Second Reading — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 54</span></li>
+  <li class="missed"><span class="time">10:16pm</span> Immigration and Asylum Bill: Second Reading — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 55</span></li>
+</ul>
+<p>Lowe had not stopped voting. The next day, 14 July, his record shows two votes on the Public Office (Accountability) Bill. On 15 July it shows two more, on trade union ballots and employment law.</p>
+
+<h2>2 September — Election Law</h2>
+<p><em>Safeguard Election Integrity</em> is one of Restore Britain's ten headline objectives. On 2 September, Parliament held four consecutive votes on the Representation of the People Bill, ending with its final Commons vote.</p>
+<ul class="timeline">
+  <li class="missed"><span class="time">7:04pm</span> Report Stage, New Clause 65 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 61</span></li>
+  <li class="missed"><span class="time">7:19pm</span> Report Stage, New Clause 67 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 62</span></li>
+  <li class="missed"><span class="time">7:34pm</span> Report Stage, New Clause 88 — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 63</span></li>
+  <li class="missed"><span class="time">7:59pm</span> Third Reading — <span class="verdict no">NO VOTE RECORDED</span> <span class="div">Division 64</span></li>
+</ul>
+
+<h2>When Lowe Did Vote</h2>
+<p>This is not a claim that Rupert Lowe never votes on subjects connected to Restore's programme. He does. Since Restore became a registered party, his official record includes:</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Date</th><th>Subject</th><th class="num">Lowe</th></tr></thead>
+  <tbody>
+    <tr><td>22 April</td><td>Crime and Policing Bill</td><td class="num"><span class="verdict yes">VOTED</span></td></tr>
+    <tr><td>2 June</td><td>Armed Forces Bill</td><td class="num"><span class="verdict yes">3 VOTES</span></td></tr>
+    <tr><td>9 June</td><td>Steel Industry (Nationalisation) Bill</td><td class="num"><span class="verdict yes">3 VOTES</span></td></tr>
+    <tr><td>10 June</td><td>Railways Bill</td><td class="num"><span class="verdict yes">3 VOTES</span></td></tr>
+    <tr><td>23 June</td><td>Defence spending and readiness</td><td class="num"><span class="verdict yes">2 VOTES</span></td></tr>
+    <tr><td>1 July</td><td>Taxation (Energy and Vehicles) Bill</td><td class="num"><span class="verdict yes">2 VOTES</span></td></tr>
+    <tr><td>11 September</td><td>Terminally Ill Adults (End of Life) Bill, Second Reading</td><td class="num"><span class="verdict yes">VOTED NO</span></td></tr>
+  </tbody>
+</table>
+</div>
+<p>So this is not about pretending Lowe never enters the voting lobby. It is about which votes he records, and which he does not, when Parliament deals with subjects Restore itself names as priorities.</p>
+
+<h2>And Then There Is the Ballot Box</h2>
+<p>Since registering on 20 March, Restore Britain has stood candidates in <strong>10 elections</strong>. It has <strong>won none</strong>. These are the official results.</p>
+<div class="tablewrap">
+<table>
+  <thead>
+    <tr><th>Date</th><th>Election</th><th>Winner</th><th class="num">Reform UK</th><th class="num">Restore</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>18 Jun</td><td>Makerfield — UK Parliament by-election</td><td>Labour 24,927</td><td class="num">15,696</td><td class="num">3,111</td></tr>
+    <tr><td>16 Jul</td><td>Norfolk — Police and Crime Commissioner by-election</td><td>Reform UK 32,647</td><td class="num">32,647</td><td class="num">13,319</td></tr>
+    <tr><td>16 Jul</td><td>Norfolk County Council, Old Catton — division by-election</td><td>Conservative 973</td><td class="num">561</td><td class="num">98</td></tr>
+    <tr><td>30 Jul</td><td>Greater Manchester — mayoral by-election (first preferences)</td><td>Labour 251,449</td><td class="num">111,928</td><td class="num">46,289</td></tr>
+    <tr><td>20 Aug</td><td>Barnsley Council, Penistone East — ward by-election</td><td>Labour 1,728</td><td class="num">795</td><td class="num">218</td></tr>
+    <tr class="flag"><td>27 Aug</td><td>Dover District Council, Guston, Kingsdown &amp; St Margaret's-at-Cliffe — ward by-election</td><td>Green 767</td><td class="num">733</td><td class="num">284</td></tr>
+    <tr class="flag"><td>1 Oct</td><td>Blackpool Council, Claremont — ward by-election</td><td>Labour 458</td><td class="num">419</td><td class="num">79</td></tr>
+    <tr class="flag"><td>1 Oct</td><td>Northumberland County Council, Amble — division by-election</td><td>Labour 439</td><td class="num">379</td><td class="num">76</td></tr>
+    <tr><td>1 Oct</td><td>Northumberland County Council, Hirst — division by-election</td><td>Labour 350</td><td class="num">210</td><td class="num">72</td></tr>
+    <tr><td>1 Oct</td><td>North West Leicestershire District Council, Long Whatton &amp; Diseworth — ward by-election</td><td>Conservative 576</td><td class="num">204</td><td class="num">55</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note">Restore is also standing in the Holborn and St Pancras parliamentary by-election on 8 October 2026, after this report was written.</p>
+<p>In most of these contests Restore finished a long way behind both the winner and Reform. In three, the numbers line up very differently.</p>
+
+<h2>Three Elections</h2>
+
+<div class="seat">
+  <h3>Dover — 27 August</h3>
+  <p class="result">Green 767 · Reform UK 733 · Restore Britain 284</p>
+  <p class="line">Reform UK fell short of the win by <b>34 votes</b>.</p>
+  <p class="line">Restore fell short of the win by <b>483 votes</b>, but took <b>284 votes</b>.</p>
+</div>
+
+<div class="seat">
+  <h3>Blackpool — 1 October</h3>
+  <p class="result">Labour 458 · Reform UK 419 · Restore Britain 79</p>
+  <p class="line">Reform UK fell short of the win by <b>39 votes</b>.</p>
+  <p class="line">Restore fell short of the win by <b>379 votes</b>, but took <b>79 votes</b>.</p>
+</div>
+
+<div class="seat">
+  <h3>Amble — 1 October</h3>
+  <p class="result">Labour 439 · Reform UK 379 · Restore Britain 76</p>
+  <p class="line">Reform UK fell short of the win by <b>60 votes</b>.</p>
+  <p class="line">Restore fell short of the win by <b>363 votes</b>, but took <b>76 votes</b>.</p>
+</div>
+
+<div class="chart" role="figure" aria-labelledby="chart-title">
+  <p class="chart-title" id="chart-title">Reform UK's margin of defeat against Restore Britain's vote (votes)</p>
+  <div class="legend">
+    <span class="k-reform">Reform UK's margin of defeat</span>
+    <span class="k-restore">Restore Britain's vote</span>
+  </div>
+  <svg viewBox="0 0 640 270" role="img" aria-label="Dover: Reform lost by 34, Restore took 284. Blackpool: Reform lost by 39, Restore took 79. Amble: Reform lost by 60, Restore took 76.">
+    <g font-family="Georgia, serif" font-size="14" fill="#c4bca8">
+      <line x1="140" y1="20" x2="140" y2="250" stroke="#3a3220" stroke-width="1"/>
+      <text x="128" y="60" text-anchor="end" fill="#ece6d6">Dover</text>
+      <text x="128" y="140" text-anchor="end" fill="#ece6d6">Blackpool</text>
+      <text x="128" y="220" text-anchor="end" fill="#ece6d6">Amble</text>
+
+      <rect class="bar" x="140" y="32" width="54" height="22" rx="4" fill="#5b8fd9"><title>Dover — Reform UK lost by 34 votes</title></rect>
+      <text x="200" y="48">34</text>
+      <rect class="bar" x="140" y="56" width="454" height="22" rx="4" fill="#a8831a"><title>Dover — Restore Britain took 284 votes</title></rect>
+      <text x="600" y="72">284</text>
+
+      <rect class="bar" x="140" y="112" width="62" height="22" rx="4" fill="#5b8fd9"><title>Blackpool — Reform UK lost by 39 votes</title></rect>
+      <text x="208" y="128">39</text>
+      <rect class="bar" x="140" y="136" width="126" height="22" rx="4" fill="#a8831a"><title>Blackpool — Restore Britain took 79 votes</title></rect>
+      <text x="272" y="152">79</text>
+
+      <rect class="bar" x="140" y="192" width="96" height="22" rx="4" fill="#5b8fd9"><title>Amble — Reform UK lost by 60 votes</title></rect>
+      <text x="242" y="208">60</text>
+      <rect class="bar" x="140" y="216" width="122" height="22" rx="4" fill="#a8831a"><title>Amble — Restore Britain took 76 votes</title></rect>
+      <text x="268" y="232">76</text>
+    </g>
+  </svg>
+</div>
+
+<p>In each of those three elections, Reform UK's margin of defeat was smaller than Restore Britain's entire vote.</p>
+<p>The results cannot tell us how individual Restore voters would have voted had Restore not stood. They do establish that, in all three contests, Restore's vote was larger than the gap between Reform and the winner. And Restore did not win any of them.</p>
+
+<div class="banner">RESTORE'S VOTE: TOO LOW TO WIN —<br>BUT BIGGER THAN REFORM'S MARGIN OF DEFEAT.</div>
+
+<h2>The Record</h2>
+<h3>In Parliament</h3>
+<p>Restore Britain registered as a party on 20 March. Its only MP recorded no Commons vote until 22 April. His participation stands at 33.1% against a Commons average of 72.6%, 638th of 649.</p>
+<p>On immigration and asylum, election law, carbon targets and puberty blockers, the Commons voted and no vote from Lowe was recorded. On 28 April, 2 June and 23 June, the record shows him voting earlier in the same sitting, before the votes he missed. On 13 July he voted the following day.</p>
+<p>There are also subjects connected to Restore's programme on which Lowe did vote, including defence, policing, steel, the railways, energy taxation and assisted dying.</p>
+<h3>At the Ballot Box</h3>
+<p>Ten elections. No wins. In Dover, Blackpool and Amble, Restore's vote was bigger than Reform UK's margin of defeat, while Restore itself finished behind both Reform and the winner.</p>
+<p>Those are the numbers.</p>
+</article>
+
+<section class="sources">
+<h2>Sources</h2>
+<p class="note">Primary and official sources are used wherever available. Click a source title to open it.</p>
+<ol>
+  <li>Rupert Lowe's Commons voting record (recent votes): <a href="https://members.parliament.uk/member/5158/voting">UK Parliament — Rupert Lowe: Commons voting record</a></li>
+  <li>Rupert Lowe's Commons voting record (18 March to 2 June 2026): <a href="https://members.parliament.uk/member/5158/voting?page=2">UK Parliament — Rupert Lowe: earlier Commons voting record</a></li>
+  <li>Voting participation, 33.1%, rank 638 of 649: <a href="https://ayesandnoes.co.uk/mp/rupert-lowe-5158">Ayes &amp; Noes — Rupert Lowe voting participation</a></li>
+  <li>Restore Britain's ten objectives: <a href="https://www.restorebritain.org.uk/objectives">Restore Britain — Ten objectives</a></li>
+  <li>Division 514, Asylum Seekers (Reception Conditions) Regulations, 28 April: <a href="https://votes.parliament.uk/Votes/Commons/Division/2349">UK Parliament — Division 514: Asylum Seekers Regulations</a></li>
+  <li>Division 515, Failed Asylum-Seekers accommodation, 28 April: <a href="https://votes.parliament.uk/Votes/Commons/Division/2350">UK Parliament — Division 515: Failed Asylum-Seekers Accommodation</a></li>
+  <li>Division 10, Armed Forces Bill New Clause 13, 2 June: <a href="https://votes.parliament.uk/Votes/Commons/Division/2360">UK Parliament — Division 10: Armed Forces Bill, New Clause 13</a>; what New Clause 13 proposed: <a href="https://www.beyondthevote.co.uk/division/2360">Beyond the Vote — New Clause 13 detail</a></li>
+  <li>Division 39, Puberty blockers, 23 June: <a href="https://votes.parliament.uk/Votes/Commons/Division/2390">UK Parliament — Division 39: Puberty blockers</a></li>
+  <li>Divisions 41–43, Climate Change Act votes, 24 June: <a href="https://votes.parliament.uk/Votes/Commons/Division/2392">2392</a>, <a href="https://votes.parliament.uk/Votes/Commons/Division/2393">2393</a>, <a href="https://votes.parliament.uk/Votes/Commons/Division/2394">2394</a></li>
+  <li>Divisions 54–55, Immigration and Asylum Bill, 13 July: <a href="https://votes.parliament.uk/Votes/Commons/Division/2405">2405</a>, <a href="https://votes.parliament.uk/Votes/Commons/Division/2406">2406</a></li>
+  <li>Divisions 61–64, Representation of the People Bill, 2 September: <a href="https://votes.parliament.uk/Votes/Commons/Division/2413">2413</a>, <a href="https://votes.parliament.uk/Votes/Commons/Division/2414">2414</a>, <a href="https://votes.parliament.uk/Votes/Commons/Division/2415">2415</a>, <a href="https://votes.parliament.uk/Votes/Commons/Division/2416">2416</a></li>
+  <li>Makerfield by-election result: <a href="https://members.parliament.uk/constituency/4165/election/558">UK Parliament — Makerfield by-election result</a></li>
+  <li>Norfolk Police and Crime Commissioner by-election, declaration of result: <a href="https://www.southnorfolkandbroadland.gov.uk/asset-library/declaration-of-result-of-poll-paro.pdf">southnorfolkandbroadland.gov.uk</a></li>
+  <li>Old Catton division by-election, declaration of result: <a href="https://www.southnorfolkandbroadland.gov.uk/asset-library/declaration-of-result-of-poll-old-catton-division1.pdf">southnorfolkandbroadland.gov.uk</a></li>
+  <li>Greater Manchester mayoral by-election result: <a href="https://www.gmelects.org.uk/result2026/">Greater Manchester Elections — Mayoral by-election result</a></li>
+  <li>Penistone East ward by-election result: <a href="https://www.barnsley.gov.uk/services/voting-and-elections/election-results/penistone-east-ward-by-election-20-august-2026/">Barnsley Council — Penistone East result</a></li>
+  <li>Guston, Kingsdown &amp; St Margaret's-at-Cliffe declaration of result: <a href="https://www.dover.gov.uk/Council--Democracy/Elections/Election-Results/27%20Aiugust%202026%20-%20Declaration%20of%20Result%20of%20Poll.pdf">Dover District Council — Guston, Kingsdown &amp; St Margaret’s result</a></li>
+  <li>Claremont ward by-election result: <a href="https://www.blackpool.gov.uk/your-council/voting-and-elections/elections/claremont-ward-by-election-2026">Blackpool Council — Claremont result</a></li>
+  <li>Amble division declaration of result: <a href="https://www.northumberland.gov.uk/NorthumberlandCountyCouncil/media/Councillors-and-Democracy/Electoral%20Services/County%20councillor%20for%20Amble%201%20October.pdf">Northumberland County Council — official result</a></li>
+  <li>Hirst division declaration of result: <a href="https://www.northumberland.gov.uk/NorthumberlandCountyCouncil/media/Councillors-and-Democracy/Electoral%20Services/County%20councillor%20for%20Hirst%201%20October.pdf">Northumberland County Council — official result</a></li>
+  <li>Long Whatton &amp; Diseworth declaration of result: <a href="https://www.nwleics.gov.uk/files/documents/declaration_of_result_of_poll_long_whatton_and_diseworth_district_by_election/LWDBE+102026+Declaration+of+results.pdf">North West Leicestershire District Council — Long Whatton &amp; Diseworth result</a></li>
+</ol>
+</section>
+
+<p class="orwell"><strong>Editorial approach:</strong> This report is written in plain English and built around cited parliamentary records, official election declarations and published party material. Factual findings are separated from interpretation, and where a voting record shows no vote, the report does not claim to know why.</p>
+
+<div class="qr">
+  <div class="qrbox">
+    <img src="data:image/png;base64,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" width="530" height="530" alt="QR code linking directly to the full How Lowe Can You Go? report on GitHub Pages">
+  </div>
+  <p>Scan for the full report: <a href="https://britishlionsroar.github.io/how-lowe-can-you-go.html">How Lowe Can You Go?</a></p>
+</div>
+
+<footer>
+  <p class="foot">THE BRITISH LIONS ROAR – Political Commentary • News Analysis • Investigative Opinion Journalism – Editor: Steve English</p>
+  <p class="disclaimer"><strong>REPORT NOTE:</strong> This report records parliamentary votes, published party objectives and declared election results. “NO VOTE RECORDED” means only that no vote by Rupert Lowe appears in the cited division record; it does not state or imply why. Election comparisons are numerical: they do not assume how Restore voters would have voted had Restore not stood. Sources were checked against the links listed above and were current when this report was published on 2 October 2026.</p>
+</footer>
+
+</div>
+</body>
+</html>
