@@ -20,7 +20,7 @@
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; }
   body { margin:0; background:#e9edf2; color:var(--ink); font-family:Georgia,"Times New Roman",serif; font-size:19px; line-height:1.72; }
-  .wrap { max-width:900px; margin:32px auto; padding:32px clamp(18px,5vw,68px) 54px; background:var(--paper); box-shadow:0 12px 42px rgba(16,35,63,.12); border-top:7px solid var(--red); }
+  .wrap { width:100%; max-width:1800px; margin:0 auto; padding:32px clamp(18px,4vw,76px) 54px; background:var(--paper); box-shadow:0 12px 42px rgba(16,35,63,.12); border-top:7px solid var(--red); }
   .masthead { text-align:center; border-bottom:1px solid var(--rule); padding:0 0 18px; margin-bottom:34px; position:relative; }
   .masthead:after { content:""; display:block; width:76px; height:4px; background:var(--gold); margin:18px auto -20px; }
   .masthead img { max-width:min(100%,560px); height:auto; }
@@ -46,6 +46,8 @@
   ol.timeline strong { display:block; color:var(--navy); font:700 .83em Arial,sans-serif; letter-spacing:.025em; }
   figure { margin:26px 0; }
   figure video { display:block; width:100%; min-height:220px; background:#0b1421; }
+  .stream-link { display:flex; align-items:center; justify-content:center; width:100%; min-height:110px; padding:24px; border-radius:4px; background:var(--navy); color:#fff; text-align:center; font:700 1rem/1.4 Arial,sans-serif; text-decoration:none; }
+  .stream-link:hover { background:var(--navy-2); color:#fff; }
   .video-fallback { margin:8px 0; font: .86em/1.5 Arial,sans-serif; }
   .video-fallback[hidden] { display:none; }
   figcaption { margin-top:8px; color:var(--muted); font: .78em/1.5 Arial,sans-serif; }
@@ -142,9 +144,8 @@
 <p>On 22 August she stood with Estevez at a Save Europe Act rally in Sant Jaume Square, outside Barcelona City Hall, handing out Catalan-language leaflets for the campaign. The photo agency covering the rally captioned the pair as representatives of the movement.</p>
 
 <figure>
-  <video id="rally-video" controls preload="metadata" playsinline></video>
+  <a class="stream-link" href="https://britishlionsroar.github.io/FiW8GiGw1.m3u8" target="_blank" rel="noopener">▶ Open the Barcelona rally video</a>
   <figcaption>Save Europe Act rally, Sant Jaume Square, Barcelona, 22 August 2026. Footage: Viory.</figcaption>
-  <p class="video-fallback" id="rally-fallback" hidden>If playback fails, <a href="https://britishlionsroar.github.io/FiW8GiGw1.m3u8">open the original video stream</a>.</p>
 </figure>
 
 <p>On 30 October, the day after Sellner was stopped at the French border, White was in Paris. This is what she chose to post:</p>
@@ -283,29 +284,6 @@
 <p class="disclaimer"><strong>DISCLAIMER:</strong> Factual statements in this article are supported by cited sources. Analysis and interpretation are clearly presented as opinion. Nothing published here is intended to incite violence, harassment, or hatred, nor to cause harm. Disagreement with arguments or conclusions does not constitute harm or violence. Where Islamic doctrine or immigration/demographics are discussed, focus is policy and aggregate outcomes — not individuals by race, ethnicity or religion.</p>
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
 <script src="https://platform.x.com/widgets.js" charset="utf-8" defer></script>
-<script>
-  (function () {
-    var video = document.getElementById('rally-video');
-    var fallback = document.getElementById('rally-fallback');
-    var stream = 'https://britishlionsroar.github.io/FiW8GiGw1.m3u8';
-    function showFallback() { fallback.hidden = false; }
-    video.addEventListener('error', showFallback);
-    if (window.Hls && Hls.isSupported()) {
-      var player = new Hls();
-      player.on(Hls.Events.ERROR, function (_event, data) {
-        if (data.fatal) {
-          player.destroy();
-          video.src = stream;
-        }
-      });
-      player.on(Hls.Events.MEDIA_ATTACHED, function () { player.loadSource(stream); });
-      player.attachMedia(video);
-    } else {
-      video.src = stream;
-    }
-  })();
-</script>
 </body>
 </html>
