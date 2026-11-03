@@ -47,6 +47,7 @@
   figure { margin:26px 0; }
   figure video { display:block; width:100%; min-height:220px; background:#0b1421; }
   .video-fallback { margin:8px 0; font: .86em/1.5 Arial,sans-serif; }
+  .video-fallback[hidden] { display:none; }
   figcaption { margin-top:8px; color:var(--muted); font: .78em/1.5 Arial,sans-serif; }
   .box { margin:44px 0; padding:8px 24px 20px; border:1px solid #d5c28f; border-top:5px solid var(--gold); background:#fbfaf5; }
   .box h2 { border:0; margin-top:16px; }
@@ -141,11 +142,9 @@
 <p>On 22 August she stood with Estevez at a Save Europe Act rally in Sant Jaume Square, outside Barcelona City Hall, handing out Catalan-language leaflets for the campaign. The photo agency covering the rally captioned the pair as representatives of the movement.</p>
 
 <figure>
-  <video controls preload="metadata" playsinline data-hls-src="https://britishlionsroar.github.io/FiW8GiGw1.m3u8">
-    <source src="https://britishlionsroar.github.io/FiW8GiGw1.m3u8" type="application/vnd.apple.mpegurl">
-    Your browser cannot play this video. <a href="https://britishlionsroar.github.io/FiW8GiGw1.m3u8">Open the video stream</a>.
-  </video>
+  <video id="rally-video" controls preload="metadata" playsinline></video>
   <figcaption>Save Europe Act rally, Sant Jaume Square, Barcelona, 22 August 2026. Footage: Viory.</figcaption>
+  <p class="video-fallback" id="rally-fallback" hidden>If playback fails, <a href="https://britishlionsroar.github.io/FiW8GiGw1.m3u8">open the original video stream</a>.</p>
 </figure>
 
 <p>On 30 October, the day after Sellner was stopped at the French border, White was in Paris. This is what she chose to post:</p>
@@ -164,12 +163,6 @@
 
 <div class="embed">
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Britain has the opportunity to be among the leading powers of the 21st century.<br><br>Remigration. Economic independence. AI sovereignty. Domestic robotics manufacturing. Space travel.<br><br>We are the greatest people to ever have walked the Earth. With the present regime consigned to the dustbin of history, its ideas ripped out at the root, its apparatchiks imprisoned, and a new order built in its place around the interests of our people, we could rule the stars if we so chose.</p>&mdash; Charlie Downes (@cfdownes_) <a href="https://x.com/cfdownes_/status/2114051915138908653">October 24, 2026</a></blockquote>
-</div>
-
-<p>The video he was sharing, posted by the account @orm0nde under the line “The future is ours”:</p>
-
-<div class="embed">
-<blockquote class="twitter-tweet" data-media-max-width="560"><p lang="en" dir="ltr">The future is ours</p>&mdash; Orm (@orm0nde) <a href="https://x.com/orm0nde/status/2113777914198086107">October 23, 2026</a></blockquote>
 </div>
 
 <p>Remigration sits first on his list. Then comes the plan for everyone else: opposing ideas "ripped out at the root", the people who served the current system "imprisoned", and "a new order" built for "our people". This is the official spokesman of a party with a sitting MP, writing about jailing his opponents.</p>
@@ -251,6 +244,14 @@
   <p><strong>The chart.</strong> The Telegraph's "Illegal immigration compared" graphic sets 46,508 UK arrivals against 132,600 for the EU. The EU figure is Eurostat's count of non-EU nationals <em>refused entry</em> at the external borders in 2025: people turned away at passport control, mostly Ukrainians, Albanians and Moldovans. The UK figure is irregular arrivals, almost 90 per cent by small boat. One counts people stopped at the gate; the other counts people who got in. They cannot be compared.</p>
 </div>
 
+<figure>
+  <video controls preload="metadata" playsinline style="width:100%;height:auto">
+    <source src="https://britishlionsroar.github.io/TWO%20FACED%20UNTIPARTY%20STOOGE.mp4" type="video/mp4">
+    Your browser cannot play this video. <a href="https://britishlionsroar.github.io/TWO%20FACED%20UNTIPARTY%20STOOGE.mp4">Open the MP4</a>.
+  </video>
+  <figcaption>Two Faced Untiparty Stooge.</figcaption>
+</figure>
+
 <div class="sources">
   <h2>Want to Dive Deeper? Official sources you can link:</h2>
   <ul>
@@ -266,6 +267,7 @@
     <li>The Badenoch conference clip Pitt was responding to: <a href="https://x.com/PolitlcsUK/status/2107791689490608521">x.com/PolitlcsUK</a></li>
     <li>South Norfolk and Broadland District Councils, declaration of result for Hethersett Division, Norfolk County Council election, 7 May 2026: <a href="https://www.southnorfolkandbroadland.gov.uk/asset-library/declaration-of-result-of-poll-hethersett-division.pdf">official result</a></li>
     <li>Eurostat, "132 600 people refused entry in the EU, up by 7.1%", 12 May 2026: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20260512-1">ec.europa.eu/eurostat</a></li>
+    <li>Video, "Two Faced Untiparty Stooge": <a href="https://britishlionsroar.github.io/TWO%20FACED%20UNTIPARTY%20STOOGE.mp4">watch the MP4</a></li>
   </ul>
 </div>
 
@@ -281,32 +283,29 @@
 <p class="disclaimer"><strong>DISCLAIMER:</strong> Factual statements in this article are supported by cited sources. Analysis and interpretation are clearly presented as opinion. Nothing published here is intended to incite violence, harassment, or hatred, nor to cause harm. Disagreement with arguments or conclusions does not constitute harm or violence. Where Islamic doctrine or immigration/demographics are discussed, focus is policy and aggregate outcomes — not individuals by race, ethnicity or religion.</p>
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
 <script src="https://platform.x.com/widgets.js" charset="utf-8" defer></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('video[data-hls-src]').forEach(function (video) {
-      var stream = video.dataset.hlsSrc;
-      if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = stream;
-      } else if (window.Hls && Hls.isSupported()) {
-        var player = new Hls();
-        player.loadSource(stream);
-        player.attachMedia(video);
-        player.on(Hls.Events.ERROR, function (_event, data) {
-          if (data.fatal) {
-            player.destroy();
-            video.insertAdjacentHTML('afterend', '<p class="video-fallback">Video playback is unavailable here. <a href="' + stream + '">Open the video stream</a>.</p>');
-          }
-        });
-      } else {
-        video.insertAdjacentHTML('afterend', '<p class="video-fallback">Video playback is not supported in this browser. <a href="' + stream + '">Open the video stream</a>.</p>');
-      }
-    });
-    if (window.twttr && window.twttr.widgets) {
-      window.twttr.widgets.load();
+  (function () {
+    var video = document.getElementById('rally-video');
+    var fallback = document.getElementById('rally-fallback');
+    var stream = 'https://britishlionsroar.github.io/FiW8GiGw1.m3u8';
+    function showFallback() { fallback.hidden = false; }
+    video.addEventListener('error', showFallback);
+    if (window.Hls && Hls.isSupported()) {
+      var player = new Hls();
+      player.on(Hls.Events.ERROR, function (_event, data) {
+        if (data.fatal) {
+          player.destroy();
+          video.src = stream;
+        }
+      });
+      player.on(Hls.Events.MEDIA_ATTACHED, function () { player.loadSource(stream); });
+      player.attachMedia(video);
+    } else {
+      video.src = stream;
     }
-  });
+  })();
 </script>
 </body>
 </html>
